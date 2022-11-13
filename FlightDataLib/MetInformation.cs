@@ -17,26 +17,29 @@ namespace FlightDataLib
         public MetInformation(DataField dataField)
         {
             List<string> content = dataField.getDataField();
-            int psInt = (int.Parse(content[0], System.Globalization.NumberStyles.HexNumber) >> 4) & 0b1111;
+            string dataFspec = dataField.getDataFieldFspec();
             int iiOctet = 1;
-            if (((psInt >> 3) & 0b1) != 0)
+            for (int jjOnesIndex = dataFspec.IndexOf("1"); jjOnesIndex > -1; jjOnesIndex = (dataFspec.IndexOf("1", jjOnesIndex + 1)))
             {
-                windSpeed = int.Parse(content[iiOctet] + content[iiOctet + 1], System.Globalization.NumberStyles.HexNumber);
-                iiOctet += 2;
-            }
-            if (((psInt >> 2) & 0b1) != 0)
-            {
-                windDirection = int.Parse(content[iiOctet] + content[iiOctet + 1], System.Globalization.NumberStyles.HexNumber);
-                iiOctet += 2;
-            }
-            if (((psInt >> 1) & 0b1) != 0)
-            {
-                temperature = Utilities.compl2(int.Parse(content[iiOctet] + content[iiOctet + 1], System.Globalization.NumberStyles.HexNumber)) * 0.25;
-                iiOctet += 2;
-            }
-            if ((psInt & 0b1) != 0)
-            {
-                turbulence = int.Parse(content[iiOctet], System.Globalization.NumberStyles.HexNumber);
+                if (jjOnesIndex == 0)
+                {
+                    windSpeed = int.Parse(content[iiOctet] + content[iiOctet + 1], System.Globalization.NumberStyles.HexNumber);
+                    iiOctet += 2;
+                }
+                if (jjOnesIndex == 1)
+                {
+                    windDirection = int.Parse(content[iiOctet] + content[iiOctet + 1], System.Globalization.NumberStyles.HexNumber);
+                    iiOctet += 2;
+                }
+                if (jjOnesIndex == 2)
+                {
+                    temperature = Utilities.compl2(int.Parse(content[iiOctet] + content[iiOctet + 1], System.Globalization.NumberStyles.HexNumber)) * 0.25;
+                    iiOctet += 2;
+                }
+                if (jjOnesIndex == 3)
+                {
+                    turbulence = int.Parse(content[iiOctet], System.Globalization.NumberStyles.HexNumber);
+                }
             }
         }
         public int getWindSpeed() { return windSpeed; }
