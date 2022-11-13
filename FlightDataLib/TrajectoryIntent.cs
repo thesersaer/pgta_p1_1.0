@@ -18,33 +18,32 @@ namespace FlightDataLib
         public TrajectoryIntent(DataField dataField)
         {
             List<string> octetList = dataField.getDataField();
-
-            int firstOct = int.Parse(octetList[0], System.Globalization.NumberStyles.HexNumber);
-            bool tisPresent = ((firstOct >> 7) & 0b1) != 0;
-            bool tidPresent = ((firstOct >> 6) & 0b1) != 0;
+            string dataFspec = dataField.getDataFieldFspec();
             int iiOctet = 1;
 
-            if (tisPresent)
+            for (int jjOnesIndex = dataFspec.IndexOf("1"); jjOnesIndex > -1; jjOnesIndex = (dataFspec.IndexOf("1", jjOnesIndex + 1)))
             {
-                int subf1 = int.Parse(octetList[iiOctet], System.Globalization.NumberStyles.HexNumber);
-                trajectoryIntentDataAvailable = ((subf1 >> 7) & 0b1) != 0;
-                trajectoryIntentDataValid = ((subf1 >> 6) & 0b1) != 0;
-                iiOctet++;
-            }
-
-            if (tidPresent)
-            {
-                int fieldRepetitionIndicator = int.Parse(octetList[iiOctet], System.Globalization.NumberStyles.HexNumber);
-                iiOctet++;
-                for (int iiTip = 0; iiTip < fieldRepetitionIndicator; iiTip++)
+                if (jjOnesIndex == 0)
                 {
-                    List<string> singlePointList = new List<string>();
-                    for (int x = 0; x < 15; x++)
+                    int subf1 = int.Parse(octetList[iiOctet], System.Globalization.NumberStyles.HexNumber);
+                    trajectoryIntentDataAvailable = ((subf1 >> 7) & 0b1) != 0;
+                    trajectoryIntentDataValid = ((subf1 >> 6) & 0b1) != 0;
+                    iiOctet++;
+                }
+                if (jjOnesIndex == 1)
+                {
+                    int fieldRepetitionIndicator = int.Parse(octetList[iiOctet], System.Globalization.NumberStyles.HexNumber);
+                    iiOctet++;
+                    for (int iiTip = 0; iiTip < fieldRepetitionIndicator; iiTip++)
                     {
-                        singlePointList.Add(octetList[iiOctet]);
-                        iiOctet++;
+                        List<string> singlePointList = new List<string>();
+                        for (int x = 0; x < 15; x++)
+                        {
+                            singlePointList.Add(octetList[iiOctet]);
+                            iiOctet++;
+                        }
+                        pointList.Add(new TrajectoryIntentPoint(singlePointList));
                     }
-                    pointList.Add(new TrajectoryIntentPoint(singlePointList));
                 }
             }
         }
