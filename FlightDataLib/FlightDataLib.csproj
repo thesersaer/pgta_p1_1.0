@@ -67,7 +67,7 @@
     <Compile Include="PositionWGS84HP.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QualityIndicatorsUNF.cs" />
+    <Compile Include="QualityIndicators.cs" />
     <Compile Include="ReceiverId.cs" />
     <Compile Include="RollAngle.cs" />
     <Compile Include="SelectedAltitude.cs" />
