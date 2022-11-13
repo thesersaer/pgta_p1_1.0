@@ -1,0 +1,12 @@
+0;Unknown
+1;Fly by waypoint (LT)
+2;Fly over waypoint (LT)
+3;Hold pattern (LT)
+4;Procedure hold (LT)
+5;Procedure turn (LT)
+6;RF leg (LT)
+7;Top of climb (VT)
+8;Top of descent (VT)
+9;Start of level (VT)
+10;Cross-over altitude (VT)
+11;Transition altitude (VT)

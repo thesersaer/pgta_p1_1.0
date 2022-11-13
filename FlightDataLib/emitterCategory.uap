@@ -1,0 +1,25 @@
+0;Undefined
+1;Light aircraft
+2;Small aircraft
+3;Medium aircraft
+4;High vortex large
+5;Heavy aircraft
+6;Highly manoeuvrable / speed
+7;Reserved
+8;Reserved
+9;Reserved
+10;Rotorcraft
+11;Glider / Sailplane
+12;Lighter-than-air
+13;UAV
+14;Space / Transatmospheric vehicle
+15;Ultralight / Handglider / Paraglider
+16;Parachutist / Skydiver
+17;Reserved
+18;Reserved
+19;Reserved
+20;Surface emergency vehicle
+21;Surface service vehicle
+22;Fixed ground / Tethered obstruction
+23;Cluster obstacle
+24;Line obstacle
