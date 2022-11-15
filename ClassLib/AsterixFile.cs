@@ -118,14 +118,14 @@ namespace ClassLib
                         indexMLAT = indexMLAT + 1;
                     }
                 }
-                //else if (catInt == 21)
-                //{
-                //    Cat21 newCat21 = new Cat21(stringArray);
-                //    listCat21.Add(newCat21);
-                //    CatAll newCatAll = new CatAll("ADSB", indexADSB);
-                //    listCatAll.Add(newCatAll);
-                //    indexADSB = indexADSB + 1;
-                //}
+                else if (catInt == 21)
+                {
+                    Cat21 newCat21 = new Cat21(stringArray);
+                    listCat21.Add(newCat21);
+                    CatAll newCatAll = new CatAll("ADSB", indexADSB);
+                    listCatAll.Add(newCatAll);
+                    indexADSB = indexADSB + 1;
+                }
             }
 
         }
