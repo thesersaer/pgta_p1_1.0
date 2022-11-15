@@ -16,6 +16,7 @@ namespace Graphics
         AsterixFile asterixFile = new AsterixFile();
         int i = 0;
         int Mode = 0;
+        int Page = 0;
 
         public Form2()
         {
@@ -78,6 +79,47 @@ namespace Graphics
                     //    i++;
                     //}
                 }
+                labelTituloPage.Text = "NAVIGATION";
+                label1.Visible = false;
+                label2.Visible = false;
+                label3.Visible = true;
+                label4.Visible = true;
+                label5.Visible = true;
+                label6.Visible = true;
+                label7.Visible = true;
+                label8.Visible = false;
+                label9.Visible = false;
+                label10.Visible = false;
+                label11.Visible = false;
+                label12.Visible = true;
+                label13.Visible = true;
+                label14.Visible = true;
+                label15.Visible = false;
+                label17.Visible = false;
+                label18.Visible = false;
+                label19.Visible = false;
+                label20.Visible = false;
+                label21.Visible = true;
+                labelTargetRepDescrip.Visible = false;
+                labelMessageType.Visible = false;
+                labelFL.Visible = true;
+                labelTrackStatus.Visible = true;
+                labelPosWGS84.Visible = true;
+                labelPosCart.Visible = true;
+                labelPosPolar.Visible = true;
+                labelVeloCart.Visible = true;
+                labelVeloPolar.Visible = true;
+                labelSizeOrientation.Visible = false;
+                labelSystemStatus.Visible = false;
+                labelFleetID.Visible = false;
+                labelPreprogrammedMessage.Visible = false;
+                labelMeasuredHeight.Visible = true;
+                labelMode3A.Visible = false;
+                labelModeS.Visible = false;
+                labelStandardDevi.Visible = false;
+                labelPresence.Visible = false;
+                labelCalculatedAccel.Visible = false;
+                labelPAM.Visible = true;
             }
         }
 
@@ -90,19 +132,96 @@ namespace Graphics
                 if (asterixFile.getListCatAll()[rowindex].CATMode == "SMR")
                 {
                     labelTargetRepDescrip.Text = asterixFile.getListCat10SMR()[indexValor].TargetReportCharacteristicsDATA;
+                    labelMessageType.Text = asterixFile.getListCat10SMR()[indexValor].MessageType;
+                    labelFL.Text = asterixFile.getListCat10SMR()[indexValor].FLXXX;
+                    labelTrackStatus.Text = asterixFile.getListCat10SMR()[indexValor].TrackStatusData;
+                    labelPosWGS84.Text = asterixFile.getListCat10SMR()[indexValor].PositionInWGS84;
+                    labelPosCart.Text = asterixFile.getListCat10SMR()[indexValor].PositionInCartesian;
+                    labelPosPolar.Text = asterixFile.getListCat10SMR()[indexValor].PositionInPolar;
+                    labelVeloCart.Text = asterixFile.getListCat10SMR()[indexValor].VeloInCartesian;
+                    labelVeloPolar.Text = asterixFile.getListCat10SMR()[indexValor].VeloInPolar;
+                    labelSizeOrientation.Text = asterixFile.getListCat10SMR()[indexValor].TargetSize;
+                    labelSystemStatus.Text = asterixFile.getListCat10SMR()[indexValor].SystemStatus;
+                    labelFleetID.Text = Convert.ToString(asterixFile.getListCat10SMR()[indexValor].VehicleFleetId) + asterixFile.getListCat10SMR()[indexValor].VFI;
+                    labelPreprogrammedMessage.Text = asterixFile.getListCat10SMR()[indexValor].PreProgrammedMessage;
+                    labelMeasuredHeight.Text = asterixFile.getListCat10SMR()[indexValor].MeasuredHeight;
+                    labelMode3A.Text = asterixFile.getListCat10SMR()[indexValor].Mode3A;
+                    labelModeS.Text = asterixFile.getListCat10SMR()[indexValor].ModeS;
+                    labelStandardDevi.Text = asterixFile.getListCat10SMR()[indexValor].StandardDEVI;
+                    labelPresence.Text = asterixFile.getListCat10SMR()[indexValor].Presence;
+                    labelCalculatedAccel.Text = asterixFile.getListCat10SMR()[indexValor].CalculatedAccel;
+                    labelPAM.Text = asterixFile.getListCat10SMR()[indexValor].PAM;
+
                 }
                 else if(asterixFile.getListCatAll()[rowindex].CATMode == "MLAT")
                 {
                     labelTargetRepDescrip.Text = asterixFile.getListCat10MLAT()[indexValor].TargetReportCharacteristicsDATA;
+                    labelMessageType.Text = asterixFile.getListCat10MLAT()[indexValor].MessageType;
+                    labelFL.Text = asterixFile.getListCat10MLAT()[indexValor].FLXXX;
+                    labelTrackStatus.Text = asterixFile.getListCat10MLAT()[indexValor].TrackStatusData;
+                    labelPosWGS84.Text = asterixFile.getListCat10MLAT()[indexValor].PositionInWGS84;
+                    labelPosCart.Text = asterixFile.getListCat10MLAT()[indexValor].PositionInCartesian;
+                    labelPosPolar.Text = asterixFile.getListCat10MLAT()[indexValor].PositionInPolar;
+                    labelVeloCart.Text = asterixFile.getListCat10MLAT()[indexValor].VeloInCartesian;
+                    labelVeloPolar.Text = asterixFile.getListCat10MLAT()[indexValor].VeloInPolar;
+                    labelSizeOrientation.Text = asterixFile.getListCat10MLAT()[indexValor].TargetSize;
+                    labelSystemStatus.Text = asterixFile.getListCat10MLAT()[indexValor].SystemStatus;
+                    labelFleetID.Text = Convert.ToString(asterixFile.getListCat10MLAT()[indexValor].VehicleFleetId) + asterixFile.getListCat10MLAT()[indexValor].VFI;
+                    labelPreprogrammedMessage.Text = asterixFile.getListCat10MLAT()[indexValor].PreProgrammedMessage;
+                    labelMeasuredHeight.Text = asterixFile.getListCat10MLAT()[indexValor].MeasuredHeight;
+                    labelMode3A.Text = asterixFile.getListCat10MLAT()[indexValor].Mode3A;
+                    labelModeS.Text = asterixFile.getListCat10MLAT()[indexValor].ModeS;
+                    labelStandardDevi.Text = asterixFile.getListCat10MLAT()[indexValor].StandardDEVI;
+                    labelPresence.Text = asterixFile.getListCat10MLAT()[indexValor].Presence;
+                    labelCalculatedAccel.Text = asterixFile.getListCat10MLAT()[indexValor].CalculatedAccel;
+                    labelPAM.Text = asterixFile.getListCat10MLAT()[indexValor].PAM;
                 }
             }
             else if(Mode == 1)
             {
                 labelTargetRepDescrip.Text = asterixFile.getListCat10SMR()[e.RowIndex].TargetReportCharacteristicsDATA;
+                labelMessageType.Text = asterixFile.getListCat10SMR()[e.RowIndex].MessageType;
+                labelFL.Text = asterixFile.getListCat10SMR()[e.RowIndex].FLXXX;
+                labelTrackStatus.Text = asterixFile.getListCat10SMR()[e.RowIndex].TrackStatusData;
+                labelPosWGS84.Text = asterixFile.getListCat10SMR()[e.RowIndex].PositionInWGS84;
+                labelPosCart.Text = asterixFile.getListCat10SMR()[e.RowIndex].PositionInCartesian;
+                labelPosPolar.Text = asterixFile.getListCat10SMR()[e.RowIndex].PositionInPolar;
+                labelVeloCart.Text = asterixFile.getListCat10SMR()[e.RowIndex].VeloInCartesian;
+                labelVeloPolar.Text = asterixFile.getListCat10SMR()[e.RowIndex].VeloInPolar;
+                labelSizeOrientation.Text = asterixFile.getListCat10SMR()[e.RowIndex].TargetSize;
+                labelSystemStatus.Text = asterixFile.getListCat10SMR()[e.RowIndex].SystemStatus;
+                labelFleetID.Text = Convert.ToString(asterixFile.getListCat10SMR()[e.RowIndex].VehicleFleetId) + asterixFile.getListCat10SMR()[e.RowIndex].VFI;
+                labelPreprogrammedMessage.Text = asterixFile.getListCat10SMR()[e.RowIndex].PreProgrammedMessage;
+                labelMeasuredHeight.Text = asterixFile.getListCat10SMR()[e.RowIndex].MeasuredHeight;
+                labelMode3A.Text = asterixFile.getListCat10SMR()[e.RowIndex].Mode3A;
+                labelModeS.Text = asterixFile.getListCat10SMR()[e.RowIndex].ModeS;
+                labelStandardDevi.Text = asterixFile.getListCat10SMR()[e.RowIndex].StandardDEVI;
+                labelPresence.Text = asterixFile.getListCat10SMR()[e.RowIndex].Presence;
+                labelCalculatedAccel.Text = asterixFile.getListCat10SMR()[e.RowIndex].CalculatedAccel;
+                labelPAM.Text = asterixFile.getListCat10SMR()[e.RowIndex].PAM;
             }
             else if (Mode == 2)
             {
                 labelTargetRepDescrip.Text = asterixFile.getListCat10MLAT()[e.RowIndex].TargetReportCharacteristicsDATA;
+                labelMessageType.Text = asterixFile.getListCat10MLAT()[e.RowIndex].MessageType;
+                labelFL.Text = asterixFile.getListCat10MLAT()[e.RowIndex].FLXXX;
+                labelTrackStatus.Text = asterixFile.getListCat10MLAT()[e.RowIndex].TrackStatusData;
+                labelPosWGS84.Text = asterixFile.getListCat10MLAT()[e.RowIndex].PositionInWGS84;
+                labelPosCart.Text = asterixFile.getListCat10MLAT()[e.RowIndex].PositionInCartesian;
+                labelPosPolar.Text = asterixFile.getListCat10MLAT()[e.RowIndex].PositionInPolar;
+                labelVeloCart.Text = asterixFile.getListCat10MLAT()[e.RowIndex].VeloInCartesian;
+                labelVeloPolar.Text = asterixFile.getListCat10MLAT()[e.RowIndex].VeloInPolar;
+                labelSizeOrientation.Text = asterixFile.getListCat10MLAT()[e.RowIndex].TargetSize;
+                labelSystemStatus.Text = asterixFile.getListCat10MLAT()[e.RowIndex].SystemStatus;
+                labelFleetID.Text = Convert.ToString(asterixFile.getListCat10MLAT()[e.RowIndex].VehicleFleetId) + asterixFile.getListCat10MLAT()[e.RowIndex].VFI;
+                labelPreprogrammedMessage.Text = asterixFile.getListCat10MLAT()[e.RowIndex].PreProgrammedMessage;
+                labelMeasuredHeight.Text = asterixFile.getListCat10MLAT()[e.RowIndex].MeasuredHeight;
+                labelMode3A.Text = asterixFile.getListCat10MLAT()[e.RowIndex].Mode3A;
+                labelModeS.Text = asterixFile.getListCat10MLAT()[e.RowIndex].ModeS;
+                labelStandardDevi.Text = asterixFile.getListCat10MLAT()[e.RowIndex].StandardDEVI;
+                labelPresence.Text = asterixFile.getListCat10MLAT()[e.RowIndex].Presence;
+                labelCalculatedAccel.Text = asterixFile.getListCat10MLAT()[e.RowIndex].CalculatedAccel;
+                labelPAM.Text = asterixFile.getListCat10MLAT()[e.RowIndex].PAM;
             }
         }
 
@@ -200,6 +319,384 @@ namespace Graphics
                     dataGridView1[7, i].Value = asterixFile.getListCat10MLAT()[i].TargetAddress;
                     i++;
                 }
+            }
+        }
+
+        private void buttonNext_Click(object sender, EventArgs e)
+        {
+            if (Page < 3 && Page > 0)
+            {
+                Page = Page - 1;
+                if (Page == 0)
+                {
+                    labelTituloPage.Text = "NAVIGATION";
+                    label1.Visible = false;
+                    label2.Visible = false;
+                    label3.Visible = true;
+                    label4.Visible = true;
+                    label5.Visible = true;
+                    label6.Visible = true;
+                    label7.Visible = true;
+                    label8.Visible = false;
+                    label9.Visible = false;
+                    label10.Visible = false;
+                    label11.Visible = false;
+                    label12.Visible = true;
+                    label13.Visible = true;
+                    label14.Visible = true;
+                    label15.Visible = true;
+                    label17.Visible = false;
+                    label18.Visible = false;
+                    label19.Visible = false;
+                    label20.Visible = false;
+                    label21.Visible = false;
+                    labelTargetRepDescrip.Visible = false;
+                    labelMessageType.Visible = false;
+                    labelFL.Visible = true;
+                    labelTrackStatus.Visible = true;
+                    labelPosWGS84.Visible = true;
+                    labelPosCart.Visible = true;
+                    labelPosPolar.Visible = true;
+                    labelVeloCart.Visible = true;
+                    labelVeloPolar.Visible = true;
+                    labelSizeOrientation.Visible = false;
+                    labelSystemStatus.Visible = false;
+                    labelFleetID.Visible = false;
+                    labelPreprogrammedMessage.Visible = false;
+                    labelMeasuredHeight.Visible = true;
+                    labelMode3A.Visible = false;
+                    labelModeS.Visible = false;
+                    labelStandardDevi.Visible = false;
+                    labelPresence.Visible = false;
+                    labelCalculatedAccel.Visible = true;
+                    labelPAM.Visible = false;
+
+                }
+                else if(Page == 1)
+                {
+                    labelTituloPage.Text = "IDENTIFIERS";
+                    label1.Visible = true;
+                    label2.Visible = false;
+                    label3.Visible = false;
+                    label4.Visible = false;
+                    label5.Visible = false;
+                    label6.Visible = false;
+                    label7.Visible = false;
+                    label8.Visible = false;
+                    label9.Visible = true;
+                    label10.Visible = false;
+                    label11.Visible = false;
+                    label12.Visible = false;
+                    label13.Visible = false;
+                    label14.Visible = false;
+                    label15.Visible = false;
+                    label17.Visible = false;
+                    label18.Visible = false;
+                    label19.Visible = false;
+                    label20.Visible = false;
+                    label21.Visible = false;
+                    labelTargetRepDescrip.Visible = true;
+                    labelMessageType.Visible = false;
+                    labelFL.Visible = false;
+                    labelTrackStatus.Visible = false;
+                    labelPosWGS84.Visible = false;
+                    labelPosCart.Visible = false;
+                    labelPosPolar.Visible = false;
+                    labelVeloCart.Visible = false;
+                    labelVeloPolar.Visible = false;
+                    labelSizeOrientation.Visible = false;
+                    labelSystemStatus.Visible = false;
+                    labelFleetID.Visible = true;
+                    labelPreprogrammedMessage.Visible = false;
+                    labelMeasuredHeight.Visible = false;
+                    labelMode3A.Visible = false;
+                    labelModeS.Visible = false;
+                    labelStandardDevi.Visible = false;
+                    labelPresence.Visible = false;
+                    labelCalculatedAccel.Visible = false;
+                    labelPAM.Visible = false;
+                }
+                else if(Page == 2)
+                {
+                    labelTituloPage.Text = "ADS-B";
+                    label1.Visible = false;
+                    label2.Visible = false;
+                    label3.Visible = false;
+                    label4.Visible = false;
+                    label5.Visible = false;
+                    label6.Visible = false;
+                    label7.Visible = false;
+                    label8.Visible = false;
+                    label9.Visible = false;
+                    label10.Visible = false;
+                    label11.Visible = false;
+                    label12.Visible = false;
+                    label13.Visible = false;
+                    label14.Visible = false;
+                    label15.Visible = false;
+                    label17.Visible = false;
+                    label18.Visible = false;
+                    label19.Visible = true;
+                    label20.Visible = true;
+                    label21.Visible = false;
+                    labelTargetRepDescrip.Visible = false;
+                    labelMessageType.Visible = false;
+                    labelFL.Visible = false;
+                    labelTrackStatus.Visible = false;
+                    labelPosWGS84.Visible = false;
+                    labelPosCart.Visible = false;
+                    labelPosPolar.Visible = false;
+                    labelVeloCart.Visible = false;
+                    labelVeloPolar.Visible = false;
+                    labelSizeOrientation.Visible = false;
+                    labelSystemStatus.Visible = false;
+                    labelFleetID.Visible = false;
+                    labelPreprogrammedMessage.Visible = false;
+                    labelMeasuredHeight.Visible = false;
+                    labelMode3A.Visible = true;
+                    labelModeS.Visible = true;
+                    labelStandardDevi.Visible = false;
+                    labelPresence.Visible = false;
+                    labelCalculatedAccel.Visible = false;
+                    labelPAM.Visible = false;
+                }
+                else if(Page == 3)
+                {
+                    labelTituloPage.Text = "MISCELANEOUS";
+                    label1.Visible = false;
+                    label2.Visible = true;
+                    label3.Visible = false;
+                    label4.Visible = false;
+                    label5.Visible = false;
+                    label6.Visible = false;
+                    label7.Visible = false;
+                    label8.Visible = true;
+                    label9.Visible = false;
+                    label10.Visible = true;
+                    label11.Visible = true;
+                    label12.Visible = false;
+                    label13.Visible = false;
+                    label14.Visible = false;
+                    label15.Visible = false;
+                    label17.Visible = true;
+                    label18.Visible = true;
+                    label19.Visible = false;
+                    label20.Visible = false;
+                    label21.Visible = true;
+                    labelTargetRepDescrip.Visible = false;
+                    labelMessageType.Visible = true;
+                    labelFL.Visible = false;
+                    labelTrackStatus.Visible = false;
+                    labelPosWGS84.Visible = false;
+                    labelPosCart.Visible = false;
+                    labelPosPolar.Visible = false;
+                    labelVeloCart.Visible = false;
+                    labelVeloPolar.Visible = false;
+                    labelSizeOrientation.Visible = true;
+                    labelSystemStatus.Visible = false;
+                    labelFleetID.Visible = false;
+                    labelPreprogrammedMessage.Visible = true;
+                    labelMeasuredHeight.Visible = false;
+                    labelMode3A.Visible = false;
+                    labelModeS.Visible = false;
+                    labelStandardDevi.Visible = true;
+                    labelPresence.Visible = true;
+                    labelCalculatedAccel.Visible = false;
+                    labelPAM.Visible = true;
+                }
+            }
+            else
+            {
+                MessageBox.Show("There are no more pages");
+            }
+        }
+
+        private void buttonPrevious_Click(object sender, EventArgs e)
+        {
+            if (Page < 3 && Page > 0)
+            {
+                Page = Page + 1;
+                if (Page == 0)
+                {
+                    labelTituloPage.Text = "NAVIGATION";
+                    label1.Visible = false;
+                    label2.Visible = false;
+                    label3.Visible = true;
+                    label4.Visible = true;
+                    label5.Visible = true;
+                    label6.Visible = true;
+                    label7.Visible = true;
+                    label8.Visible = false;
+                    label9.Visible = false;
+                    label10.Visible = false;
+                    label11.Visible = false;
+                    label12.Visible = true;
+                    label13.Visible = true;
+                    label14.Visible = true;
+                    label15.Visible = true;
+                    label17.Visible = false;
+                    label18.Visible = false;
+                    label19.Visible = false;
+                    label20.Visible = false;
+                    label21.Visible = false;
+                    labelTargetRepDescrip.Visible = false;
+                    labelMessageType.Visible = false;
+                    labelFL.Visible = true;
+                    labelTrackStatus.Visible = true;
+                    labelPosWGS84.Visible = true;
+                    labelPosCart.Visible = true;
+                    labelPosPolar.Visible = true;
+                    labelVeloCart.Visible = true;
+                    labelVeloPolar.Visible = true;
+                    labelSizeOrientation.Visible = false;
+                    labelSystemStatus.Visible = false;
+                    labelFleetID.Visible = false;
+                    labelPreprogrammedMessage.Visible = false;
+                    labelMeasuredHeight.Visible = true;
+                    labelMode3A.Visible = false;
+                    labelModeS.Visible = false;
+                    labelStandardDevi.Visible = false;
+                    labelPresence.Visible = false;
+                    labelCalculatedAccel.Visible = true;
+                    labelPAM.Visible = false;
+
+                }
+                else if (Page == 1)
+                {
+                    labelTituloPage.Text = "IDENTIFIERS";
+                    label1.Visible = true;
+                    label2.Visible = false;
+                    label3.Visible = false;
+                    label4.Visible = false;
+                    label5.Visible = false;
+                    label6.Visible = false;
+                    label7.Visible = false;
+                    label8.Visible = false;
+                    label9.Visible = true;
+                    label10.Visible = false;
+                    label11.Visible = false;
+                    label12.Visible = false;
+                    label13.Visible = false;
+                    label14.Visible = false;
+                    label15.Visible = false;
+                    label17.Visible = false;
+                    label18.Visible = false;
+                    label19.Visible = false;
+                    label20.Visible = false;
+                    label21.Visible = false;
+                    labelTargetRepDescrip.Visible = true;
+                    labelMessageType.Visible = false;
+                    labelFL.Visible = false;
+                    labelTrackStatus.Visible = false;
+                    labelPosWGS84.Visible = false;
+                    labelPosCart.Visible = false;
+                    labelPosPolar.Visible = false;
+                    labelVeloCart.Visible = false;
+                    labelVeloPolar.Visible = false;
+                    labelSizeOrientation.Visible = false;
+                    labelSystemStatus.Visible = false;
+                    labelFleetID.Visible = true;
+                    labelPreprogrammedMessage.Visible = false;
+                    labelMeasuredHeight.Visible = false;
+                    labelMode3A.Visible = false;
+                    labelModeS.Visible = false;
+                    labelStandardDevi.Visible = false;
+                    labelPresence.Visible = false;
+                    labelCalculatedAccel.Visible = false;
+                    labelPAM.Visible = false;
+                }
+                else if (Page == 2)
+                {
+                    labelTituloPage.Text = "ADS-B";
+                    label1.Visible = false;
+                    label2.Visible = false;
+                    label3.Visible = false;
+                    label4.Visible = false;
+                    label5.Visible = false;
+                    label6.Visible = false;
+                    label7.Visible = false;
+                    label8.Visible = false;
+                    label9.Visible = false;
+                    label10.Visible = false;
+                    label11.Visible = false;
+                    label12.Visible = false;
+                    label13.Visible = false;
+                    label14.Visible = false;
+                    label15.Visible = false;
+                    label17.Visible = false;
+                    label18.Visible = false;
+                    label19.Visible = true;
+                    label20.Visible = true;
+                    label21.Visible = false;
+                    labelTargetRepDescrip.Visible = false;
+                    labelMessageType.Visible = false;
+                    labelFL.Visible = false;
+                    labelTrackStatus.Visible = false;
+                    labelPosWGS84.Visible = false;
+                    labelPosCart.Visible = false;
+                    labelPosPolar.Visible = false;
+                    labelVeloCart.Visible = false;
+                    labelVeloPolar.Visible = false;
+                    labelSizeOrientation.Visible = false;
+                    labelSystemStatus.Visible = false;
+                    labelFleetID.Visible = false;
+                    labelPreprogrammedMessage.Visible = false;
+                    labelMeasuredHeight.Visible = false;
+                    labelMode3A.Visible = true;
+                    labelModeS.Visible = true;
+                    labelStandardDevi.Visible = false;
+                    labelPresence.Visible = false;
+                    labelCalculatedAccel.Visible = false;
+                    labelPAM.Visible = false;
+                }
+                else if (Page == 3)
+                {
+                    labelTituloPage.Text = "MISCELANEOUS";
+                    label1.Visible = false;
+                    label2.Visible = true;
+                    label3.Visible = false;
+                    label4.Visible = false;
+                    label5.Visible = false;
+                    label6.Visible = false;
+                    label7.Visible = false;
+                    label8.Visible = true;
+                    label9.Visible = false;
+                    label10.Visible = true;
+                    label11.Visible = true;
+                    label12.Visible = false;
+                    label13.Visible = false;
+                    label14.Visible = false;
+                    label15.Visible = false;
+                    label17.Visible = true;
+                    label18.Visible = true;
+                    label19.Visible = false;
+                    label20.Visible = false;
+                    label21.Visible = true;
+                    labelTargetRepDescrip.Visible = false;
+                    labelMessageType.Visible = true;
+                    labelFL.Visible = false;
+                    labelTrackStatus.Visible = false;
+                    labelPosWGS84.Visible = false;
+                    labelPosCart.Visible = false;
+                    labelPosPolar.Visible = false;
+                    labelVeloCart.Visible = false;
+                    labelVeloPolar.Visible = false;
+                    labelSizeOrientation.Visible = true;
+                    labelSystemStatus.Visible = false;
+                    labelFleetID.Visible = false;
+                    labelPreprogrammedMessage.Visible = true;
+                    labelMeasuredHeight.Visible = false;
+                    labelMode3A.Visible = false;
+                    labelModeS.Visible = false;
+                    labelStandardDevi.Visible = true;
+                    labelPresence.Visible = true;
+                    labelCalculatedAccel.Visible = false;
+                    labelPAM.Visible = true;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Minimum pages reached");
             }
         }
     }
