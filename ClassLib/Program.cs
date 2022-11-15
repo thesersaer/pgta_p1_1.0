@@ -12,18 +12,21 @@ namespace ClassLib
         {
 
             Console.WriteLine("Hello World!");
-            //uapCat21 testuapcat21 = new uapCat21();
-            string path = "C:/Users/sersa/source/repos/pgta-p1/pgta-p1/Ficheros_asterix/201002-lebl-080001_smr.ast";
-            //AsterixFile achPrueba = new AsterixFile();
-            //achPrueba.setFilepath(path);
-            //achPrueba.readFile();
+            uapCat21 testuapcat21 = new uapCat21();
+            string path = "C:/Users/sersa/Desktop/ejemplos_PGTA/Ficheros_asterix/201002-lebl-080001_adsb.ast";
+            AsterixFile achPrueba = new AsterixFile();
+            achPrueba.setFilepath(path);
+            achPrueba.readFile();
+            var listCat21 = achPrueba.getListCat21();
+            var cat21Item = listCat21[0];
+            cat21Item.decodeDataFields();
 
-            AsterixFile Asterix = new AsterixFile();
-            Asterix.setFilepath(path);
-            Asterix.readFile();
-            List<Cat10> listCat10 = new List<Cat10>();
-            listCat10 = Asterix.getListCat10SMR();
-            Console.WriteLine(listCat10);
+            //AsterixFile Asterix = new AsterixFile();
+            //Asterix.setFilepath(path);
+            //Asterix.readFile();
+            //List<Cat10> listCat10 = new List<Cat10>();
+            //listCat10 = Asterix.getListCat10SMR();
+            //Console.WriteLine(listCat10);
             Console.ReadKey();
         }
     }
