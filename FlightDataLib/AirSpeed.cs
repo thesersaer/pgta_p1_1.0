@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ClassLib;
 
 namespace FlightDataLib
 {
@@ -12,9 +11,8 @@ namespace FlightDataLib
         string im;
         double airSpeed;
 
-        public AirSpeed(DataField dataField)
+        public AirSpeed(List<string> content)
         {
-            List<string> content = dataField.getDataField();
             int imBit = ((int.Parse(content[0], System.Globalization.NumberStyles.HexNumber) >> 7) & 0b1);
             string asStr = (int.Parse(content[0], System.Globalization.NumberStyles.HexNumber) & 0b1111111).ToString("X") + content[1];
             airSpeed = int.Parse(asStr, System.Globalization.NumberStyles.HexNumber);

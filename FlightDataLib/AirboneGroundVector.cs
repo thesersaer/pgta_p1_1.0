@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ClassLib;
 
 namespace FlightDataLib
 {
@@ -13,9 +12,8 @@ namespace FlightDataLib
         double groundSpeed;
         double trackAngle; //cw wrt true north
 
-        public AirboneGroundVector(DataField dataField)
+        public AirboneGroundVector(List<string> content)
         {
-            List<string> content = dataField.getDataField();
             rangeExceeded = ((int.Parse(content[0], System.Globalization.NumberStyles.HexNumber) >> 7) & 0b1) != 0;
             string gsStr = (int.Parse(content[0], System.Globalization.NumberStyles.HexNumber) & 0b1111111).ToString("X") + content[1];
             groundSpeed = int.Parse(gsStr, System.Globalization.NumberStyles.HexNumber) * Math.Pow(2, -14);

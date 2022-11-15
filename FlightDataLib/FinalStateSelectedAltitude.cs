@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ClassLib;
 
 namespace FlightDataLib
 {
@@ -14,9 +13,8 @@ namespace FlightDataLib
         bool approachModeActive;
         int altitude;
 
-        public FinalStateSelectedAltitude(DataField dataField)
+        public FinalStateSelectedAltitude(List<string> content)
         {
-            List<string> content = dataField.getDataField();
             manageVerticalModeActive = ((int.Parse(content[0], System.Globalization.NumberStyles.HexNumber) >> 7) & 0b1) != 0;
             altitudeHoldModeActive = ((int.Parse(content[0], System.Globalization.NumberStyles.HexNumber) >> 6) & 0b1) != 0;
             approachModeActive = ((int.Parse(content[0], System.Globalization.NumberStyles.HexNumber) >> 5) & 0b1) != 0;

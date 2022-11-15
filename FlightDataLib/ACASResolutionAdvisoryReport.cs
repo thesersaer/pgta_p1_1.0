@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ClassLib;
 
 namespace FlightDataLib
 {
@@ -18,9 +17,8 @@ namespace FlightDataLib
         int threatTypeIndicator;
         int threatIdentityData;
 
-        public ACASResolutionAdvisoryReport(DataField dataField)
+        public ACASResolutionAdvisoryReport(List<string> content)
         {
-            List<string> content = dataField.getDataField();
             messageType = (int.Parse(content[0], System.Globalization.NumberStyles.HexNumber) >> 3) & 0b11111;
             messageSubtype = int.Parse(content[0], System.Globalization.NumberStyles.HexNumber) & 0b111;
             int subcInt = int.Parse(content[1] + content[2] + content[3], System.Globalization.NumberStyles.HexNumber);

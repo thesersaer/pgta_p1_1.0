@@ -95,16 +95,10 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="DataAgeItem.uap" />
-    <None Include="emitterCategory.uap" />
+    <None Include="EmitterCategory.uap" />
     <None Include="LWac.uap" />
     <None Include="TargetIdentification.uap" />
     <None Include="TrajectoryIntentPoint.uap" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ClassLib\ClassLib.csproj">
-      <Project>{ef7d8c0a-87fe-413d-8f21-9dd1707e5227}</Project>
-      <Name>ClassLib</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

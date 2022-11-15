@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ClassLib;
 
 namespace FlightDataLib
 {
@@ -11,10 +10,10 @@ namespace FlightDataLib
     {
         int replyCode; //ALREADY IN DECIMAL BASE
 
-        public Mode3ACode(DataField dataField)
+        public Mode3ACode(List<string> content)
         {
-            string codeStr = dataField.getDataField()[0] + dataField.getDataField()[1];
-            replyCode = Convert.ToInt32(int.Parse(codeStr, System.Globalization.NumberStyles.HexNumber).ToString(), 8);
+            string codeStr = content[0] + content[1];
+            replyCode = Convert.ToInt32(codeStr);
         }
         public int getReplyCode() { return replyCode; }
     }

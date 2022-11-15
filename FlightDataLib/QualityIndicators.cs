@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ClassLib;
 
 namespace FlightDataLib
 {
@@ -19,9 +18,8 @@ namespace FlightDataLib
         int geometricAltitudeAccuracyCategory;
         int positionIntegrityCategory;
 
-        public QualityIndicators(DataField dataField)
+        public QualityIndicators(List<string> content)
         {
-            List<string> content = dataField.getDataField();
             int primSubInt = int.Parse(content[0],System.Globalization.NumberStyles.HexNumber);
             navigationAccuracyCategoryVelocity = ((primSubInt >> 5) & 0b111);
             navigationIntegrityCategoryPosition = ((primSubInt >> 1) & 0b111);

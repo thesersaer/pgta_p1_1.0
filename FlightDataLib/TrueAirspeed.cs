@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ClassLib;
 
 namespace FlightDataLib
 {
@@ -12,9 +11,8 @@ namespace FlightDataLib
         bool rangeExceeded;
         int trueAirspeed;
 
-        public TrueAirspeed(DataField dataField)
+        public TrueAirspeed(List<string> content)
         {
-            List<string> content = dataField.getDataField();
             rangeExceeded = ((int.Parse(content[0], System.Globalization.NumberStyles.HexNumber) >> 7) & 0b1) != 0;
             string tasStr = (int.Parse(content[0], System.Globalization.NumberStyles.HexNumber) & 0b1111111).ToString("X") + content[1];
             trueAirspeed = int.Parse(tasStr, System.Globalization.NumberStyles.HexNumber);

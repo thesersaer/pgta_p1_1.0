@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using ClassLib;
 using System.Threading.Tasks;
 
 namespace FlightDataLib
@@ -11,9 +10,9 @@ namespace FlightDataLib
     {
         double torSeconds;
 
-        public TimeOfAsterixReport(DataField dataField)
+        public TimeOfAsterixReport(List<string> content)
         {
-            string torStr = dataField.getDataField()[0] + dataField.getDataField()[1] + dataField.getDataField()[2];
+            string torStr = content[0] + content[1] + content[2];
             torSeconds = int.Parse(torStr, System.Globalization.NumberStyles.HexNumber) * Math.Pow(2, -7);
         }
         public double getToaSeconds() { return torSeconds; }

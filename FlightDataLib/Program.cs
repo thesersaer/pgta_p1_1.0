@@ -10,6 +10,11 @@ namespace FlightDataLib
     {
         static void Main(string[] args)
         {
+            const string getTypeArg = "FlightDataLib.ACASResolutionAdvisoryReport, FlightDataLib";
+            var createInsArg = Type.GetType(getTypeArg);
+            List<string> content = new List<string>();
+            var emptyDataField = Activator.CreateInstance(createInsArg, content);
+
         }
     }
 }

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ClassLib;
 
 namespace FlightDataLib
 {
@@ -11,9 +10,8 @@ namespace FlightDataLib
     {
         int trackNumber;
 
-        public TrackNumber(DataField dataField)
+        public TrackNumber(List<string> content)
         {
-            List<string> content = dataField.getDataField();
             trackNumber = int.Parse(content[0] + content[1], System.Globalization.NumberStyles.HexNumber);
         }
         public int getTrackNumber() { return trackNumber; }

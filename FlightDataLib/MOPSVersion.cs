@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ClassLib;
 
 namespace FlightDataLib
 {
@@ -13,12 +12,12 @@ namespace FlightDataLib
         string versionNumber;
         string linkTechnologyType;
 
-        public MOPSVersion(DataField dataField)
+        public MOPSVersion(List<string> content)
         {
-            int content = int.Parse(dataField.getDataField()[0], System.Globalization.NumberStyles.HexNumber);
-            versionNotSupported = ((content >> 6) & 0b1) != 0;
-            int vnInt = ((content >> 3) & 0b111);
-            int lttInt = content & 0b111;
+            int contentInt = int.Parse(content[0], System.Globalization.NumberStyles.HexNumber);
+            versionNotSupported = ((contentInt >> 6) & 0b1) != 0;
+            int vnInt = ((contentInt >> 3) & 0b111);
+            int lttInt = contentInt & 0b111;
             if (lttInt > 3) { linkTechnologyType = "Not assigned"; }
             else if (lttInt > 2) { linkTechnologyType = "VDL 4"; }
             else if (lttInt > 1)

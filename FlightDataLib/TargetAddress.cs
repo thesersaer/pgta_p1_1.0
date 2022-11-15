@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ClassLib;
 
 namespace FlightDataLib
 {
@@ -11,9 +10,9 @@ namespace FlightDataLib
     {
         int address;
 
-        public TargetAddress(DataField dataField)
+        public TargetAddress(List<string> content)
         {
-            string addressStr = dataField.getDataField()[0] + dataField.getDataField()[1] + dataField.getDataField()[2];
+            string addressStr = content[0] + content[1] + content[2];
             address = int.Parse(addressStr, System.Globalization.NumberStyles.HexNumber);
         }
         public int getAddress() { return address; }

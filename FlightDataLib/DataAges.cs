@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ClassLib;
 using System.IO;
 
 namespace FlightDataLib
@@ -12,17 +11,16 @@ namespace FlightDataLib
     {
         List<DataAgeItem> ageItems = new List<DataAgeItem>();
 
-        public DataAges(DataField dataField)
+        public DataAges(List<string> content)
         {
             Dictionary<int, string> daDict = new Dictionary<int, string>();
-            string[] uapFile = File.ReadAllLines(Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + "/DataAgeItem.uap");
+            string[] uapFile = File.ReadAllLines(Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + "/FlightDataLib/DataAgeItem.uap");
             foreach (string uapLine in uapFile)
             {
-                string[] uapKV = uapLine.Split(';');
+                string[] uapKV = uapLine.Split('=');
                 daDict.Add(Convert.ToInt32(uapKV[0]), uapKV[1]);
             }
 
-            List<string> content = dataField.getDataField();
             string fspecStr = "";
             int iiOctet = 0;
             int fxInt;

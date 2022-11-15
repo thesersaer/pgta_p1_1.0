@@ -48,6 +48,7 @@
     <Compile Include="Cat21.cs" />
     <Compile Include="CatAll.cs" />
     <Compile Include="DataField.cs" />
+    <Compile Include="dataFieldDict.cs" />
     <Compile Include="Flight.cs" />
     <Compile Include="GeneralMatrix.cs" />
     <Compile Include="GeoUtils.cs" />
@@ -58,6 +59,12 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="cat21.uap" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FlightDataLib\FlightDataLib.csproj">
+      <Project>{fce6e90b-4f09-4f7c-92b7-68fba7f5897f}</Project>
+      <Name>FlightDataLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

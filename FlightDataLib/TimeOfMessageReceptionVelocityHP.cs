@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ClassLib;
 
 namespace FlightDataLib
 {
@@ -12,11 +11,11 @@ namespace FlightDataLib
         int fullSecondIndication;
         double tomSeconds;
 
-        public TimeOfMessageReceptionVelocityHP(DataField dataField)
+        public TimeOfMessageReceptionVelocityHP(List<string> content)
         {
-            int firstOctet = int.Parse(dataField.getDataField()[0], System.Globalization.NumberStyles.HexNumber);
+            int firstOctet = int.Parse(content[0], System.Globalization.NumberStyles.HexNumber);
             fullSecondIndication = (firstOctet >> 6) & 0b11;
-            string tomStr = (firstOctet & 0b111111).ToString("X") + dataField.getDataField()[1] + dataField.getDataField()[2] + dataField.getDataField()[3];
+            string tomStr = (firstOctet & 0b111111).ToString("X") + content[1] + content[2] + content[3];
             double resFactor = Math.Pow(2, -30);
             tomSeconds = int.Parse(tomStr, System.Globalization.NumberStyles.HexNumber) * resFactor;
         }

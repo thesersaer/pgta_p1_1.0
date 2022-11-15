@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ClassLib;
 
 namespace FlightDataLib
 {
@@ -13,9 +12,8 @@ namespace FlightDataLib
         string source;
         int altitude;
 
-        public SelectedAltitude(DataField dataField)
+        public SelectedAltitude(List<string> content)
         {
-            List<string> content = dataField.getDataField();
             sourceInformationProvided = ((int.Parse(content[0], System.Globalization.NumberStyles.HexNumber) >> 7) & 0b1) != 0;
             int sourceInt = ((int.Parse(content[0], System.Globalization.NumberStyles.HexNumber) >> 5) & 0b11);
             if (sourceInt == 0) { source = "unk"; }

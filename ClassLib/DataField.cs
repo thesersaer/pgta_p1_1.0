@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FlightDataLib;
 
 namespace ClassLib
 {
@@ -11,6 +12,7 @@ namespace ClassLib
         int frn;
         string dataFieldFspec;
         List<string> dataList = new List<string>();
+        object decodedDataField;
 
         public DataField(int frn, List<string> contentArray)
         {

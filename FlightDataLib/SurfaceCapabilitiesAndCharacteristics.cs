@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ClassLib;
 using System.IO;
 
 namespace FlightDataLib
@@ -17,7 +16,7 @@ namespace FlightDataLib
         bool identSwitchActive;
         string[] lengthWidth;
 
-        public SurfaceCapabilitiesAndCharacteristics(DataField dataField)
+        public SurfaceCapabilitiesAndCharacteristics(List<string> content)
         {
             Dictionary<int, string[]> lwDict = new Dictionary<int, string[]>();
             string[] uapFile = File.ReadAllLines(Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + "/LWac.uap");
@@ -28,7 +27,6 @@ namespace FlightDataLib
                 lwDict.Add(Convert.ToInt32(uapKV[0]), lwStrArr);
             }
 
-            List<string> content = dataField.getDataField();
             int primaryInt = int.Parse(content[0], System.Globalization.NumberStyles.HexNumber);
             positionIsReferencePointADSB = ((primaryInt >> 5) & 0b1) != 0;
             cdtiOperational = ((primaryInt >> 4) & 0b1) != 0;

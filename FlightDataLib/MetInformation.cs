@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ClassLib;
 
 namespace FlightDataLib
 {
@@ -14,10 +13,8 @@ namespace FlightDataLib
         double temperature;
         int turbulence;
 
-        public MetInformation(DataField dataField)
+        public MetInformation(List<string> content, string dataFspec)
         {
-            List<string> content = dataField.getDataField();
-            string dataFspec = dataField.getDataFieldFspec();
             int iiOctet = 1;
             for (int jjOnesIndex = dataFspec.IndexOf("1"); jjOnesIndex > -1; jjOnesIndex = (dataFspec.IndexOf("1", jjOnesIndex + 1)))
             {

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ClassLib;
 
 namespace FlightDataLib
 {
@@ -11,9 +10,8 @@ namespace FlightDataLib
     {
         List<BDSMessage> bdsList = new List<BDSMessage>();
 
-        public ModeSMBData(DataField dataField)
+        public ModeSMBData(List<string> content)
         {
-            List<string> content = dataField.getDataField();
             int repFactor = int.Parse(content[0], System.Globalization.NumberStyles.HexNumber);
             int iiOctet = 1;
             for (int x = 0; x < repFactor; x++)

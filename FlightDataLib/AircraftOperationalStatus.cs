@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ClassLib;
 
 namespace FlightDataLib
 {
@@ -17,9 +16,9 @@ namespace FlightDataLib
         bool tcasOperational;
         bool singleAntenna;
 
-        public AircraftOperationalStatus(DataField dataField)
+        public AircraftOperationalStatus(List<string> content)
         {
-            int byteArray = int.Parse(dataField.getDataField()[0], System.Globalization.NumberStyles.HexNumber);
+            int byteArray = int.Parse(content[0], System.Globalization.NumberStyles.HexNumber);
             singleAntenna = ((byteArray >> 0) & 1) != 0;
             tcasOperational = ((byteArray >> 1) & 1) != 0;
             cdtiOperational = ((byteArray >> 2) & 1) != 0;

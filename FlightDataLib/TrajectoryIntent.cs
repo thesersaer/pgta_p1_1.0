@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ClassLib;
 using System.IO;
 
 namespace FlightDataLib
@@ -15,10 +14,9 @@ namespace FlightDataLib
         List<TrajectoryIntentPoint> pointList = new List<TrajectoryIntentPoint>();
 
 
-        public TrajectoryIntent(DataField dataField)
+        public TrajectoryIntent(List<string> content, string dataFspec)
         {
-            List<string> octetList = dataField.getDataField();
-            string dataFspec = dataField.getDataFieldFspec();
+            List<string> octetList = content;
             int iiOctet = 1;
 
             for (int jjOnesIndex = dataFspec.IndexOf("1"); jjOnesIndex > -1; jjOnesIndex = (dataFspec.IndexOf("1", jjOnesIndex + 1)))

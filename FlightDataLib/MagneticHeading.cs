@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ClassLib;
 
 namespace FlightDataLib
 {
@@ -11,9 +10,8 @@ namespace FlightDataLib
     {
         double magneticHeading;
 
-        public MagneticHeading(DataField dataField)
+        public MagneticHeading(List<string> content)
         {
-            List<string> content = dataField.getDataField();
             magneticHeading = int.Parse(content[0] + content[1], System.Globalization.NumberStyles.HexNumber) * (360 / Math.Pow(2, 16));
         }
         public double getMagneticHeading() { return magneticHeading; }

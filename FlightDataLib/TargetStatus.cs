@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ClassLib;
 
 namespace FlightDataLib
 {
@@ -14,9 +13,8 @@ namespace FlightDataLib
         string priorityStatus;
         string surveillanceStatus;
 
-        public TargetStatus(DataField dataField)
+        public TargetStatus(List<string> content)
         {
-            List<string> content = dataField.getDataField();
             intentChangeFlag = ((int.Parse(content[0], System.Globalization.NumberStyles.HexNumber) >> 7) & 0b1) != 0;
             lnavModeNotEngaged = ((int.Parse(content[0], System.Globalization.NumberStyles.HexNumber) >> 6) & 0b1) != 0;
             int psInt = (int.Parse(content[0], System.Globalization.NumberStyles.HexNumber) >> 2) & 0b111;

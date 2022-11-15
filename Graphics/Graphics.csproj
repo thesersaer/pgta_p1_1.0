@@ -102,6 +102,10 @@
       <Project>{ef7d8c0a-87fe-413d-8f21-9dd1707e5227}</Project>
       <Name>ClassLib</Name>
     </ProjectReference>
+    <ProjectReference Include="..\FlightDataLib\FlightDataLib.csproj">
+      <Project>{fce6e90b-4f09-4f7c-92b7-68fba7f5897f}</Project>
+      <Name>FlightDataLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

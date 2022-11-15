@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using ClassLib;
 using System.Threading.Tasks;
 
 namespace FlightDataLib
@@ -11,9 +10,9 @@ namespace FlightDataLib
     {
         int receiverId;
 
-        public ReceiverId(DataField dataField)
+        public ReceiverId(List<string> content)
         {
-            receiverId = int.Parse(dataField.getDataField()[0], System.Globalization.NumberStyles.HexNumber);
+            receiverId = int.Parse(content[0], System.Globalization.NumberStyles.HexNumber);
         }
         public int getReceiverId() { return receiverId; }
     }

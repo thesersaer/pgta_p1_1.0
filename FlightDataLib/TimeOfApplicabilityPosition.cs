@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ClassLib;
 
 namespace FlightDataLib
 {
@@ -11,9 +10,9 @@ namespace FlightDataLib
     {
         double toaSeconds;
 
-        public TimeOfApplicabilityPosition(DataField dataField)
+        public TimeOfApplicabilityPosition(List<string> content)
         {
-            string toaStr = dataField.getDataField()[0] + dataField.getDataField()[1] + dataField.getDataField()[2];
+            string toaStr = content[0] + content[1] + content[2];
             toaSeconds = int.Parse(toaStr, System.Globalization.NumberStyles.HexNumber) * (1 / 128);
         }
 

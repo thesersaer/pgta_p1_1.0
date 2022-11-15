@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ClassLib;
 using System.IO;
 
 namespace FlightDataLib
@@ -26,9 +25,9 @@ namespace FlightDataLib
         bool localDecodingPositionJumpDetected;
         bool rangeCheckFailed;
 
-        public TargetReportDescriptor(DataField dataField)
+        public TargetReportDescriptor(List<string> content)
         {
-            List<string> byteList = dataField.getDataField();
+            List<string> byteList = content;
             int byteArray = int.Parse(byteList[0], System.Globalization.NumberStyles.HexNumber);
             int atpVal = ((byteArray >> 5) & 0b111);
             if (atpVal > 3)
