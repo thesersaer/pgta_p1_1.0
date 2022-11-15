@@ -324,9 +324,9 @@ namespace Graphics
 
         private void buttonNext_Click(object sender, EventArgs e)
         {
-            if (Page < 3 && Page > 0)
+            if (Page < 3 && Page >= 0)
             {
-                Page = Page - 1;
+                Page = Page + 1;
                 if (Page == 0)
                 {
                     labelTituloPage.Text = "NAVIGATION";
@@ -513,9 +513,9 @@ namespace Graphics
 
         private void buttonPrevious_Click(object sender, EventArgs e)
         {
-            if (Page < 3 && Page > 0)
+            if (Page <= 3 && Page > 0)
             {
-                Page = Page + 1;
+                Page = Page - 1;
                 if (Page == 0)
                 {
                     labelTituloPage.Text = "NAVIGATION";
