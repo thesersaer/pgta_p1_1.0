@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,8 @@ namespace ClassLib
     {
         List<DataField> dataFieldList = new List<DataField>();
         uapCat21 uapClass = new uapCat21();
+        dataFieldDict dataFieldClass = new dataFieldDict();
+        ArrayList decodedDataFieldList = new ArrayList();
 
         public Cat21(string[] stringArray)
         {
@@ -81,6 +84,21 @@ namespace ClassLib
                 }
                 if (compFspec == "") { dataFieldList.Add(new DataField(iiFrn, dataContentList)); }
                 else { dataFieldList.Add(new DataField(iiFrn, compFspec, dataContentList)); }
+            }
+
+        }
+        public void decodeDataFields()
+        {
+            foreach (var iiDataField in dataFieldList)
+            {
+                int dataFieldFrn = iiDataField.getFrn();
+                string classNameStr = dataFieldClass.getFrnClassName(dataFieldFrn);
+                string getTypeArg = "FlightDataLib." + classNameStr + ", FlightDataLib";
+                var createInsArg = Type.GetType(getTypeArg);
+                object[] objectParam = new object[1];
+                objectParam[0] = iiDataField.getDataField();
+                var decodedDataField = Activator.CreateInstance(createInsArg, objectParam);
+                decodedDataFieldList.Add(decodedDataField);
             }
         }
     }
