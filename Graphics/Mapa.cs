@@ -22,9 +22,12 @@ namespace Graphics
         GMarkerGoogle marker2;
         GMapOverlay markerOverlay;
 
+        bool start = false;
+
         //LAT i LONG arp Barcelona
         double LatInicial = 41.289182;
         double LongInicial = 2.0746423;
+        double startTime = 0;
         public Mapa()
         {
             InitializeComponent();
@@ -36,7 +39,9 @@ namespace Graphics
 
         private void Mapa_Load(object sender, EventArgs e)
         {
-            double startTime = asterixFile.getListCat10SMR()[0].TimeOfDaySeg;
+            startTime = asterixFile.getListCatAll()[0].TimeofDayseg;
+            labelTiempo.Text = Convert.ToString(asterixFile.getListCatAll()[0].TimeofDayseg);
+            timer1.Interval = 1000;
 
             gMapControl1.DragButton = MouseButtons.Left;
             gMapControl1.CanDragMap = true;
@@ -57,6 +62,30 @@ namespace Graphics
             marker.ToolTipText = string.Format("Ubicación: \n Latitud:{0} \n Longitud: {1}", LatInicial, LongInicial);
             gMapControl1.Overlays.Add(markerOverlay);
 
+        }
+
+        private void buttonPlay_Click(object sender, EventArgs e)
+        {
+            if (start == false)
+            {
+                timer1.Start();
+                buttonPlay.Text = "Pause";
+                startTime = asterixFile.getListCatAll()[0].TimeofDayseg;
+                start = true;
+            }
+            else
+            {
+                buttonPlay.Text = "Play";
+                timer1.Stop();
+                start = false;    
+            }
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            labelTiempo.Text = Convert.ToString(startTime);
+            startTime = startTime + 1;
         }
     }
 }

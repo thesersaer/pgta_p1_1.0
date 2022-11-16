@@ -70,6 +70,7 @@ namespace Graphics
             this.buttonPlay.TabIndex = 1;
             this.buttonPlay.Text = "Play";
             this.buttonPlay.UseVisualStyleBackColor = true;
+            this.buttonPlay.Click += new System.EventHandler(this.buttonPlay_Click);
             // 
             // labelTiempo
             // 
@@ -79,6 +80,10 @@ namespace Graphics
             this.labelTiempo.Size = new System.Drawing.Size(46, 17);
             this.labelTiempo.TabIndex = 2;
             this.labelTiempo.Text = "label1";
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Mapa
             // 
