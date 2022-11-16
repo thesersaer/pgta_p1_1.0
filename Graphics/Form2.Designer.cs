@@ -85,6 +85,8 @@ namespace Graphics
             this.labelPAM = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.labelTituloPage = new System.Windows.Forms.Label();
+            this.textBoxBuscar = new System.Windows.Forms.TextBox();
+            this.buttonBuscar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -607,11 +609,30 @@ namespace Graphics
             this.labelTituloPage.TabIndex = 49;
             this.labelTituloPage.Text = "Navigation";
             // 
+            // textBoxBuscar
+            // 
+            this.textBoxBuscar.Location = new System.Drawing.Point(12, 764);
+            this.textBoxBuscar.Name = "textBoxBuscar";
+            this.textBoxBuscar.Size = new System.Drawing.Size(340, 22);
+            this.textBoxBuscar.TabIndex = 50;
+            // 
+            // buttonBuscar
+            // 
+            this.buttonBuscar.Location = new System.Drawing.Point(358, 764);
+            this.buttonBuscar.Name = "buttonBuscar";
+            this.buttonBuscar.Size = new System.Drawing.Size(75, 23);
+            this.buttonBuscar.TabIndex = 51;
+            this.buttonBuscar.Text = "Buscar";
+            this.buttonBuscar.UseVisualStyleBackColor = true;
+            this.buttonBuscar.Click += new System.EventHandler(this.buttonBuscar_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1612, 1055);
+            this.Controls.Add(this.buttonBuscar);
+            this.Controls.Add(this.textBoxBuscar);
             this.Controls.Add(this.labelTituloPage);
             this.Controls.Add(this.labelPAM);
             this.Controls.Add(this.label21);
@@ -728,5 +749,7 @@ namespace Graphics
         private System.Windows.Forms.Label labelPAM;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label labelTituloPage;
+        private System.Windows.Forms.TextBox textBoxBuscar;
+        private System.Windows.Forms.Button buttonBuscar;
     }
 }
