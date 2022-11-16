@@ -31,6 +31,7 @@ namespace ClassLib
         public string SPI;
         public string TargetReportCharacteristicsDATA;
 
+        public double TimeOfDaySeg;
         public string TimeOfDay;
 
         public double LatWGS84Mapa;
@@ -322,6 +323,7 @@ namespace ClassLib
             {
                 int time = int.Parse(bloc[posicioDades] + bloc[posicioDades + 1] + bloc[posicioDades + 2], System.Globalization.NumberStyles.HexNumber);
                 double seg = Convert.ToSingle(time) / 128;
+                this.TimeOfDaySeg = seg;
                 this.TimeOfDay = TimeSpan.FromSeconds(seg).ToString(@"hh\:mm\:ss\:fff");
                 posicioDades = posicioDades + 3;
             }
