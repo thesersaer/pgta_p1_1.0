@@ -19,10 +19,10 @@ namespace FlightDataLib
         public SurfaceCapabilitiesAndCharacteristics(List<string> content)
         {
             Dictionary<int, string[]> lwDict = new Dictionary<int, string[]>();
-            string[] uapFile = File.ReadAllLines(Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + "/LWac.uap");
+            string[] uapFile = File.ReadAllLines(Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + "/FlightDataLib/LWac.uap");
             foreach (string uapLine in uapFile)
             {
-                string[] uapKV = uapLine.Split(';');
+                string[] uapKV = uapLine.Split('=');
                 string[] lwStrArr = { uapKV[1], uapKV[2] };
                 lwDict.Add(Convert.ToInt32(uapKV[0]), lwStrArr);
             }

@@ -8,13 +8,19 @@ namespace FlightDataLib
 {
     public class Mode3ACode
     {
-        int replyCode; //ALREADY IN DECIMAL BASE
+        string replyCode; //ALREADY IN DECIMAL BASE
 
         public Mode3ACode(List<string> content)
         {
             string codeStr = content[0] + content[1];
-            replyCode = Convert.ToInt32(codeStr);
+            string oct = Convert.ToString(Convert.ToInt32(codeStr, 16), 2).PadLeft(16, '0');
+            int n = 4;
+            while (n < oct.Length)
+            {
+                this.replyCode = this.replyCode + Convert.ToString(Convert.ToInt32(oct.Substring(n, 3), 2));
+                n = n + 3;
+            }
         }
-        public int getReplyCode() { return replyCode; }
+        public string getReplyCode() { return replyCode; }
     }
 }

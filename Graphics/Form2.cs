@@ -65,19 +65,24 @@ namespace Graphics
                         dataGridView1[7, i].Value = asterixFile.getListCat10MLAT()[index].TargetAddress;
                         i++;
                     }
-                    //else if(asterixFile.getListCatAll()[i].CATMode == "ADSB")
-                    //{
-                    //    int index = asterixFile.getListCatAll()[i].NumLlista;
-                    //    dataGridView1[0, i].Value = i;
-                    //    dataGridView1[1, i].Value = "CAT 10 MLAT";
-                    //    dataGridView1[2, i].Value = asterixFile.getListCat21()[index].SAC;
-                    //    dataGridView1[3, i].Value = asterixFile.getListCat21()[index].SIC;
-                    //    dataGridView1[4, i].Value = asterixFile.getListCat21()[index].TargetID;
-                    //    dataGridView1[5, i].Value = asterixFile.getListCat21()[index].TrackNumber;
-                    //    dataGridView1[6, i].Value = asterixFile.getListCat21()[index].TimeOfDay;
-                    //    dataGridView1[7, i].Value = asterixFile.getListCat21()[index].TargetAddress;
-                    //    i++;
-                    //}
+                    else if(asterixFile.getListCatAll()[i].CATMode == "ADSB")
+                    {
+                        var decodificado=asterixFile.getListCat21()[i];
+                        decodificado.decodeDataFields();
+                        object dataSourceItem = decodificado.getDecodedField("DataSourceIdentification");
+                        var algo = (FlightDataLib.DataSourceIdentification)dataSourceItem;
+                        dataGridView1[2, i].Value = algo.getSac();
+                        //    int index = asterixFile.getListCatAll()[i].NumLlista;
+                        //    dataGridView1[0, i].Value = i;
+                        //    dataGridView1[1, i].Value = "CAT 10 MLAT";
+                        //    dataGridView1[2, i].Value = asterixFile.getListCat21()[index].SAC;
+                        //    dataGridView1[3, i].Value = asterixFile.getListCat21()[index].SIC;
+                        //    dataGridView1[4, i].Value = asterixFile.getListCat21()[index].TargetID;
+                        //    dataGridView1[5, i].Value = asterixFile.getListCat21()[index].TrackNumber;
+                        //    dataGridView1[6, i].Value = asterixFile.getListCat21()[index].TimeOfDay;
+                        //    dataGridView1[7, i].Value = asterixFile.getListCat21()[index].TargetAddress;
+                        i++;
+                    }
                 }
                 labelTituloPage.Text = "NAVIGATION";
                 label1.Visible = false;

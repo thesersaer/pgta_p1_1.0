@@ -25,11 +25,6 @@ namespace ClassLib
             var algo = (FlightDataLib.DataSourceIdentification)dataSourceItem;
             algo.getSac();
 
-            const string getTypeArg = "FlightDataLib.ACASResolutionAdvisoryReport, FlightDataLib";
-            var createInsArg = Type.GetType(getTypeArg);
-            List<string> content = new List<string>();
-            var emptyDataField = Activator.CreateInstance(createInsArg, cat21Item);
-            Console.WriteLine(emptyDataField);
             //AsterixFile Asterix = new AsterixFile();
             //Asterix.setFilepath(path);
             //Asterix.readFile();
