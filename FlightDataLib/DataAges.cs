@@ -29,17 +29,20 @@ namespace FlightDataLib
                 string octStr = content[iiOctet];
                 fspecStr = fspecStr + Convert.ToString(int.Parse(octStr,System.Globalization.NumberStyles.HexNumber), 2).PadLeft(8, '0');
                 fxInt = int.Parse(octStr, System.Globalization.NumberStyles.HexNumber) & 0b1;
-                if (fxInt != 0)
-                {
-                    fspecStr = fspecStr.Substring(0, fspecStr.Length - 1) + "0";
-                }
                 iiOctet++;
             } while (fxInt == 1);
 
+            int[] fxIntArr = { 0, 8, 16, 24 };
             for (int jjOnesIndex = fspecStr.IndexOf("1"); jjOnesIndex > -1; jjOnesIndex = (fspecStr.IndexOf("1", jjOnesIndex + 1)))
             {
-                ageItems.Add(new DataAgeItem(content[iiOctet], daDict[31 - jjOnesIndex]));
-                iiOctet++;
+                if (!fxIntArr.Contains(31 - jjOnesIndex))
+                {
+                    try
+                    {
+                        ageItems.Add(new DataAgeItem(content[iiOctet], daDict[31 - jjOnesIndex]));
+                    } catch (System.Collections.Generic.KeyNotFoundException) { }
+                    iiOctet++;
+                }
             }
         }
         public List<DataAgeItem> getAgeItems() { return ageItems; }

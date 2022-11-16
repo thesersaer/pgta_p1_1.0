@@ -13,17 +13,16 @@ namespace ClassLib
 
             Console.WriteLine("Hello World!");
             uapCat21 testuapcat21 = new uapCat21();
-            //string path = "C:/Users/sersa/Desktop/ejemplos_PGTA/Ficheros_asterix/201002-lebl-080001_adsb.ast";
-            string path = "C:/Users/gerar/OneDrive/Escriptori/Uni/201002-lebl-080001_adsb.ast";
+            string path = "C:/Users/sersa/Desktop/ejemplos_PGTA/Ficheros_asterix/201002-lebl-080001_adsb.ast";
+            //string path = "C:/Users/gerar/OneDrive/Escriptori/Uni/201002-lebl-080001_adsb.ast";
             AsterixFile achPrueba = new AsterixFile();
             achPrueba.setFilepath(path);
             achPrueba.readFile();
             var listCat21 = achPrueba.getListCat21();
-            var cat21Item = listCat21[0];
-            cat21Item.decodeDataFields();
-            object dataSourceItem = cat21Item.getDecodedField("DataSourceIdentification");
-            var algo = (FlightDataLib.DataSourceIdentification)dataSourceItem;
-            algo.getSac();
+            foreach (var iiCat21 in listCat21)
+            {
+                iiCat21.decodeDataFields();
+            }
 
             //AsterixFile Asterix = new AsterixFile();
             //Asterix.setFilepath(path);
