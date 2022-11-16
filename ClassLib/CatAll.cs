@@ -10,11 +10,17 @@ namespace ClassLib
     {
         public int NumLlista;
         public string CATMode;
+        public double TimeofDayseg;
+        public double LatWGS84;
+        public double LongWGS84;
         
-        public CatAll(string CATM, int i)
+        public CatAll(string CATM, int i, double Time, double Lat, double Long)
         {
             this.CATMode = CATM;
             this.NumLlista = i;
+            this.TimeofDayseg = Time;
+            this.LatWGS84 = Lat;
+            this.LongWGS84 = Long;
         }
     }
 }
