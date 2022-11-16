@@ -27,14 +27,18 @@ namespace FlightDataLib
             do
             {
                 string octStr = content[iiOctet];
-                fspecStr += Convert.ToString(Convert.ToInt32(octStr, 16), 2).PadLeft(8, '0');
+                fspecStr = fspecStr + Convert.ToString(Convert.ToInt32(octStr, 16), 2).PadLeft(8, '0');
                 fxInt = int.Parse(octStr, System.Globalization.NumberStyles.HexNumber) & 0b1;
+                if (fxInt != 0)
+                {
+                    fspecStr = fspecStr.Substring(0, fspecStr.Length - 1);
+                }
                 iiOctet++;
             } while (fxInt == 1);
 
             for (int jjOnesIndex = fspecStr.IndexOf("1"); jjOnesIndex > -1; jjOnesIndex = (fspecStr.IndexOf("1", jjOnesIndex + 1)))
             {
-                ageItems.Add(new DataAgeItem(content[iiOctet], daDict[jjOnesIndex]));
+                ageItems.Add(new DataAgeItem(content[iiOctet], daDict[32 - jjOnesIndex]));
                 iiOctet++;
             }
         }
