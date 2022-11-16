@@ -29,9 +29,11 @@ namespace Graphics
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.gMapControl1 = new GMap.NET.WindowsForms.GMapControl();
             this.buttonPlay = new System.Windows.Forms.Button();
             this.labelTiempo = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // gMapControl1
@@ -99,5 +101,6 @@ namespace Graphics
         private GMap.NET.WindowsForms.GMapControl gMapControl1;
         private System.Windows.Forms.Button buttonPlay;
         private System.Windows.Forms.Label labelTiempo;
+        private System.Windows.Forms.Timer timer1;
     }
 }

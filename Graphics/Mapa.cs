@@ -19,7 +19,7 @@ namespace Graphics
     {
         AsterixFile asterixFile = new AsterixFile();
         GMarkerGoogle marker;
-        GMapOverlay mapOverlay;
+        GMapOverlay markerOverlay;
 
         //LAT i LONG arp Barcelona
         double LatInicial = 41.289182;
@@ -41,11 +41,17 @@ namespace Graphics
             gMapControl1.Position = new PointLatLng(LatInicial, LongInicial);
             gMapControl1.MinZoom = 0;
             gMapControl1.MaxZoom = 24;
-            gMapControl1.Zoom = 6;
+            gMapControl1.Zoom = 13;
             gMapControl1.AutoScroll = true;
 
             // Marcador
-            //markerOverlay = new GMapOverlay("Marcador");
+            markerOverlay = new GMapOverlay("Marcador");
+            marker = new GMarkerGoogle(new PointLatLng(LatInicial, LongInicial), GMarkerGoogleType.black_small);
+            markerOverlay.Markers.Add(marker);
+            marker.ToolTipMode = MarkerTooltipMode.Always;
+            marker.ToolTipText = string.Format("Ubicación: \n Latitud:{0} \n Longitud: {1}", LatInicial, LongInicial);
+            gMapControl1.Overlays.Add(markerOverlay);
+
         }
     }
 }
