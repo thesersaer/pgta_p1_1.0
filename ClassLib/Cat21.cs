@@ -101,5 +101,14 @@ namespace ClassLib
                 decodedDataFieldList.Add(decodedDataField);
             }
         }
+        public object getDecodedField(string dataItemClassName)
+        {
+            foreach (object decodedObj in decodedDataFieldList)
+            {
+                if (decodedObj.GetType().ToString() == "FlightDataLib."+dataItemClassName)
+                { return decodedObj; }
+            }
+            return null;
+        }
     }
 }
