@@ -20,6 +20,9 @@ namespace ClassLib
             var listCat21 = achPrueba.getListCat21();
             var cat21Item = listCat21[0];
             cat21Item.decodeDataFields();
+            object dataSourceItem = cat21Item.getDecodedField("DataSourceIdentification");
+            var algo = (FlightDataLib.DataSourceIdentification)dataSourceItem;
+            algo.getSac();
 
             //AsterixFile Asterix = new AsterixFile();
             //Asterix.setFilepath(path);
