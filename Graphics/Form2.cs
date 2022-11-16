@@ -324,9 +324,9 @@ namespace Graphics
 
         private void buttonNext_Click(object sender, EventArgs e)
         {
-            if (Page < 3 && Page > 0)
+            if (Page < 3 && Page >= 0)
             {
-                Page = Page - 1;
+                Page = Page + 1;
                 if (Page == 0)
                 {
                     labelTituloPage.Text = "NAVIGATION";
@@ -513,9 +513,9 @@ namespace Graphics
 
         private void buttonPrevious_Click(object sender, EventArgs e)
         {
-            if (Page < 3 && Page > 0)
+            if (Page <= 3 && Page > 0)
             {
-                Page = Page + 1;
+                Page = Page - 1;
                 if (Page == 0)
                 {
                     labelTituloPage.Text = "NAVIGATION";
@@ -697,6 +697,44 @@ namespace Graphics
             else
             {
                 MessageBox.Show("Minimum pages reached");
+            }
+        }
+
+        private void buttonBuscar_Click(object sender, EventArgs e)
+        {
+            string busca = textBoxBuscar.Text;
+            i = 0;
+            while (i < asterixFile.getListCat10SMR().Count)
+            {
+                if (asterixFile.getListCat10SMR()[i].TrackNumber == busca)
+                {
+                    int index = asterixFile.getListCatAll()[i].NumLlista;
+                    dataGridView1[0, i].Value = i;
+                    dataGridView1[1, i].Value = "CAT 10 SMR";
+                    dataGridView1[2, i].Value = asterixFile.getListCat10SMR()[index].SAC;
+                    dataGridView1[3, i].Value = asterixFile.getListCat10SMR()[index].SIC;
+                    dataGridView1[4, i].Value = asterixFile.getListCat10SMR()[index].TargetID;
+                    dataGridView1[5, i].Value = asterixFile.getListCat10SMR()[index].TrackNumber;
+                    dataGridView1[6, i].Value = asterixFile.getListCat10SMR()[index].TimeOfDay;
+                    dataGridView1[7, i].Value = asterixFile.getListCat10SMR()[index].TargetAddress;
+                }
+                i++;
+            }
+            while (i < asterixFile.getListCat10MLAT().Count)
+            {
+                if (asterixFile.getListCat10MLAT()[i].TrackNumber == busca)
+                {
+                    int index = asterixFile.getListCatAll()[i].NumLlista;
+                    dataGridView1[0, i].Value = i;
+                    dataGridView1[1, i].Value = "CAT 10 MLAT";
+                    dataGridView1[2, i].Value = asterixFile.getListCat10MLAT()[index].SAC;
+                    dataGridView1[3, i].Value = asterixFile.getListCat10MLAT()[index].SIC;
+                    dataGridView1[4, i].Value = asterixFile.getListCat10MLAT()[index].TargetID;
+                    dataGridView1[5, i].Value = asterixFile.getListCat10MLAT()[index].TrackNumber;
+                    dataGridView1[6, i].Value = asterixFile.getListCat10MLAT()[index].TimeOfDay;
+                    dataGridView1[7, i].Value = asterixFile.getListCat10MLAT()[index].TargetAddress;
+                }
+                i++;
             }
         }
     }
