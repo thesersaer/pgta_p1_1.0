@@ -33,6 +33,8 @@ namespace ClassLib
 
         public string TimeOfDay;
 
+        public double LatWGS84Mapa;
+        public double LongWGS84Mapa;
         public string LatitudeInWGS84;
         public string LongitudeInWGS84;
         public string PositionInWGS84;
@@ -327,10 +329,12 @@ namespace ClassLib
             if (Convert.ToString(FSPEC[4]) == "1")
             {
                 double Lat = ComputeA2Complement(Convert.ToString(Convert.ToInt32(bloc[posicioDades] + bloc[posicioDades + 1] + bloc[posicioDades + 2] + bloc[posicioDades + 3], 16), 2).PadLeft(32, '0')) * (180 / Math.Pow(2, 31));
+                this.LatWGS84Mapa = Lat;
                 int LatDeg = Convert.ToInt32(Math.Truncate(Lat));
                 int LatMin = Convert.ToInt32(Math.Truncate((Lat - LatDeg) * 60));
                 double LatSec = Math.Round(((Lat - (LatDeg + (Convert.ToDouble(LatMin) / 60))) * 3600), 5);
                 double lon = ComputeA2Complement(Convert.ToString(Convert.ToInt32(bloc[posicioDades + 4] + bloc[posicioDades + 5] + bloc[posicioDades + 6] + bloc[posicioDades + 7], 16), 2).PadLeft(32, '0')) * (180 / Math.Pow(2, 31));
+                this.LongWGS84Mapa = lon;
                 int LongDeg = Convert.ToInt32(Math.Truncate(lon));
                 int LongMin = Convert.ToInt32(Math.Truncate((lon - LongDeg) * 60));
                 double LongSec = Math.Round(((lon - (LongDeg + (Convert.ToDouble(LongMin) / 60))) * 3600), 5);
@@ -912,7 +916,9 @@ namespace ClassLib
             CoordinatesWGS84 mGeod = geoUtils.change_system_cartesian2geodesic(Cart, AGeod);
             geoUtils = null;
             double Lat = mGeod.Lat * (180 / Math.PI);
+            this.LatWGS84Mapa = Lat;
             double lon = mGeod.Lon * (180 / Math.PI);
+            this.LongWGS84Mapa = lon;
             int LatDeg = Convert.ToInt32(Math.Truncate(Lat));
             int LatMin = Convert.ToInt32(Math.Truncate((Lat - LatDeg) * 60));
             double LatSec = Math.Round(((Lat - (LatDeg + (Convert.ToDouble(LatMin) / 60))) * 3600), 5);
