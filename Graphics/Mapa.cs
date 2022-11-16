@@ -19,6 +19,7 @@ namespace Graphics
     {
         AsterixFile asterixFile = new AsterixFile();
         GMarkerGoogle marker;
+        GMarkerGoogle marker2;
         GMapOverlay markerOverlay;
 
         //LAT i LONG arp Barcelona
@@ -35,6 +36,8 @@ namespace Graphics
 
         private void Mapa_Load(object sender, EventArgs e)
         {
+            double startTime = asterixFile.getListCat10SMR()[0].TimeOfDaySeg;
+
             gMapControl1.DragButton = MouseButtons.Left;
             gMapControl1.CanDragMap = true;
             gMapControl1.MapProvider = GMapProviders.GoogleMap;
@@ -47,6 +50,8 @@ namespace Graphics
             // Marcador
             markerOverlay = new GMapOverlay("Marcador");
             marker = new GMarkerGoogle(new PointLatLng(LatInicial, LongInicial), GMarkerGoogleType.black_small);
+            marker2 = new GMarkerGoogle(new PointLatLng(41.5218892, 2.10384403839652), GMarkerGoogleType.arrow);
+            markerOverlay.Markers.Add(marker2);
             markerOverlay.Markers.Add(marker);
             marker.ToolTipMode = MarkerTooltipMode.Always;
             marker.ToolTipText = string.Format("Ubicación: \n Latitud:{0} \n Longitud: {1}", LatInicial, LongInicial);
