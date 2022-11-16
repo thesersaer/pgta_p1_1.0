@@ -63,6 +63,7 @@ namespace ClassLib
                         //add fspec
                         string dataFieldFspecStr = Convert.ToString(Convert.ToInt32(stringArray[iiDataItem], 16), 2).PadLeft(8, '0');
                         compFspec += dataFieldFspecStr.Remove(dataFieldFspecStr.Length - 1);
+                        dataContentList.Add(stringArray[iiDataItem]);
                         iiDataItem++;
                     } while (dataFieldFX == 1);
                     for (int x = 0; x < (compFspec.Split('1').Length - 1); x++)
