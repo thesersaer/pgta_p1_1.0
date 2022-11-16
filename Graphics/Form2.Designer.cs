@@ -88,6 +88,7 @@ namespace Graphics
             this.textBoxBuscar = new System.Windows.Forms.TextBox();
             this.buttonBuscar = new System.Windows.Forms.Button();
             this.labelPage = new System.Windows.Forms.Label();
+            this.buttonMap = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -636,11 +637,22 @@ namespace Graphics
             this.labelPage.TabIndex = 52;
             this.labelPage.Text = "1/4";
             // 
+            // buttonMap
+            // 
+            this.buttonMap.Location = new System.Drawing.Point(1348, 788);
+            this.buttonMap.Name = "buttonMap";
+            this.buttonMap.Size = new System.Drawing.Size(224, 53);
+            this.buttonMap.TabIndex = 53;
+            this.buttonMap.Text = "MAP";
+            this.buttonMap.UseVisualStyleBackColor = true;
+            this.buttonMap.Click += new System.EventHandler(this.buttonMap_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1612, 1055);
+            this.Controls.Add(this.buttonMap);
             this.Controls.Add(this.labelPage);
             this.Controls.Add(this.buttonBuscar);
             this.Controls.Add(this.textBoxBuscar);
@@ -763,5 +775,6 @@ namespace Graphics
         private System.Windows.Forms.TextBox textBoxBuscar;
         private System.Windows.Forms.Button buttonBuscar;
         private System.Windows.Forms.Label labelPage;
+        private System.Windows.Forms.Button buttonMap;
     }
 }

@@ -765,5 +765,12 @@ namespace Graphics
                 }
             }
         }
+
+        private void buttonMap_Click(object sender, EventArgs e)
+        {
+            Mapa mapa = new Mapa();
+            mapa.setAsterix(asterixFile);
+            mapa.ShowDialog();
+        }
     }
 }
