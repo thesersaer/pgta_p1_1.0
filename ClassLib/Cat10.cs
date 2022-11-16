@@ -893,20 +893,20 @@ namespace ClassLib
             double XAirport = 0;
             double YAirport = 0;
             CoordinatesXYZ Cart = new CoordinatesXYZ(X, Y, 0);
-            if (Convert.ToInt32(SIC) == 1) { XAirport = 28.47749583; YAirport = -16.33252028; }
-            else if (Convert.ToInt32(SIC) == 2) { XAirport = 39.54864778; YAirport = 2.732764444; }
-            else if (Convert.ToInt32(SIC) == 3) { XAirport = 40.46814972; YAirport = -3.568730278; }
-            else if (Convert.ToInt32(SIC) == 4) { XAirport = 40.49184306; YAirport = -3.569051667; }
-            else if (Convert.ToInt32(SIC) == 5) { XAirport = 43.56464083; YAirport = -6.030623056; }
-            else if (Convert.ToInt32(SIC) == 6) { XAirport = 42.89805333; YAirport = -8.413033056; }
-            else if (Convert.ToInt32(SIC) == 7) { XAirport = 41.29561833; YAirport = 2.095114167; }
-            else if (Convert.ToInt32(SIC) == 101) { XAirport = 28.48265333; YAirport = -16.34153722; }
-            else if (Convert.ToInt32(SIC) == 102) { XAirport = 39.5486842; YAirport = 2.73276111; }
-            else if (Convert.ToInt32(SIC) == 104) { XAirport = 40.47224833; YAirport = -3.560945278; }
-            else if (Convert.ToInt32(SIC) == 105) { XAirport = 43.56356722; YAirport = -6.034621111; }
-            else if (Convert.ToInt32(SIC) == 106) { XAirport = 42.896335; YAirport = -8.41514361; }
-            else if (Convert.ToInt32(SIC) == 107) { XAirport = 41.2970767; YAirport = 2.07846278; }
-            else if (Convert.ToInt32(SIC) == 108) { XAirport = 36.67497111; YAirport = -4.499206944; }
+            if (Convert.ToInt32(SIC) == 1) { XAirport = 28.47749583; YAirport = -16.33252028; } //SMRTenerife
+            else if (Convert.ToInt32(SIC) == 2) { XAirport = 39.54864778; YAirport = 2.732764444; } //SMRPalma
+            else if (Convert.ToInt32(SIC) == 3) { XAirport = 40.46814972; YAirport = -3.568730278; } //SMRBarajas-S
+            else if (Convert.ToInt32(SIC) == 4) { XAirport = 40.49184306; YAirport = -3.569051667; } //SMR Barajas N
+            else if (Convert.ToInt32(SIC) == 5) { XAirport = 43.56464083; YAirport = -6.030623056; } // SMR Asturias
+            else if (Convert.ToInt32(SIC) == 6) { XAirport = 42.89805333; YAirport = -8.413033056; } //SMR Santiago
+            else if (Convert.ToInt32(SIC) == 7) { XAirport = 41.29561833; YAirport = 2.095114167; } ///SMR Barcelona
+            else if (Convert.ToInt32(SIC) == 101) { XAirport = 28.48265333; YAirport = -16.34153722; } //ARP TEnerife
+            else if (Convert.ToInt32(SIC) == 102) { XAirport = 39.5486842; YAirport = 2.73276111; }  // ARP PAlma
+            else if (Convert.ToInt32(SIC) == 104) { XAirport = 40.47224833; YAirport = -3.560945278; } //Arp Barajas
+            else if (Convert.ToInt32(SIC) == 105) { XAirport = 43.56356722; YAirport = -6.034621111; } //ARP Asturias
+            else if (Convert.ToInt32(SIC) == 106) { XAirport = 42.896335; YAirport = -8.41514361; } // ARP Santiago
+            else if (Convert.ToInt32(SIC) == 107) { XAirport = 41.2970767; YAirport = 2.07846278; } // Arp Barcelona
+            else if (Convert.ToInt32(SIC) == 108) { XAirport = 36.67497111; YAirport = -4.499206944; } // ARP Malaga
             CoordinatesWGS84 AGeod = new CoordinatesWGS84(XAirport * (Math.PI / 180), YAirport * (Math.PI / 180));
             GeoUtils geoUtils = new GeoUtils();
             CoordinatesWGS84 mGeod = geoUtils.change_system_cartesian2geodesic(Cart, AGeod);
