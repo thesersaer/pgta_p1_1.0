@@ -87,6 +87,8 @@ namespace Graphics
             this.labelTituloPage = new System.Windows.Forms.Label();
             this.textBoxBuscar = new System.Windows.Forms.TextBox();
             this.buttonBuscar = new System.Windows.Forms.Button();
+            this.labelPage = new System.Windows.Forms.Label();
+            this.buttonMap = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -304,7 +306,7 @@ namespace Graphics
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(889, 170);
+            this.label9.Location = new System.Drawing.Point(890, 285);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(176, 17);
             this.label9.TabIndex = 17;
@@ -421,7 +423,7 @@ namespace Graphics
             // labelFleetID
             // 
             this.labelFleetID.AutoSize = true;
-            this.labelFleetID.Location = new System.Drawing.Point(1066, 170);
+            this.labelFleetID.Location = new System.Drawing.Point(1067, 285);
             this.labelFleetID.Name = "labelFleetID";
             this.labelFleetID.Size = new System.Drawing.Size(13, 17);
             this.labelFleetID.TabIndex = 28;
@@ -626,11 +628,32 @@ namespace Graphics
             this.buttonBuscar.UseVisualStyleBackColor = true;
             this.buttonBuscar.Click += new System.EventHandler(this.buttonBuscar_Click);
             // 
+            // labelPage
+            // 
+            this.labelPage.AutoSize = true;
+            this.labelPage.Location = new System.Drawing.Point(1446, 732);
+            this.labelPage.Name = "labelPage";
+            this.labelPage.Size = new System.Drawing.Size(28, 17);
+            this.labelPage.TabIndex = 52;
+            this.labelPage.Text = "1/4";
+            // 
+            // buttonMap
+            // 
+            this.buttonMap.Location = new System.Drawing.Point(1348, 788);
+            this.buttonMap.Name = "buttonMap";
+            this.buttonMap.Size = new System.Drawing.Size(224, 53);
+            this.buttonMap.TabIndex = 53;
+            this.buttonMap.Text = "MAP";
+            this.buttonMap.UseVisualStyleBackColor = true;
+            this.buttonMap.Click += new System.EventHandler(this.buttonMap_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1612, 1055);
+            this.Controls.Add(this.buttonMap);
+            this.Controls.Add(this.labelPage);
             this.Controls.Add(this.buttonBuscar);
             this.Controls.Add(this.textBoxBuscar);
             this.Controls.Add(this.labelTituloPage);
@@ -751,5 +774,7 @@ namespace Graphics
         private System.Windows.Forms.Label labelTituloPage;
         private System.Windows.Forms.TextBox textBoxBuscar;
         private System.Windows.Forms.Button buttonBuscar;
+        private System.Windows.Forms.Label labelPage;
+        private System.Windows.Forms.Button buttonMap;
     }
 }
