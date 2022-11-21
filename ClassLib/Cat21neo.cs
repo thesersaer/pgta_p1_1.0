@@ -24,7 +24,7 @@ namespace ClassLib
             {
                 contentArray[iiByteStr] = byte.Parse(stringArray[iiByteStr], System.Globalization.NumberStyles.HexNumber);
             }
-            this.len = concatToInt16(new byte[2] { contentArray[1],contentArray[2]});//Funcion para concatenar bytes en ach externo?
+            this.len = concatToInt16(new byte[2] { contentArray[1],contentArray[2]});
 
             //Obtaining fspec
 
