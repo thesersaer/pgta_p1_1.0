@@ -120,8 +120,8 @@ namespace ClassLib
                 }
                 else if (catInt == 21)
                 {
-                    Cat21 newCat21 = new Cat21(stringArray);
-                    listCat21.Add(newCat21);
+                    Cat21neo newCat21 = new Cat21neo(stringArray);
+                    //listCat21.Add(newCat21);
                     //CatAll newCatAll = new CatAll("ADSB", indexADSB, newCat21.TimeOfDaySeg, newCat10.LatWGS84Mapa, newCat10.LongWGS84Mapa);
                     //listCatAll.Add(newCatAll);
                     indexADSB = indexADSB + 1;
