@@ -34,6 +34,7 @@ namespace Graphics
             this.buttonPlay = new System.Windows.Forms.Button();
             this.labelTiempo = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.buttonConfig = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // gMapControl1
@@ -85,11 +86,22 @@ namespace Graphics
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // buttonConfig
+            // 
+            this.buttonConfig.Location = new System.Drawing.Point(124, 744);
+            this.buttonConfig.Name = "buttonConfig";
+            this.buttonConfig.Size = new System.Drawing.Size(101, 32);
+            this.buttonConfig.TabIndex = 3;
+            this.buttonConfig.Text = "Configuration";
+            this.buttonConfig.UseVisualStyleBackColor = true;
+            this.buttonConfig.Click += new System.EventHandler(this.buttonConfig_Click);
+            // 
             // Mapa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1441, 898);
+            this.Controls.Add(this.buttonConfig);
             this.Controls.Add(this.labelTiempo);
             this.Controls.Add(this.buttonPlay);
             this.Controls.Add(this.gMapControl1);
@@ -107,5 +119,6 @@ namespace Graphics
         private System.Windows.Forms.Button buttonPlay;
         private System.Windows.Forms.Label labelTiempo;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button buttonConfig;
     }
 }
