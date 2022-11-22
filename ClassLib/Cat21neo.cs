@@ -55,7 +55,22 @@ namespace ClassLib
                 else if (frnInt == 7) { positionWGS84HP = new PositionWGS84HP(contentArray, iiGlobalCounter); }
                 else if (frnInt == 8) { timeOfApplicabilityVelocity = new TimeOfApplicabilityVelocity(contentArray, iiGlobalCounter); }
                 else if (frnInt == 9) { airSpeed = new AirSpeed(contentArray, iiGlobalCounter); }
-                else if (frnInt == 10) { }
+                else if (frnInt == 10) { trueAirspeed = new TrueAirspeed(contentArray, iiGlobalCounter); }
+                else if (frnInt == 11) { targetAddress = new TargetAddress(contentArray, iiGlobalCounter); }
+                else if (frnInt == 12) { timeOfMessageReceptionPosition = new TimeOfMessageReceptionPosition(contentArray, iiGlobalCounter); }
+                else if (frnInt == 13) { timeOfMessageReceptionPositionHP = new TimeOfMessageReceptionPositionHP(contentArray, iiGlobalCounter, timeOfMessageReceptionPosition); }
+                else if (frnInt == 14) { timeOfMessageReceptionVelocity = new TimeOfMessageReceptionVelocity(contentArray, iiGlobalCounter); }
+                else if (frnInt == 15) { timeOfMessageReceptionVelocityHP = new TimeOfMessageReceptionVelocityHP(contentArray, iiGlobalCounter, timeOfMessageReceptionVelocity); }
+                else if (frnInt == 16) { geometricHeight = new GeometricHeight(contentArray, iiGlobalCounter); }
+                else if (frnInt == 17) { qualityIndicators = new QualityIndicators(contentArray, iiGlobalCounter); }
+                else if (frnInt == 18) { mOPSVersion = new MOPSVersion(contentArray, iiGlobalCounter); }
+                else if (frnInt == 19) { mode3ACode = new Mode3ACode(contentArray, iiGlobalCounter); }
+                else if (frnInt == 20) { rollAngle = new RollAngle(contentArray, iiGlobalCounter); }
+                else if (frnInt == 21) { flightLevel = new FlightLevel(contentArray, iiGlobalCounter); }
+                else if (frnInt == 22) { magneticHeading = new MagneticHeading(contentArray, iiGlobalCounter); }
+                else if (frnInt == 23) { targetStatus = new TargetStatus(contentArray, iiGlobalCounter); }
+                else if (frnInt == 24) { barometricVerticalRate = new BarometricVerticalRate(contentArray, iiGlobalCounter); }
+                else if (frnInt == 25) { geometricVerticalRate = new GeometricVerticalRate(contentArray, iiGlobalCounter); }
 
             }
         }
@@ -258,6 +273,284 @@ namespace ClassLib
                 trueAirspeed = concatToInt16(new byte[2] { (byte)(content[globalCounter] & 0x7F), content[globalCounter + 1] });
                 if (((content[globalCounter] >> 7) & 0b1) == 0) { rangeExceeded = false; }
                 else { rangeExceeded = true; }
+                globalCounter += 2;
+                updateCounter(globalCounter);
+            }
+        }
+        #endregion
+        #region Target Address
+        public TargetAddress targetAddress;
+        public class TargetAddress
+        {
+            public readonly int targetAddress;
+            public TargetAddress(byte[] content, int globalCounter)
+            {
+                targetAddress = concatToInt32(new byte[] { content[globalCounter], content[globalCounter + 1], content[globalCounter + 2] });
+                globalCounter += 3;
+                updateCounter(globalCounter);
+            }
+        }
+        #endregion
+        #region Time of Message Reception for Position
+        public TimeOfMessageReceptionPosition timeOfMessageReceptionPosition;
+        public class TimeOfMessageReceptionPosition
+        {
+            public readonly double tomSeconds;
+            public TimeOfMessageReceptionPosition(byte[] content, int globalCounter)
+            {
+                tomSeconds = concatToInt32(new byte[] { content[globalCounter], content[globalCounter + 1], content[globalCounter + 2] }) * Math.Pow(2, -7);
+                globalCounter += 3;
+                updateCounter(globalCounter);
+            }
+        }
+        #endregion
+        #region Time of Message Reception for Position–High Precision
+        public TimeOfMessageReceptionPositionHP timeOfMessageReceptionPositionHP;
+        public class TimeOfMessageReceptionPositionHP
+        {
+            public readonly bool fsiReserved = false;
+            public readonly double tomSeconds;
+            public TimeOfMessageReceptionPositionHP(byte[] content, int globalCounter, TimeOfMessageReceptionPosition tomrp)
+            {
+                var fsiVal = (content[globalCounter] >> 6) & 0b11;
+                var fraccSeconds = concatToInt32(new byte[] { (byte)(content[globalCounter] & 0x3F), content[globalCounter + 1], content[globalCounter + 2], content[globalCounter + 3] });
+                tomSeconds = fraccSeconds * Math.Pow(2, -30);
+                if (fsiVal == 0b00) { tomSeconds += Math.Truncate(tomrp.tomSeconds); }
+                else if (fsiVal == 0b01) { tomSeconds += Math.Truncate(tomrp.tomSeconds) + 1; }
+                else if (fsiVal == 0b10) { tomSeconds += Math.Truncate(tomrp.tomSeconds) - 1; }
+                else { fsiReserved = true; }
+                globalCounter += 4;
+                updateCounter(globalCounter);
+            }
+        }
+        #endregion
+        #region Time of Message Reception of Velocity
+        public TimeOfMessageReceptionVelocity timeOfMessageReceptionVelocity;
+        public class TimeOfMessageReceptionVelocity
+        {
+            public readonly double tomSeconds;
+            public TimeOfMessageReceptionVelocity(byte[] content, int globalCounter)
+            {
+                tomSeconds = concatToInt32(new byte[] { content[globalCounter], content[globalCounter + 1], content[globalCounter + 2] }) * Math.Pow(2, -7);
+                globalCounter += 3;
+                updateCounter(globalCounter);
+            }
+        }
+        #endregion
+        #region Time of Message Reception of Velocity–High Precision
+        public TimeOfMessageReceptionVelocityHP timeOfMessageReceptionVelocityHP;
+        public class TimeOfMessageReceptionVelocityHP
+        {
+            public readonly bool fsiReserved = false;
+            public readonly double tomSeconds;
+            public TimeOfMessageReceptionVelocityHP(byte[] content, int globalCounter, TimeOfMessageReceptionVelocity tomrv)
+            {
+                var fsiVal = (content[globalCounter] >> 6) & 0b11;
+                var fraccSeconds = concatToInt32(new byte[] { (byte)(content[globalCounter] & 0x3F), content[globalCounter + 1], content[globalCounter + 2], content[globalCounter + 3] });
+                tomSeconds = fraccSeconds * Math.Pow(2, -30);
+                if (fsiVal == 0b00) { tomSeconds += Math.Truncate(tomrv.tomSeconds); }
+                else if (fsiVal == 0b01) { tomSeconds += Math.Truncate(tomrv.tomSeconds) + 1; }
+                else if (fsiVal == 0b10) { tomSeconds += Math.Truncate(tomrv.tomSeconds) - 1; }
+                else { fsiReserved = true; }
+                globalCounter += 4;
+                updateCounter(globalCounter);
+            }
+        }
+        #endregion
+        #region Geometric Height
+        public GeometricHeight geometricHeight;
+        public class GeometricHeight
+        {
+            public readonly bool greaterThan = false;
+            public readonly double geometricHeight;
+            public GeometricHeight(byte[] content, int globalCounter)
+            {
+                geometricHeight = concatToInt16(new byte[] { content[globalCounter], content[globalCounter + 1] }) * 6.25;
+                if (geometricHeight == 0x7FFF) { greaterThan = true; }
+                globalCounter += 2;
+                updateCounter(globalCounter);
+            }
+        }
+        #endregion
+        #region Quality Indicators
+        public QualityIndicators qualityIndicators;
+        public class QualityIndicators
+        {
+            public readonly byte navigationAccuracyCategoryVelocity;
+            public readonly byte navigationIntegrityCategoryPosition;
+            public readonly byte navigationIntegrityCategoryBaroAlt;
+            public readonly byte surveillanceIntegrityLevel;
+            public readonly byte navigationAccuracyCategoryPosition;
+            public readonly string silSupplement;
+            public readonly byte horizontalPositionSystemDesignAssuranceLevel;
+            public readonly byte geometricAltitudeAccuracyCategory;
+            public readonly byte positionIntegrityCategory;
+            public QualityIndicators(byte[] content, int globalCounter)
+            {
+                navigationAccuracyCategoryVelocity = (byte)((content[globalCounter] >> 5) & 0b111);
+                navigationIntegrityCategoryPosition = (byte)((content[globalCounter] >> 1) & 0b111);
+                if ((content[globalCounter] & 0b1) != 0) //First extension
+                {
+                    globalCounter++;
+                    navigationIntegrityCategoryBaroAlt = (byte)((content[globalCounter] >> 7) & 0b1);
+                    surveillanceIntegrityLevel = (byte)((content[globalCounter] >> 5) & 0b11);
+                    navigationAccuracyCategoryPosition = (byte)((content[globalCounter] >> 1) & 0b1111);
+                    if ((content[globalCounter] & 0b1) != 0) //Second extension
+                    {
+                        globalCounter++;
+                        if (((content[globalCounter] >> 5) & 0b1) != 0) { silSupplement = "Measured per sample"; }
+                        else { silSupplement = "Measured per flight-hour"; }
+                        horizontalPositionSystemDesignAssuranceLevel = (byte)((content[globalCounter] >> 3) & 0b11);
+                        geometricAltitudeAccuracyCategory = (byte)((content[globalCounter] >> 1) & 0b11);
+                        if ((content[globalCounter] & 0b1) != 0) //Third extension
+                        {
+                            globalCounter++;
+                            positionIntegrityCategory = (byte)((content[globalCounter] >> 4) & 0b1111);
+                        }
+                    }
+                }
+                globalCounter++;
+                updateCounter(globalCounter);
+            }
+        }
+        #endregion
+        #region MOPS Version
+        public MOPSVersion mOPSVersion;
+        public class MOPSVersion
+        {
+            public readonly bool versionNotSupported;
+            public readonly string versionNumber;
+            public readonly string linkTechnologyType;
+            public MOPSVersion(byte[] content, int globalCounter)
+            {
+                versionNotSupported = ((content[globalCounter] >> 6) & 0b1) != 0;
+                int vnInt = (content[globalCounter] >> 3) & 0b111;
+                int lttInt = content[globalCounter] & 0b111;
+                if (lttInt > 3) { linkTechnologyType = "Not assigned"; }
+                else if (lttInt > 2) { linkTechnologyType = "VDL 4"; }
+                else if (lttInt > 1)
+                {
+                    linkTechnologyType = "1090 ES";
+                    if (vnInt > 1) { versionNumber = "ED102A/DO-260B [Ref. 11]"; }
+                    else if (vnInt > 0) { versionNumber = "DO-260A [Ref. 9]"; }
+                    else { versionNumber = "ED102/DO-260 [Ref. 8]"; }
+                }
+                else if (lttInt > 0) { linkTechnologyType = "UAT"; }
+                else { linkTechnologyType = "Other"; }
+                globalCounter++;
+                updateCounter(globalCounter);
+            }
+        }
+        #endregion
+        #region Mode 3/A Code in Octal Representation
+        public Mode3ACode mode3ACode;
+        public class Mode3ACode
+        {
+            public readonly string replyCode; //Octal string
+            public Mode3ACode(byte[] content, int globalCounter)
+            {
+                var codeVal = concatToInt16(new byte[2] { content[globalCounter], content[globalCounter + 1] });
+                replyCode = Convert.ToString(codeVal, 8);
+                globalCounter += 2;
+                updateCounter(globalCounter);
+            }
+        }
+        #endregion
+        #region Roll Angle
+        public RollAngle rollAngle;
+        public class RollAngle
+        {
+            public readonly double rollAngle; //cw wrt rear view
+
+            public RollAngle(byte[] content, int globalCounter)
+            {
+                rollAngle = compl2(concatToInt16(new byte[2] { content[globalCounter], content[globalCounter + 1] })) * 0.01;
+                globalCounter += 2;
+                updateCounter(globalCounter);
+            }
+        }
+        #endregion
+        #region Flight Level
+        public FlightLevel flightLevel;
+        public class FlightLevel
+        {
+            public readonly double flightLevel;
+            public FlightLevel(byte[] content, int globalCounter)
+            {
+                flightLevel = compl2(concatToInt16(new byte[2] { content[globalCounter], content[globalCounter + 1] })) * 0.25;
+                globalCounter += 2;
+                updateCounter(globalCounter);
+            }
+        }
+        #endregion
+        #region Magnetic Heading
+        public MagneticHeading magneticHeading;
+        public class MagneticHeading
+        {
+            public readonly double magneticHeading;
+            public MagneticHeading(byte[] content, int globalCounter)
+            {
+                magneticHeading = concatToInt16(new byte[2] { content[globalCounter], content[globalCounter + 1] }) * (360 / Math.Pow(2, 16));
+                globalCounter += 2;
+                updateCounter(globalCounter);
+            }
+        }
+        #endregion
+        #region Target Status
+        public TargetStatus targetStatus;
+        public class TargetStatus
+        {
+            public readonly bool intentChangeFlag;
+            public readonly bool lnavModeNotEngaged;
+            public readonly string priorityStatus;
+            public readonly string surveillanceStatus;
+            public TargetStatus(byte[] content, int globalCounter)
+            {
+                intentChangeFlag = ((content[globalCounter] >> 7) & 0b1) != 0;
+                lnavModeNotEngaged = ((content[globalCounter] >> 6) & 0b1) != 0;
+                int psInt = (content[globalCounter] >> 2) & 0b111;
+                if (psInt == 0) { priorityStatus = "No emergency / Not reported"; }
+                else if (psInt == 1) { priorityStatus = "General emergency"; }
+                else if (psInt == 2) { priorityStatus = "Lifeguard / medical emergency"; }
+                else if (psInt == 3) { priorityStatus = "Minimum fuel"; }
+                else if (psInt == 4) { priorityStatus = "No communications"; }
+                else if (psInt == 5) { priorityStatus = "Unlawful interference"; }
+                else { priorityStatus = "Downed aircraft"; }
+                int ssInt = content[globalCounter] & 0b11;
+                if (ssInt == 0) { surveillanceStatus = "No condition reported"; }
+                else if (ssInt == 1) { surveillanceStatus = "Permanent Alert"; }
+                else if (ssInt == 2) { surveillanceStatus = "Temporary Alert"; }
+                else { surveillanceStatus = "SPI set"; }
+                globalCounter++;
+                updateCounter(globalCounter);
+            }
+        }
+        #endregion
+        #region Barometric Vertical Rate
+        public BarometricVerticalRate barometricVerticalRate;
+        public class BarometricVerticalRate
+        {
+            public readonly bool rangeExceeded;
+            public readonly double barometricVerticalRateFtPerMin;
+            public BarometricVerticalRate(byte[] content, int globalCounter)
+            {
+                rangeExceeded = ((content[globalCounter] >> 7) & 0b1) != 0;
+                barometricVerticalRateFtPerMin = compl2(concatToInt16(new byte[] { (byte)(content[globalCounter] & 0x7F), content[globalCounter + 1] })) * 6.25;
+                globalCounter += 2;
+                updateCounter(globalCounter);
+            }
+        }
+        #endregion
+        #region Geometric Vertical Rate
+        public GeometricVerticalRate geometricVerticalRate;
+        public class GeometricVerticalRate
+        {
+            public readonly bool rangeExceeded;
+            public readonly double geometricVerticalRateFtPerMin;
+            public GeometricVerticalRate(byte[] content, int globalCounter)
+            {
+                rangeExceeded = ((content[globalCounter] >> 7) & 0b1) != 0;
+                geometricVerticalRateFtPerMin = compl2(concatToInt16(new byte[] { (byte)(content[globalCounter] & 0x7F), content[globalCounter + 1] })) * 6.25;
                 globalCounter += 2;
                 updateCounter(globalCounter);
             }
