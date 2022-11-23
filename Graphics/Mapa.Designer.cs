@@ -53,7 +53,10 @@ namespace Graphics
             this.listBoxHH = new System.Windows.Forms.ListBox();
             this.listBoxMM = new System.Windows.Forms.ListBox();
             this.listBoxSS = new System.Windows.Forms.ListBox();
+            this.trackBarZOOM = new System.Windows.Forms.TrackBar();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewINFO)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarZOOM)).BeginInit();
             this.SuspendLayout();
             // 
             // gMapControl1
@@ -435,11 +438,32 @@ namespace Graphics
             this.listBoxSS.Size = new System.Drawing.Size(45, 20);
             this.listBoxSS.TabIndex = 14;
             // 
+            // trackBarZOOM
+            // 
+            this.trackBarZOOM.Location = new System.Drawing.Point(1370, 55);
+            this.trackBarZOOM.Maximum = 24;
+            this.trackBarZOOM.Name = "trackBarZOOM";
+            this.trackBarZOOM.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.trackBarZOOM.Size = new System.Drawing.Size(56, 587);
+            this.trackBarZOOM.TabIndex = 15;
+            this.trackBarZOOM.ValueChanged += new System.EventHandler(this.trackBarZOOM_ValueChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(1370, 32);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(48, 17);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Zoom:";
+            // 
             // Mapa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1441, 898);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.trackBarZOOM);
             this.Controls.Add(this.listBoxSS);
             this.Controls.Add(this.listBoxMM);
             this.Controls.Add(this.listBoxHH);
@@ -458,6 +482,7 @@ namespace Graphics
             this.Text = "Mapa";
             this.Load += new System.EventHandler(this.Mapa_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewINFO)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarZOOM)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -488,5 +513,7 @@ namespace Graphics
         private System.Windows.Forms.ListBox listBoxHH;
         private System.Windows.Forms.ListBox listBoxMM;
         private System.Windows.Forms.ListBox listBoxSS;
+        private System.Windows.Forms.TrackBar trackBarZOOM;
+        private System.Windows.Forms.Label label2;
     }
 }

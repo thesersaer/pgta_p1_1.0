@@ -64,6 +64,7 @@ namespace Graphics
             gMapControl1.Zoom = 13;
             gMapControl1.AutoScroll = true;
 
+            trackBarZOOM.Value = Convert.ToInt32(gMapControl1.Zoom);
             // Marcador
             //markerOverlay = new GMapOverlay("Marcador");
             //marker = new GMarkerGoogle(new PointLatLng(LatInicial, LongInicial), GMarkerGoogleType.black_small);
@@ -97,6 +98,7 @@ namespace Graphics
         private void timer1_Tick(object sender, EventArgs e)
         {
             labelTiempo.Text = Convert.ToString(TimeSpan.FromSeconds(startTime).ToString(@"hh\:mm\:ss"));
+            trackBarZOOM.Value = Convert.ToInt32(gMapControl1.Zoom);
             int n = 0;
             markerOverlay = new GMapOverlay("Marcador");
             while (n < asterixFile.getListCatAll().Count)
@@ -213,6 +215,11 @@ namespace Graphics
             }
             gMapControl1.Refresh();
             labelTiempo.Text = Convert.ToString(TimeSpan.FromSeconds(startTime).ToString(@"hh\:mm\:ss"));
+        }
+
+        private void trackBarZOOM_ValueChanged(object sender, EventArgs e)
+        {
+            gMapControl1.Zoom = trackBarZOOM.Value;
         }
     }
 }
