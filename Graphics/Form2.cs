@@ -17,6 +17,7 @@ namespace Graphics
         int i = 0;
         int Mode = 0;
         int Page = 0;
+        string buscartipus = "Track Number";
 
         public Form2()
         {
@@ -720,49 +721,176 @@ namespace Graphics
         {
             dataGridView1.Rows.Clear();
             string busca = textBoxBuscar.Text;
-            if (0 < asterixFile.getListCat10SMR().Count)
+            if (buscartipus == "Track Number")
             {
-                i = 0;
-                int rownum = 0;
-                dataGridView1.RowCount = asterixFile.getListCat10SMR().Count;
-                while (i < asterixFile.getListCat10SMR().Count)
+                if (0 < asterixFile.getListCat10SMR().Count)
                 {
-                    if (asterixFile.getListCat10SMR()[i].TrackNumber == busca)
+                    i = 0;
+                    int rownum = 0;
+                    dataGridView1.RowCount = asterixFile.getListCat10SMR().Count;
+                    while (i < asterixFile.getListCat10SMR().Count)
                     {
-                        dataGridView1[0, rownum].Value = i;
-                        dataGridView1[1, rownum].Value = "CAT 10 SMR";
-                        dataGridView1[2, rownum].Value = asterixFile.getListCat10SMR()[i].SAC;
-                        dataGridView1[3, rownum].Value = asterixFile.getListCat10SMR()[i].SIC;
-                        dataGridView1[4, rownum].Value = asterixFile.getListCat10SMR()[i].TargetID;
-                        dataGridView1[5, rownum].Value = asterixFile.getListCat10SMR()[i].TrackNumber;
-                        dataGridView1[6, rownum].Value = asterixFile.getListCat10SMR()[i].TimeOfDay;
-                        dataGridView1[7, rownum].Value = asterixFile.getListCat10SMR()[i].TargetAddress;
-                        rownum++;
+                        if (asterixFile.getListCat10SMR()[i].TrackNumber == busca)
+                        {
+                            dataGridView1[0, rownum].Value = i;
+                            dataGridView1[1, rownum].Value = "CAT 10 SMR";
+                            dataGridView1[2, rownum].Value = asterixFile.getListCat10SMR()[i].SAC;
+                            dataGridView1[3, rownum].Value = asterixFile.getListCat10SMR()[i].SIC;
+                            dataGridView1[4, rownum].Value = asterixFile.getListCat10SMR()[i].TargetID;
+                            dataGridView1[5, rownum].Value = asterixFile.getListCat10SMR()[i].TrackNumber;
+                            dataGridView1[6, rownum].Value = asterixFile.getListCat10SMR()[i].TimeOfDay;
+                            dataGridView1[7, rownum].Value = asterixFile.getListCat10SMR()[i].TargetAddress;
+                            rownum++;
+                        }
+                        i++;
                     }
-                    i++;
+                }
+                if (0 < asterixFile.getListCat10MLAT().Count)
+                {
+                    i = 0;
+                    int rownum = 0;
+                    dataGridView1.RowCount = asterixFile.getListCat10MLAT().Count;
+                    while (i < asterixFile.getListCat10MLAT().Count)
+                    {
+                        if (asterixFile.getListCat10MLAT()[i].TrackNumber == busca)
+                        {
+                            dataGridView1[0, rownum].Value = i;
+                            dataGridView1[1, rownum].Value = "CAT 10 MLAT";
+                            dataGridView1[2, rownum].Value = asterixFile.getListCat10MLAT()[i].SAC;
+                            dataGridView1[3, rownum].Value = asterixFile.getListCat10MLAT()[i].SIC;
+                            dataGridView1[4, rownum].Value = asterixFile.getListCat10MLAT()[i].TargetID;
+                            dataGridView1[5, rownum].Value = asterixFile.getListCat10MLAT()[i].TrackNumber;
+                            dataGridView1[6, rownum].Value = asterixFile.getListCat10MLAT()[i].TimeOfDay;
+                            dataGridView1[7, rownum].Value = asterixFile.getListCat10MLAT()[i].TargetAddress;
+                            rownum++;
+                        }
+                        i++;
+                    }
                 }
             }
-            if (0 < asterixFile.getListCat10MLAT().Count)
+            else if(buscartipus == "Target Address")
             {
-                i = 0;
-                int rownum = 0;
-                dataGridView1.RowCount = asterixFile.getListCat10MLAT().Count;
-                while (i < asterixFile.getListCat10MLAT().Count)
+                if (0 < asterixFile.getListCat10SMR().Count)
                 {
-                    if (asterixFile.getListCat10MLAT()[i].TrackNumber == busca)
+                    i = 0;
+                    int rownum = 0;
+                    dataGridView1.RowCount = asterixFile.getListCat10SMR().Count;
+                    while (i < asterixFile.getListCat10SMR().Count)
                     {
-                        dataGridView1[0, rownum].Value = i;
-                        dataGridView1[1, rownum].Value = "CAT 10 MLAT";
-                        dataGridView1[2, rownum].Value = asterixFile.getListCat10MLAT()[i].SAC;
-                        dataGridView1[3, rownum].Value = asterixFile.getListCat10MLAT()[i].SIC;
-                        dataGridView1[4, rownum].Value = asterixFile.getListCat10MLAT()[i].TargetID;
-                        dataGridView1[5, rownum].Value = asterixFile.getListCat10MLAT()[i].TrackNumber;
-                        dataGridView1[6, rownum].Value = asterixFile.getListCat10MLAT()[i].TimeOfDay;
-                        dataGridView1[7, rownum].Value = asterixFile.getListCat10MLAT()[i].TargetAddress;
-                        rownum++;
+                        if (asterixFile.getListCat10SMR()[i].TargetAddress == busca)
+                        {
+                            dataGridView1[0, rownum].Value = i;
+                            dataGridView1[1, rownum].Value = "CAT 10 SMR";
+                            dataGridView1[2, rownum].Value = asterixFile.getListCat10SMR()[i].SAC;
+                            dataGridView1[3, rownum].Value = asterixFile.getListCat10SMR()[i].SIC;
+                            dataGridView1[4, rownum].Value = asterixFile.getListCat10SMR()[i].TargetID;
+                            dataGridView1[5, rownum].Value = asterixFile.getListCat10SMR()[i].TrackNumber;
+                            dataGridView1[6, rownum].Value = asterixFile.getListCat10SMR()[i].TimeOfDay;
+                            dataGridView1[7, rownum].Value = asterixFile.getListCat10SMR()[i].TargetAddress;
+                            rownum++;
+                        }
+                        i++;
                     }
-                    i++;
                 }
+                if (0 < asterixFile.getListCat10MLAT().Count)
+                {
+                    i = 0;
+                    int rownum = 0;
+                    dataGridView1.RowCount = asterixFile.getListCat10MLAT().Count;
+                    while (i < asterixFile.getListCat10MLAT().Count)
+                    {
+                        if (asterixFile.getListCat10MLAT()[i].TargetAddress == busca)
+                        {
+                            dataGridView1[0, rownum].Value = i;
+                            dataGridView1[1, rownum].Value = "CAT 10 MLAT";
+                            dataGridView1[2, rownum].Value = asterixFile.getListCat10MLAT()[i].SAC;
+                            dataGridView1[3, rownum].Value = asterixFile.getListCat10MLAT()[i].SIC;
+                            dataGridView1[4, rownum].Value = asterixFile.getListCat10MLAT()[i].TargetID;
+                            dataGridView1[5, rownum].Value = asterixFile.getListCat10MLAT()[i].TrackNumber;
+                            dataGridView1[6, rownum].Value = asterixFile.getListCat10MLAT()[i].TimeOfDay;
+                            dataGridView1[7, rownum].Value = asterixFile.getListCat10MLAT()[i].TargetAddress;
+                            rownum++;
+                        }
+                        i++;
+                    }
+                }
+            }
+            else if(buscartipus == "Number")
+            {
+
+                if (asterixFile.getListCatAll().Count > 0 && Mode == 0)
+                    {
+                        dataGridView1.RowCount = 1;
+                        i = Convert.ToInt32(busca); 
+                        if (asterixFile.getListCatAll()[i].CATMode == "SMR")
+                        {
+                            int index = asterixFile.getListCatAll()[i].NumLlista;
+                            dataGridView1[0, 0].Value = i;
+                            dataGridView1[1, 0].Value = "CAT 10 SMR";
+                            dataGridView1[2, 0].Value = asterixFile.getListCat10SMR()[index].SAC;
+                            dataGridView1[3, 0].Value = asterixFile.getListCat10SMR()[index].SIC;
+                            dataGridView1[4, 0].Value = asterixFile.getListCat10SMR()[index].TargetID;
+                            dataGridView1[5, 0].Value = asterixFile.getListCat10SMR()[index].TrackNumber;
+                            dataGridView1[6, 0].Value = asterixFile.getListCat10SMR()[index].TimeOfDay;
+                            dataGridView1[7, 0].Value = asterixFile.getListCat10SMR()[index].TargetAddress;
+                            i++;
+                        }
+                        else if (asterixFile.getListCatAll()[i].CATMode == "MLAT")
+                        {
+                            int index = asterixFile.getListCatAll()[i].NumLlista;
+                            dataGridView1[0, 0].Value = i;
+                            dataGridView1[1, 0].Value = "CAT 10 MLAT";
+                            dataGridView1[2, 0].Value = asterixFile.getListCat10MLAT()[index].SAC;
+                            dataGridView1[3, 0].Value = asterixFile.getListCat10MLAT()[index].SIC;
+                            dataGridView1[4, 0].Value = asterixFile.getListCat10MLAT()[index].TargetID;
+                            dataGridView1[5, 0].Value = asterixFile.getListCat10MLAT()[index].TrackNumber;
+                            dataGridView1[6, 0].Value = asterixFile.getListCat10MLAT()[index].TimeOfDay;
+                            dataGridView1[7, 0].Value = asterixFile.getListCat10MLAT()[index].TargetAddress;
+                            i++;
+                        }
+                        //else if(asterixFile.getListCatAll()[i].CATMode == "ADSB")
+                        //{
+                        //    int index = asterixFile.getListCatAll()[i].NumLlista;
+                        //    dataGridView1[0, i].Value = i;
+                        //    dataGridView1[1, i].Value = "CAT 21 ADSB";
+                        //    dataGridView1[2, i].Value = asterixFile.getListCat21()[index].SAC;
+                        //    dataGridView1[3, i].Value = asterixFile.getListCat21()[index].SIC;
+                        //    dataGridView1[4, i].Value = asterixFile.getListCat21()[index].TargetID;
+                        //    dataGridView1[5, i].Value = asterixFile.getListCat21()[index].TrackNumber;
+                        //    dataGridView1[6, i].Value = asterixFile.getListCat21()[index].TimeOfDay;
+                        //    dataGridView1[7, i].Value = asterixFile.getListCat21()[index].TargetAddress;
+                        //    i++;
+                        //}
+
+                    }
+                else if(asterixFile.getListCat10SMR().Count > 0 && Mode == 1)
+                {
+                    dataGridView1.RowCount = 1;
+                    i = Convert.ToInt32(busca);
+                    dataGridView1[0, 0].Value = i;
+                    dataGridView1[1, 0].Value = "CAT 10 SMR";
+                    dataGridView1[2, 0].Value = asterixFile.getListCat10SMR()[i].SAC;
+                    dataGridView1[3, 0].Value = asterixFile.getListCat10SMR()[i].SIC;
+                    dataGridView1[4, 0].Value = asterixFile.getListCat10SMR()[i].TargetID;
+                    dataGridView1[5, 0].Value = asterixFile.getListCat10SMR()[i].TrackNumber;
+                    dataGridView1[6, 0].Value = asterixFile.getListCat10SMR()[i].TimeOfDay;
+                    dataGridView1[7, 0].Value = asterixFile.getListCat10SMR()[i].TargetAddress;
+                }
+                else if(asterixFile.getListCat10MLAT().Count > 0 && Mode == 2)
+                {
+                    dataGridView1.RowCount = 1;
+                    i = Convert.ToInt32(busca);
+                    dataGridView1[0, 0].Value = i;
+                    dataGridView1[1, 0].Value = "CAT 10 MLAT";
+                    dataGridView1[2, 0].Value = asterixFile.getListCat10MLAT()[i].SAC;
+                    dataGridView1[3, 0].Value = asterixFile.getListCat10MLAT()[i].SIC;
+                    dataGridView1[4, 0].Value = asterixFile.getListCat10MLAT()[i].TargetID;
+                    dataGridView1[5, 0].Value = asterixFile.getListCat10MLAT()[i].TrackNumber;
+                    dataGridView1[6, 0].Value = asterixFile.getListCat10MLAT()[i].TimeOfDay;
+                    dataGridView1[7, 0].Value = asterixFile.getListCat10MLAT()[i].TargetAddress;
+                }
+
+
             }
         }
 
@@ -771,6 +899,16 @@ namespace Graphics
             Mapa mapa = new Mapa();
             mapa.setAsterix(asterixFile);
             mapa.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //buscartipus = listBoxSearch.Text;
+        }
+
+        private void listBoxSearch_Click(object sender, EventArgs e)
+        {
+            buscartipus = listBoxSearch.Text;
         }
     }
 }

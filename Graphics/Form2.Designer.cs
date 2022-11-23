@@ -89,6 +89,9 @@ namespace Graphics
             this.buttonBuscar = new System.Windows.Forms.Button();
             this.labelPage = new System.Windows.Forms.Label();
             this.buttonMap = new System.Windows.Forms.Button();
+            this.label16 = new System.Windows.Forms.Label();
+            this.listBoxSearch = new System.Windows.Forms.ListBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -624,7 +627,7 @@ namespace Graphics
             this.buttonBuscar.Name = "buttonBuscar";
             this.buttonBuscar.Size = new System.Drawing.Size(75, 23);
             this.buttonBuscar.TabIndex = 51;
-            this.buttonBuscar.Text = "Buscar";
+            this.buttonBuscar.Text = "Search";
             this.buttonBuscar.UseVisualStyleBackColor = true;
             this.buttonBuscar.Click += new System.EventHandler(this.buttonBuscar_Click);
             // 
@@ -647,11 +650,47 @@ namespace Graphics
             this.buttonMap.UseVisualStyleBackColor = true;
             this.buttonMap.Click += new System.EventHandler(this.buttonMap_Click);
             // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(12, 806);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(76, 17);
+            this.label16.TabIndex = 54;
+            this.label16.Text = "Search by:";
+            // 
+            // listBoxSearch
+            // 
+            this.listBoxSearch.FormattingEnabled = true;
+            this.listBoxSearch.ItemHeight = 16;
+            this.listBoxSearch.Items.AddRange(new object[] {
+            "Track Number",
+            "Target Address",
+            "Number"});
+            this.listBoxSearch.Location = new System.Drawing.Point(93, 806);
+            this.listBoxSearch.Name = "listBoxSearch";
+            this.listBoxSearch.Size = new System.Drawing.Size(120, 68);
+            this.listBoxSearch.TabIndex = 55;
+            this.listBoxSearch.Click += new System.EventHandler(this.listBoxSearch_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(219, 806);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(87, 35);
+            this.button1.TabIndex = 56;
+            this.button1.Text = "Apply";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1612, 1055);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.listBoxSearch);
+            this.Controls.Add(this.label16);
             this.Controls.Add(this.buttonMap);
             this.Controls.Add(this.labelPage);
             this.Controls.Add(this.buttonBuscar);
@@ -776,5 +815,8 @@ namespace Graphics
         private System.Windows.Forms.Button buttonBuscar;
         private System.Windows.Forms.Label labelPage;
         private System.Windows.Forms.Button buttonMap;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.ListBox listBoxSearch;
+        private System.Windows.Forms.Button button1;
     }
 }

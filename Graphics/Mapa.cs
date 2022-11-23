@@ -27,6 +27,7 @@ namespace Graphics
         bool ShowMLAT = true;
         bool ShowADSB = true;
         int multiplicador = 1000;
+        string mapa = "ORI";
 
         //LAT i LONG arp Barcelona
         double LatInicial = 41.289182;
@@ -48,6 +49,10 @@ namespace Graphics
         {
             startTime = timestart(asterixFile);
             labelTiempo.Text = Convert.ToString(TimeSpan.FromSeconds(startTime).ToString(@"hh\:mm\:ss"));
+            TimeSpan timeextra = TimeSpan.FromSeconds(startTime);
+            listBoxHH.Text = Convert.ToString(timeextra.Hours);
+            listBoxMM.Text = Convert.ToString(timeextra.Minutes);
+            listBoxSS.Text = Convert.ToString(timeextra.Seconds);
             timer1.Interval = multiplicador;
 
             gMapControl1.DragButton = MouseButtons.Left;
@@ -134,11 +139,25 @@ namespace Graphics
             Config.setSMR(ShowSMR);
             Config.setMLAT(ShowMLAT);
             Config.setADSB(ShowADSB);
+            Config.setMAP(mapa);
             Config.ShowDialog();
             this.multiplicador = Config.GetMultiplicador();
             this.ShowSMR = Config.GetSMR();
             this.ShowMLAT = Config.GetMLAT();
             this.ShowADSB = Config.GetADSB();
+            this.mapa = Config.GetMAP();
+            if (mapa == "ORI")
+            {
+                gMapControl1.MapProvider = GMapProviders.GoogleMap;
+            }
+            else if (mapa == "SAT")
+            {
+                gMapControl1.MapProvider = GMapProviders.GoogleSatelliteMap;
+            }
+            else if (mapa == "REL")
+            {
+                gMapControl1.MapProvider = GMapProviders.GoogleTerrainMap;
+            }
             timer1.Interval = multiplicador;
         }
 
@@ -151,16 +170,19 @@ namespace Graphics
         private void buttonLEBL_Click(object sender, EventArgs e)
         {
             gMapControl1.Zoom = 13;
+            gMapControl1.Position = new PointLatLng(LatInicial, LongInicial);
         }
 
         private void buttonBCN_Click(object sender, EventArgs e)
         {
             gMapControl1.Zoom = 10;
+            gMapControl1.Position = new PointLatLng(LatInicial, LongInicial);
         }
 
         private void buttonCAT_Click(object sender, EventArgs e)
         {
             gMapControl1.Zoom = 7;
+            gMapControl1.Position = new PointLatLng(LatInicial, LongInicial);
         }
 
         private void buttonReset_Click(object sender, EventArgs e)
@@ -174,6 +196,23 @@ namespace Graphics
             }
             gMapControl1.Refresh();
             startTime = timestart(asterixFile);
+        }
+
+        private void buttonInitialH_Click(object sender, EventArgs e)
+        {
+            double HH = Convert.ToDouble(listBoxHH.Text)*3600;
+            double MM = Convert.ToDouble(listBoxMM.Text)*60;
+            double SS = Convert.ToDouble(listBoxSS.Text) + MM + HH;
+            startTime = SS;
+            buttonPlay.Text = "Play";
+            timer1.Stop();
+            start = false;
+            while (gMapControl1.Overlays.Count > 0)
+            {
+                gMapControl1.Overlays.RemoveAt(0);
+            }
+            gMapControl1.Refresh();
+            labelTiempo.Text = Convert.ToString(TimeSpan.FromSeconds(startTime).ToString(@"hh\:mm\:ss"));
         }
     }
 }

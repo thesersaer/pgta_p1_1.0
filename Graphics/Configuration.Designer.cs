@@ -40,6 +40,10 @@ namespace Graphics
             this.checkBoxMLAT = new System.Windows.Forms.CheckBox();
             this.checkBoxADSB = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.buttonSAT = new System.Windows.Forms.Button();
+            this.buttonORIG = new System.Windows.Forms.Button();
+            this.buttonREL = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonX1
@@ -94,9 +98,9 @@ namespace Graphics
             // 
             // buttonAceptar
             // 
-            this.buttonAceptar.Location = new System.Drawing.Point(650, 376);
+            this.buttonAceptar.Location = new System.Drawing.Point(663, 273);
             this.buttonAceptar.Name = "buttonAceptar";
-            this.buttonAceptar.Size = new System.Drawing.Size(75, 23);
+            this.buttonAceptar.Size = new System.Drawing.Size(89, 37);
             this.buttonAceptar.TabIndex = 5;
             this.buttonAceptar.Text = "Aceptar";
             this.buttonAceptar.UseVisualStyleBackColor = true;
@@ -149,15 +153,58 @@ namespace Graphics
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(50, 123);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(125, 17);
+            this.label2.Size = new System.Drawing.Size(107, 17);
             this.label2.TabIndex = 10;
-            this.label2.Text = "Mostrar Categoria:";
+            this.label2.Text = "Show Category:";
+            // 
+            // buttonSAT
+            // 
+            this.buttonSAT.Location = new System.Drawing.Point(203, 174);
+            this.buttonSAT.Name = "buttonSAT";
+            this.buttonSAT.Size = new System.Drawing.Size(117, 23);
+            this.buttonSAT.TabIndex = 11;
+            this.buttonSAT.Text = "Satellite";
+            this.buttonSAT.UseVisualStyleBackColor = true;
+            this.buttonSAT.Click += new System.EventHandler(this.buttonSAT_Click);
+            // 
+            // buttonORIG
+            // 
+            this.buttonORIG.Location = new System.Drawing.Point(345, 174);
+            this.buttonORIG.Name = "buttonORIG";
+            this.buttonORIG.Size = new System.Drawing.Size(117, 23);
+            this.buttonORIG.TabIndex = 12;
+            this.buttonORIG.Text = "Original";
+            this.buttonORIG.UseVisualStyleBackColor = true;
+            this.buttonORIG.Click += new System.EventHandler(this.buttonORIG_Click);
+            // 
+            // buttonREL
+            // 
+            this.buttonREL.Location = new System.Drawing.Point(485, 174);
+            this.buttonREL.Name = "buttonREL";
+            this.buttonREL.Size = new System.Drawing.Size(117, 23);
+            this.buttonREL.TabIndex = 13;
+            this.buttonREL.Text = "Relief";
+            this.buttonREL.UseVisualStyleBackColor = true;
+            this.buttonREL.Click += new System.EventHandler(this.buttonREL_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(50, 177);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(91, 17);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "Type of Map:";
             // 
             // Configuration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.buttonREL);
+            this.Controls.Add(this.buttonORIG);
+            this.Controls.Add(this.buttonSAT);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.checkBoxADSB);
             this.Controls.Add(this.checkBoxMLAT);
@@ -190,5 +237,9 @@ namespace Graphics
         private System.Windows.Forms.CheckBox checkBoxMLAT;
         private System.Windows.Forms.CheckBox checkBoxADSB;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button buttonSAT;
+        private System.Windows.Forms.Button buttonORIG;
+        private System.Windows.Forms.Button buttonREL;
+        private System.Windows.Forms.Label label3;
     }
 }

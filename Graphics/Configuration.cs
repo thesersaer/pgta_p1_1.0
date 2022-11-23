@@ -7,6 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GMap.NET;
+using GMap.NET.MapProviders;
+using GMap.NET.WindowsForms;
+using GMap.NET.WindowsForms.Markers;
 
 namespace Graphics
 {
@@ -16,6 +20,7 @@ namespace Graphics
         bool ShowSMR = true;
         bool ShowMLAT = true;
         bool ShowADSB = true;
+        string map;
 
         public Configuration()
         {
@@ -42,6 +47,11 @@ namespace Graphics
             return ShowADSB;
         }
 
+        public string GetMAP()
+        {
+            return map;
+        }
+
         public void setMultiplicador(int multiplicador)
         {
             this.multiplicador = multiplicador;
@@ -60,6 +70,10 @@ namespace Graphics
         public void setADSB(bool ADSB)
         {
             this.ShowADSB = ADSB;
+        }
+        public void setMAP(string map)
+        {
+            this.map = map;
         }
 
         private void buttonAceptar_Click(object sender, EventArgs e)
@@ -199,6 +213,21 @@ namespace Graphics
             {
                 this.ShowADSB = false;
             }
+        }
+
+        private void buttonSAT_Click(object sender, EventArgs e)
+        {
+            this.map = "SAT";
+        }
+
+        private void buttonORIG_Click(object sender, EventArgs e)
+        {
+            this.map = "ORI";
+        }
+
+        private void buttonREL_Click(object sender, EventArgs e)
+        {
+            this.map = "REL";
         }
     }
 }

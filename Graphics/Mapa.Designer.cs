@@ -48,6 +48,11 @@ namespace Graphics
             this.buttonBCN = new System.Windows.Forms.Button();
             this.buttonCAT = new System.Windows.Forms.Button();
             this.buttonReset = new System.Windows.Forms.Button();
+            this.buttonInitialH = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.listBoxHH = new System.Windows.Forms.ListBox();
+            this.listBoxMM = new System.Windows.Forms.ListBox();
+            this.listBoxSS = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewINFO)).BeginInit();
             this.SuspendLayout();
             // 
@@ -237,11 +242,209 @@ namespace Graphics
             this.buttonReset.UseVisualStyleBackColor = true;
             this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
             // 
+            // buttonInitialH
+            // 
+            this.buttonInitialH.Location = new System.Drawing.Point(263, 790);
+            this.buttonInitialH.Name = "buttonInitialH";
+            this.buttonInitialH.Size = new System.Drawing.Size(75, 23);
+            this.buttonInitialH.TabIndex = 9;
+            this.buttonInitialH.Text = "Accept";
+            this.buttonInitialH.UseVisualStyleBackColor = true;
+            this.buttonInitialH.Click += new System.EventHandler(this.buttonInitialH_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(23, 793);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(77, 17);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Initial hour:";
+            // 
+            // listBoxHH
+            // 
+            this.listBoxHH.FormattingEnabled = true;
+            this.listBoxHH.ItemHeight = 16;
+            this.listBoxHH.Items.AddRange(new object[] {
+            "00",
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23"});
+            this.listBoxHH.Location = new System.Drawing.Point(106, 793);
+            this.listBoxHH.Name = "listBoxHH";
+            this.listBoxHH.Size = new System.Drawing.Size(49, 20);
+            this.listBoxHH.TabIndex = 12;
+            // 
+            // listBoxMM
+            // 
+            this.listBoxMM.FormattingEnabled = true;
+            this.listBoxMM.ItemHeight = 16;
+            this.listBoxMM.Items.AddRange(new object[] {
+            "00",
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "32",
+            "33",
+            "34",
+            "35",
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42",
+            "43",
+            "44",
+            "45",
+            "46",
+            "47",
+            "48",
+            "49",
+            "50",
+            "51",
+            "52",
+            "53",
+            "54",
+            "55",
+            "56",
+            "57",
+            "58",
+            "59"});
+            this.listBoxMM.Location = new System.Drawing.Point(161, 793);
+            this.listBoxMM.Name = "listBoxMM";
+            this.listBoxMM.Size = new System.Drawing.Size(45, 20);
+            this.listBoxMM.TabIndex = 13;
+            // 
+            // listBoxSS
+            // 
+            this.listBoxSS.FormattingEnabled = true;
+            this.listBoxSS.ItemHeight = 16;
+            this.listBoxSS.Items.AddRange(new object[] {
+            "00",
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "32",
+            "33",
+            "34",
+            "35",
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42",
+            "43",
+            "44",
+            "45",
+            "46",
+            "47",
+            "48",
+            "49",
+            "50",
+            "51",
+            "52",
+            "53",
+            "54",
+            "55",
+            "56",
+            "57",
+            "58",
+            "59"});
+            this.listBoxSS.Location = new System.Drawing.Point(212, 793);
+            this.listBoxSS.Name = "listBoxSS";
+            this.listBoxSS.Size = new System.Drawing.Size(45, 20);
+            this.listBoxSS.TabIndex = 14;
+            // 
             // Mapa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1441, 898);
+            this.Controls.Add(this.listBoxSS);
+            this.Controls.Add(this.listBoxMM);
+            this.Controls.Add(this.listBoxHH);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.buttonInitialH);
             this.Controls.Add(this.buttonReset);
             this.Controls.Add(this.buttonCAT);
             this.Controls.Add(this.buttonBCN);
@@ -280,5 +483,10 @@ namespace Graphics
         private System.Windows.Forms.Button buttonBCN;
         private System.Windows.Forms.Button buttonCAT;
         private System.Windows.Forms.Button buttonReset;
+        private System.Windows.Forms.Button buttonInitialH;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ListBox listBoxHH;
+        private System.Windows.Forms.ListBox listBoxMM;
+        private System.Windows.Forms.ListBox listBoxSS;
     }
 }
