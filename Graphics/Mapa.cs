@@ -19,10 +19,13 @@ namespace Graphics
     {
         AsterixFile asterixFile = new AsterixFile();
         GMarkerGoogle marker;
-        GMarkerGoogle marker2;
-        GMapOverlay markerOverlay;
+        //GMarkerGoogle marker2;
+        GMapOverlay markerOverlay = new GMapOverlay("Marcador");
 
         bool start = false;
+        bool ShowSMR = true;
+        bool ShowMLAT = true;
+        bool ShowADSB = true;
         int multiplicador = 1000;
 
         //LAT i LONG arp Barcelona
@@ -44,7 +47,7 @@ namespace Graphics
         private void Mapa_Load(object sender, EventArgs e)
         {
             startTime = timestart(asterixFile);
-            labelTiempo.Text = Convert.ToString(startTime);
+            labelTiempo.Text = Convert.ToString(TimeSpan.FromSeconds(startTime).ToString(@"hh\:mm\:ss"));
             timer1.Interval = multiplicador;
 
             gMapControl1.DragButton = MouseButtons.Left;
@@ -57,14 +60,14 @@ namespace Graphics
             gMapControl1.AutoScroll = true;
 
             // Marcador
-            markerOverlay = new GMapOverlay("Marcador");
-            marker = new GMarkerGoogle(new PointLatLng(LatInicial, LongInicial), GMarkerGoogleType.black_small);
-            marker2 = new GMarkerGoogle(new PointLatLng(41.5218892, 2.10384403839652), GMarkerGoogleType.arrow);
-            markerOverlay.Markers.Add(marker2);
-            markerOverlay.Markers.Add(marker);
-            marker.ToolTipMode = MarkerTooltipMode.Always;
-            marker.ToolTipText = string.Format("Ubicación: \n Latitud:{0} \n Longitud: {1}", LatInicial, LongInicial);
-            gMapControl1.Overlays.Add(markerOverlay);
+            //markerOverlay = new GMapOverlay("Marcador");
+            //marker = new GMarkerGoogle(new PointLatLng(LatInicial, LongInicial), GMarkerGoogleType.black_small);
+            //marker2 = new GMarkerGoogle(new PointLatLng(41.5218892, 2.10384403839652), GMarkerGoogleType.arrow);
+            //markerOverlay.Markers.Add(marker2);
+            //markerOverlay.Markers.Add(marker);
+            //marker.ToolTipMode = MarkerTooltipMode.Always;
+            //marker.ToolTipText = string.Format("Ubicación: \n Latitud:{0} \n Longitud: {1}", LatInicial, LongInicial);
+            //gMapControl1.Overlays.Add(markerOverlay);
 
         }
 
@@ -75,31 +78,40 @@ namespace Graphics
                 timer1.Interval = multiplicador;
                 timer1.Start();
                 buttonPlay.Text = "Pause";
-                startTime = timestart(asterixFile); ;
                 start = true;
             }
             else
             {
                 buttonPlay.Text = "Play";
                 timer1.Stop();
-                start = false;    
+                start = false;
             }
 
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            labelTiempo.Text = Convert.ToString(startTime);
+            labelTiempo.Text = Convert.ToString(TimeSpan.FromSeconds(startTime).ToString(@"hh\:mm\:ss"));
             int n = 0;
+            markerOverlay = new GMapOverlay("Marcador");
             while (n < asterixFile.getListCatAll().Count)
             {
-                if (asterixFile.getListCatAll()[n].TimeofDayseg == startTime)
+                if (Math.Round(asterixFile.getListCatAll()[n].TimeofDayseg) == Math.Round(startTime))
                 {
-                    marker = new GMarkerGoogle(new PointLatLng(asterixFile.getListCatAll()[n].LatWGS84, asterixFile.getListCatAll()[n].LongWGS84), GMarkerGoogleType.black_small);
-                    markerOverlay.Markers.Add(marker);
-                    marker.ToolTipMode = MarkerTooltipMode.Always;
-                    marker.ToolTipText = string.Format("Ubicación: \n Latitud:{0} \n Longitud: {1}", asterixFile.getListCatAll()[n].LatWGS84, asterixFile.getListCatAll()[n].LongWGS84);
-                    gMapControl1.Overlays.Add(markerOverlay);
+                    if (asterixFile.getListCatAll()[n].CATMode == "SMR" && ShowSMR == true)
+                    {
+                        marker = new GMarkerGoogle(new PointLatLng(asterixFile.getListCatAll()[n].LatWGS84, asterixFile.getListCatAll()[n].LongWGS84), GMarkerGoogleType.black_small);
+                        markerOverlay.Markers.Add(marker);
+                        gMapControl1.Overlays.Add(markerOverlay);
+                    }
+                    else if (asterixFile.getListCatAll()[n].CATMode == "MLAT" && ShowMLAT == true)
+                    {
+                        marker = new GMarkerGoogle(new PointLatLng(asterixFile.getListCatAll()[n].LatWGS84, asterixFile.getListCatAll()[n].LongWGS84), GMarkerGoogleType.blue_dot);
+                        markerOverlay.Markers.Add(marker);
+                        gMapControl1.Overlays.Add(markerOverlay);
+                    }
+
+
                 }
                 n++;
             }
@@ -109,15 +121,6 @@ namespace Graphics
         private double timestart(AsterixFile asterix)
         {
             double timelow = asterix.getListCatAll()[0].TimeofDayseg;
-            int n = 0;
-            while (n < asterix.getListCatAll().Count)
-            {
-                if(asterix.getListCatAll()[n].TimeofDayseg < timelow)
-                {
-                    timelow = asterix.getListCatAll()[n].TimeofDayseg;
-                }
-                n++;
-            }
             return timelow;
         }
 
@@ -127,9 +130,50 @@ namespace Graphics
             timer1.Stop();
             start = false;
             Configuration Config = new Configuration();
+            Config.setMultiplicador(multiplicador);
+            Config.setSMR(ShowSMR);
+            Config.setMLAT(ShowMLAT);
+            Config.setADSB(ShowADSB);
             Config.ShowDialog();
             this.multiplicador = Config.GetMultiplicador();
+            this.ShowSMR = Config.GetSMR();
+            this.ShowMLAT = Config.GetMLAT();
+            this.ShowADSB = Config.GetADSB();
             timer1.Interval = multiplicador;
+        }
+
+        private void gMapControl1_OnMarkerClick(GMapMarker item, MouseEventArgs e)
+        {
+            dataGridViewINFO.Columns.Clear();
+            
+        }
+
+        private void buttonLEBL_Click(object sender, EventArgs e)
+        {
+            gMapControl1.Zoom = 13;
+        }
+
+        private void buttonBCN_Click(object sender, EventArgs e)
+        {
+            gMapControl1.Zoom = 10;
+        }
+
+        private void buttonCAT_Click(object sender, EventArgs e)
+        {
+            gMapControl1.Zoom = 7;
+        }
+
+        private void buttonReset_Click(object sender, EventArgs e)
+        {
+            timer1.Stop();
+            buttonPlay.Text = "Play";
+            start = false;
+            while (gMapControl1.Overlays.Count > 0)
+            {
+                gMapControl1.Overlays.RemoveAt(0);
+            }
+            gMapControl1.Refresh();
+            startTime = timestart(asterixFile);
         }
     }
 }

@@ -36,6 +36,10 @@ namespace Graphics
             this.buttonX20 = new System.Windows.Forms.Button();
             this.buttonAceptar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.checkBoxSMR = new System.Windows.Forms.CheckBox();
+            this.checkBoxMLAT = new System.Windows.Forms.CheckBox();
+            this.checkBoxADSB = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonX1
@@ -107,11 +111,57 @@ namespace Graphics
             this.label1.TabIndex = 6;
             this.label1.Text = "Reproduction Velocity:";
             // 
+            // checkBoxSMR
+            // 
+            this.checkBoxSMR.AutoSize = true;
+            this.checkBoxSMR.Location = new System.Drawing.Point(203, 123);
+            this.checkBoxSMR.Name = "checkBoxSMR";
+            this.checkBoxSMR.Size = new System.Drawing.Size(60, 21);
+            this.checkBoxSMR.TabIndex = 7;
+            this.checkBoxSMR.Text = "SMR";
+            this.checkBoxSMR.UseVisualStyleBackColor = true;
+            this.checkBoxSMR.CheckedChanged += new System.EventHandler(this.checkBoxSMR_CheckedChanged);
+            // 
+            // checkBoxMLAT
+            // 
+            this.checkBoxMLAT.AutoSize = true;
+            this.checkBoxMLAT.Location = new System.Drawing.Point(373, 123);
+            this.checkBoxMLAT.Name = "checkBoxMLAT";
+            this.checkBoxMLAT.Size = new System.Drawing.Size(67, 21);
+            this.checkBoxMLAT.TabIndex = 8;
+            this.checkBoxMLAT.Text = "MLAT";
+            this.checkBoxMLAT.UseVisualStyleBackColor = true;
+            this.checkBoxMLAT.CheckedChanged += new System.EventHandler(this.checkBoxMLAT_CheckedChanged);
+            // 
+            // checkBoxADSB
+            // 
+            this.checkBoxADSB.AutoSize = true;
+            this.checkBoxADSB.Location = new System.Drawing.Point(535, 122);
+            this.checkBoxADSB.Name = "checkBoxADSB";
+            this.checkBoxADSB.Size = new System.Drawing.Size(67, 21);
+            this.checkBoxADSB.TabIndex = 9;
+            this.checkBoxADSB.Text = "ADSB";
+            this.checkBoxADSB.UseVisualStyleBackColor = true;
+            this.checkBoxADSB.CheckedChanged += new System.EventHandler(this.checkBoxADSB_CheckedChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(50, 123);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(125, 17);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Mostrar Categoria:";
+            // 
             // Configuration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.checkBoxADSB);
+            this.Controls.Add(this.checkBoxMLAT);
+            this.Controls.Add(this.checkBoxSMR);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonAceptar);
             this.Controls.Add(this.buttonX20);
@@ -136,5 +186,9 @@ namespace Graphics
         private System.Windows.Forms.Button buttonX20;
         private System.Windows.Forms.Button buttonAceptar;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox checkBoxSMR;
+        private System.Windows.Forms.CheckBox checkBoxMLAT;
+        private System.Windows.Forms.CheckBox checkBoxADSB;
+        private System.Windows.Forms.Label label2;
     }
 }

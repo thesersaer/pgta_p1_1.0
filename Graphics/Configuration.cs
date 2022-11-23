@@ -12,7 +12,10 @@ namespace Graphics
 {
     public partial class Configuration : Form
     {
-        public int multiplicador = 1;
+        public int multiplicador = 1000;
+        bool ShowSMR = true;
+        bool ShowMLAT = true;
+        bool ShowADSB = true;
 
         public Configuration()
         {
@@ -24,6 +27,41 @@ namespace Graphics
             return multiplicador;
         }
 
+        public bool GetSMR()
+        {
+            return ShowSMR;
+        }
+
+        public bool GetMLAT()
+        {
+            return ShowMLAT;
+        }
+
+        public bool GetADSB()
+        {
+            return ShowADSB;
+        }
+
+        public void setMultiplicador(int multiplicador)
+        {
+            this.multiplicador = multiplicador;
+        }
+
+        public void setSMR(bool SMR)
+        {
+            this.ShowSMR = SMR;
+        }
+
+        public void setMLAT(bool MLAT)
+        {
+            this.ShowMLAT = MLAT;
+        }
+
+        public void setADSB(bool ADSB)
+        {
+            this.ShowADSB = ADSB;
+        }
+
         private void buttonAceptar_Click(object sender, EventArgs e)
         {
             Close();
@@ -31,7 +69,50 @@ namespace Graphics
 
         private void Configuration_Load(object sender, EventArgs e)
         {
-            buttonX1.BackColor = Color.Azure;
+            if (this.multiplicador == 1000)
+            {
+                buttonX1.BackColor = Color.Azure;
+            }
+            if (this.multiplicador == 500)
+            {
+                buttonX2.BackColor = Color.Azure;
+            }
+            if (this.multiplicador == 200)
+            {
+                buttonX5.BackColor = Color.Azure;
+            }
+            if (this.multiplicador == 100)
+            {
+                buttonX10.BackColor = Color.Azure;
+            }
+            if (this.multiplicador == 50)
+            {
+                buttonX20.BackColor = Color.Azure;
+            }
+            if (this.ShowSMR == true)
+            {
+                checkBoxSMR.Checked = true;
+            }
+            else
+            {
+                checkBoxSMR.Checked = false;
+            }
+            if (this.ShowMLAT == true)
+            {
+                checkBoxMLAT.Checked = true;
+            }
+            else
+            {
+                checkBoxMLAT.Checked = false;
+            }
+            if (this.ShowADSB == true)
+            {
+                checkBoxADSB.Checked = true;
+            }
+            else
+            {
+                checkBoxADSB.Checked = false;
+            }
         }
 
         private void buttonX1_Click(object sender, EventArgs e)
@@ -82,6 +163,42 @@ namespace Graphics
             buttonX5.BackColor = SystemColors.Control;
             buttonX10.BackColor = SystemColors.Control;
             buttonX20.BackColor = Color.Azure;
+        }
+
+        private void checkBoxSMR_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxSMR.Checked == true)
+            {
+                this.ShowSMR = true;
+            }
+            else
+            {
+                this.ShowSMR = false;
+            }
+        }
+
+        private void checkBoxMLAT_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxMLAT.Checked == true)
+            {
+                this.ShowMLAT = true;
+            }
+            else
+            {
+                this.ShowMLAT = false;
+            }
+        }
+
+        private void checkBoxADSB_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxADSB.Checked == true)
+            {
+                this.ShowADSB = true;
+            }
+            else
+            {
+                this.ShowADSB = false;
+            }
         }
     }
 }
