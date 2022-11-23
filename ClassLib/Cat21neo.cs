@@ -24,8 +24,9 @@ namespace ClassLib
             {
                 contentArray[iiByteStr] = byte.Parse(stringArray[iiByteStr], System.Globalization.NumberStyles.HexNumber);
             }
-            this.len = concatToInt16(new byte[2] { contentArray[1],contentArray[2]});
+            this.len = concatToInt16(contentArray[1],contentArray[2]);
 
+            iiGlobalCounter = 3;
             int iiFrn = 1;
             bool fxBool;
             do
@@ -71,7 +72,10 @@ namespace ClassLib
                 else if (frnInt == 23) { targetStatus = new TargetStatus(contentArray, iiGlobalCounter); }
                 else if (frnInt == 24) { barometricVerticalRate = new BarometricVerticalRate(contentArray, iiGlobalCounter); }
                 else if (frnInt == 25) { geometricVerticalRate = new GeometricVerticalRate(contentArray, iiGlobalCounter); }
-
+                else if (frnInt == 26) { airborneGroundVector = new AirborneGroundVector(contentArray, iiGlobalCounter); }
+                else if (frnInt == 27) { trackAngleRate = new TrackAngleRate(contentArray, iiGlobalCounter); }
+                else if (frnInt == 28) { timeOfAsterixReport = new TimeOfAsterixReport(contentArray, iiGlobalCounter); }
+                else if (frnInt == 29) { targetIdentification = new TargetIdentification(contentArray, iiGlobalCounter); }
             }
         }
         #endregion
@@ -167,7 +171,7 @@ namespace ClassLib
             public readonly ushort trackNumber;
             public TrackNumber(byte[] content, int globalCounter)
             {
-                this.trackNumber = concatToInt16(new byte[] { content[globalCounter], content[globalCounter + 1] });
+                this.trackNumber = concatToInt16(content[globalCounter], content[globalCounter + 1]);
                 globalCounter += 2;
                 updateCounter(globalCounter);
             }
@@ -193,7 +197,7 @@ namespace ClassLib
             public readonly double toaSeconds;
             public TimeOfApplicabilityPosition(byte[] content, int globalCounter)
             {
-                this.toaSeconds = concatToInt32(new byte[3] { content[globalCounter], content[globalCounter + 1], content[globalCounter + 2] })*Math.Pow(2,-7);
+                this.toaSeconds = concatToInt32(content[globalCounter], content[globalCounter + 1], content[globalCounter + 2])*Math.Pow(2,-7);
                 globalCounter += 3;
                 updateCounter(globalCounter);
             }
@@ -208,9 +212,9 @@ namespace ClassLib
             public PositionWGS84(byte[] content, int globalCounter)
             {
                 double resFact = 180 / (Math.Pow(2, 23));
-                this.latitude = compl2(concatToInt32(new byte[3] { content[globalCounter], content[globalCounter + 1], content[globalCounter + 2] })) * resFact;
+                this.latitude = compl2(concatToInt32(content[globalCounter], content[globalCounter + 1], content[globalCounter + 2]),24) * resFact;
                 globalCounter += 3;
-                this.longitude = compl2(concatToInt32(new byte[3] { content[globalCounter], content[globalCounter + 1], content[globalCounter + 2] })) * resFact;
+                this.longitude = compl2(concatToInt32(content[globalCounter], content[globalCounter + 1], content[globalCounter + 2]),24) * resFact;
                 globalCounter += 3;
                 updateCounter(globalCounter);
             }
@@ -225,9 +229,9 @@ namespace ClassLib
             public PositionWGS84HP(byte[] content, int globalCounter)
             {
                 double resFact = 180 / (Math.Pow(2, 30));
-                this.latitude = compl2(concatToInt32(new byte[4] { content[globalCounter], content[globalCounter + 1], content[globalCounter + 2], content[globalCounter + 3] })) * resFact;
+                this.latitude = compl2(concatToInt32(content[globalCounter], content[globalCounter + 1], content[globalCounter + 2], content[globalCounter + 3]),32) * resFact;
                 globalCounter += 4;
-                this.longitude = compl2(concatToInt32(new byte[4] { content[globalCounter], content[globalCounter + 1], content[globalCounter + 2], content[globalCounter + 3] })) * resFact;
+                this.longitude = compl2(concatToInt32(content[globalCounter], content[globalCounter + 1], content[globalCounter + 2], content[globalCounter + 3]),32) * resFact;
                 globalCounter += 4;
                 updateCounter(globalCounter);
             }
@@ -240,7 +244,7 @@ namespace ClassLib
             public readonly double toaSeconds;
             public TimeOfApplicabilityVelocity(byte[] content, int globalCounter)
             {
-                this.toaSeconds = concatToInt32(new byte[3] { content[globalCounter], content[globalCounter + 1], content[globalCounter + 2] }) * Math.Pow(2, -7);
+                this.toaSeconds = concatToInt32(content[globalCounter], content[globalCounter + 1], content[globalCounter + 2]) * Math.Pow(2, -7);
                 globalCounter += 3;
                 updateCounter(globalCounter);
             }
@@ -254,7 +258,7 @@ namespace ClassLib
             public readonly double airSpeed;
             public AirSpeed(byte[] content, int globalCounter)
             {
-                var asVal = concatToInt16(new byte[2] { (byte)(content[globalCounter] & 0x7F), content[globalCounter + 1] });
+                var asVal = concatToInt16((byte)(content[globalCounter] & 0x7F), content[globalCounter + 1]);
                 if (((content[globalCounter] >> 7) & 0b1) == 0) { im = "IAS"; airSpeed = asVal * Math.Pow(2, -14); }
                 else { im = "Mach"; airSpeed = asVal * Math.Pow(10, -3); }
                 globalCounter += 2;
@@ -270,7 +274,7 @@ namespace ClassLib
             public readonly ushort trueAirspeed;
             public TrueAirspeed(byte[] content, int globalCounter)
             {
-                trueAirspeed = concatToInt16(new byte[2] { (byte)(content[globalCounter] & 0x7F), content[globalCounter + 1] });
+                trueAirspeed = concatToInt16((byte)(content[globalCounter] & 0x7F), content[globalCounter + 1]);
                 if (((content[globalCounter] >> 7) & 0b1) == 0) { rangeExceeded = false; }
                 else { rangeExceeded = true; }
                 globalCounter += 2;
@@ -285,7 +289,7 @@ namespace ClassLib
             public readonly int targetAddress;
             public TargetAddress(byte[] content, int globalCounter)
             {
-                targetAddress = concatToInt32(new byte[] { content[globalCounter], content[globalCounter + 1], content[globalCounter + 2] });
+                targetAddress = concatToInt32(content[globalCounter], content[globalCounter + 1], content[globalCounter + 2]);
                 globalCounter += 3;
                 updateCounter(globalCounter);
             }
@@ -298,7 +302,7 @@ namespace ClassLib
             public readonly double tomSeconds;
             public TimeOfMessageReceptionPosition(byte[] content, int globalCounter)
             {
-                tomSeconds = concatToInt32(new byte[] { content[globalCounter], content[globalCounter + 1], content[globalCounter + 2] }) * Math.Pow(2, -7);
+                tomSeconds = concatToInt32(content[globalCounter], content[globalCounter + 1], content[globalCounter + 2]) * Math.Pow(2, -7);
                 globalCounter += 3;
                 updateCounter(globalCounter);
             }
@@ -313,7 +317,7 @@ namespace ClassLib
             public TimeOfMessageReceptionPositionHP(byte[] content, int globalCounter, TimeOfMessageReceptionPosition tomrp)
             {
                 var fsiVal = (content[globalCounter] >> 6) & 0b11;
-                var fraccSeconds = concatToInt32(new byte[] { (byte)(content[globalCounter] & 0x3F), content[globalCounter + 1], content[globalCounter + 2], content[globalCounter + 3] });
+                var fraccSeconds = concatToInt32((byte)(content[globalCounter] & 0x3F), content[globalCounter + 1], content[globalCounter + 2], content[globalCounter + 3]);
                 tomSeconds = fraccSeconds * Math.Pow(2, -30);
                 if (fsiVal == 0b00) { tomSeconds += Math.Truncate(tomrp.tomSeconds); }
                 else if (fsiVal == 0b01) { tomSeconds += Math.Truncate(tomrp.tomSeconds) + 1; }
@@ -331,7 +335,7 @@ namespace ClassLib
             public readonly double tomSeconds;
             public TimeOfMessageReceptionVelocity(byte[] content, int globalCounter)
             {
-                tomSeconds = concatToInt32(new byte[] { content[globalCounter], content[globalCounter + 1], content[globalCounter + 2] }) * Math.Pow(2, -7);
+                tomSeconds = concatToInt32(content[globalCounter], content[globalCounter + 1], content[globalCounter + 2]) * Math.Pow(2, -7);
                 globalCounter += 3;
                 updateCounter(globalCounter);
             }
@@ -346,7 +350,7 @@ namespace ClassLib
             public TimeOfMessageReceptionVelocityHP(byte[] content, int globalCounter, TimeOfMessageReceptionVelocity tomrv)
             {
                 var fsiVal = (content[globalCounter] >> 6) & 0b11;
-                var fraccSeconds = concatToInt32(new byte[] { (byte)(content[globalCounter] & 0x3F), content[globalCounter + 1], content[globalCounter + 2], content[globalCounter + 3] });
+                var fraccSeconds = concatToInt32((byte)(content[globalCounter] & 0x3F), content[globalCounter + 1], content[globalCounter + 2], content[globalCounter + 3]);
                 tomSeconds = fraccSeconds * Math.Pow(2, -30);
                 if (fsiVal == 0b00) { tomSeconds += Math.Truncate(tomrv.tomSeconds); }
                 else if (fsiVal == 0b01) { tomSeconds += Math.Truncate(tomrv.tomSeconds) + 1; }
@@ -365,7 +369,7 @@ namespace ClassLib
             public readonly double geometricHeight;
             public GeometricHeight(byte[] content, int globalCounter)
             {
-                geometricHeight = concatToInt16(new byte[] { content[globalCounter], content[globalCounter + 1] }) * 6.25;
+                geometricHeight = concatToInt16(content[globalCounter], content[globalCounter + 1]) * 6.25;
                 if (geometricHeight == 0x7FFF) { greaterThan = true; }
                 globalCounter += 2;
                 updateCounter(globalCounter);
@@ -449,7 +453,7 @@ namespace ClassLib
             public readonly string replyCode; //Octal string
             public Mode3ACode(byte[] content, int globalCounter)
             {
-                var codeVal = concatToInt16(new byte[2] { content[globalCounter], content[globalCounter + 1] });
+                var codeVal = concatToInt16(content[globalCounter], content[globalCounter + 1]);
                 replyCode = Convert.ToString(codeVal, 8);
                 globalCounter += 2;
                 updateCounter(globalCounter);
@@ -464,7 +468,7 @@ namespace ClassLib
 
             public RollAngle(byte[] content, int globalCounter)
             {
-                rollAngle = compl2(concatToInt16(new byte[2] { content[globalCounter], content[globalCounter + 1] })) * 0.01;
+                rollAngle = compl2(concatToInt16(content[globalCounter], content[globalCounter + 1]), 16) * 0.01;
                 globalCounter += 2;
                 updateCounter(globalCounter);
             }
@@ -477,7 +481,7 @@ namespace ClassLib
             public readonly double flightLevel;
             public FlightLevel(byte[] content, int globalCounter)
             {
-                flightLevel = compl2(concatToInt16(new byte[2] { content[globalCounter], content[globalCounter + 1] })) * 0.25;
+                flightLevel = compl2(concatToInt16(content[globalCounter], content[globalCounter + 1]),16) * 0.25;
                 globalCounter += 2;
                 updateCounter(globalCounter);
             }
@@ -490,7 +494,7 @@ namespace ClassLib
             public readonly double magneticHeading;
             public MagneticHeading(byte[] content, int globalCounter)
             {
-                magneticHeading = concatToInt16(new byte[2] { content[globalCounter], content[globalCounter + 1] }) * (360 / Math.Pow(2, 16));
+                magneticHeading = concatToInt16(content[globalCounter], content[globalCounter + 1]) * (360 / Math.Pow(2, 16));
                 globalCounter += 2;
                 updateCounter(globalCounter);
             }
@@ -535,7 +539,7 @@ namespace ClassLib
             public BarometricVerticalRate(byte[] content, int globalCounter)
             {
                 rangeExceeded = ((content[globalCounter] >> 7) & 0b1) != 0;
-                barometricVerticalRateFtPerMin = compl2(concatToInt16(new byte[] { (byte)(content[globalCounter] & 0x7F), content[globalCounter + 1] })) * 6.25;
+                barometricVerticalRateFtPerMin = compl2(concatToInt16((byte)(content[globalCounter] & 0x7F), content[globalCounter + 1]),15) * 6.25;
                 globalCounter += 2;
                 updateCounter(globalCounter);
             }
@@ -550,8 +554,76 @@ namespace ClassLib
             public GeometricVerticalRate(byte[] content, int globalCounter)
             {
                 rangeExceeded = ((content[globalCounter] >> 7) & 0b1) != 0;
-                geometricVerticalRateFtPerMin = compl2(concatToInt16(new byte[] { (byte)(content[globalCounter] & 0x7F), content[globalCounter + 1] })) * 6.25;
+                geometricVerticalRateFtPerMin = compl2(concatToInt16((byte)(content[globalCounter] & 0x7F), content[globalCounter + 1]),15) * 6.25;
                 globalCounter += 2;
+                updateCounter(globalCounter);
+            }
+        }
+        #endregion
+        #region Airborne Ground Vector
+        public AirborneGroundVector airborneGroundVector;
+        public class AirborneGroundVector
+        {
+            public readonly bool rangeExceeded;
+            public readonly double groundSpeed;
+            public readonly double trackAngle; //cw wrt true north
+            public AirborneGroundVector(byte[] content, int globalCounter)
+            {
+                rangeExceeded = ((content[globalCounter] >> 7) & 0b1) != 0;
+                groundSpeed = concatToInt16((byte)(content[globalCounter] & 0x7F), content[globalCounter + 1]) * Math.Pow(2, -14);
+                globalCounter += 2;
+                trackAngle = concatToInt16(content[globalCounter], content[globalCounter + 1]) * (360 / Math.Pow(2, 16));
+                globalCounter += 2;
+                updateCounter(globalCounter);
+            }
+        }
+        #endregion
+        #region Track Angle Rate
+        public TrackAngleRate trackAngleRate;
+        public class TrackAngleRate
+        {
+            public readonly double trackAngleRate;
+            public TrackAngleRate(byte[] content, int globalCounter)
+            {
+                trackAngleRate = compl2(concatToInt16(content[globalCounter], content[globalCounter + 1]),10) * (1 / 32);
+                globalCounter += 2;
+                updateCounter(globalCounter);
+            }
+        }
+        #endregion
+        #region Time Of ASTERIX Report Transmission
+        public TimeOfAsterixReport timeOfAsterixReport;
+        public class TimeOfAsterixReport
+        {
+            public readonly double torSeconds;
+            public TimeOfAsterixReport(byte[] content, int globalCounter)
+            {
+                torSeconds = concatToInt32(content[globalCounter], content[globalCounter + 1], content[globalCounter + 2]) * Math.Pow(2, -7);
+                globalCounter += 3;
+                updateCounter(globalCounter);
+            }
+        }
+        #endregion
+        #region Target Identification
+        public TargetIdentification targetIdentification;
+        public class TargetIdentification
+        {
+            public readonly string targetIdentification = "";
+            public TargetIdentification(byte[] content, int globalCounter)
+            {
+                string tiStr = "";
+                string tiDecodedStr = "";
+                for (int iiOctet = 0; iiOctet < 6; iiOctet++)
+                {
+                    tiStr += Convert.ToString(content[globalCounter + iiOctet], 2).PadLeft(8, '0');
+                }
+                for (int iiStr = 0; iiStr < tiStr.Length; iiStr += 6)
+                {
+                    string charStr = tiStr.Substring(iiStr, 6);
+                    tiDecodedStr += decodeTI(charStr);
+                }
+                targetIdentification = tiDecodedStr;
+                globalCounter += 6;
                 updateCounter(globalCounter);
             }
         }
@@ -559,29 +631,38 @@ namespace ClassLib
         #endregion
 
         #region Funciones
-        static public ushort concatToInt16(byte[] byteArray)
+        static public ushort concatToInt16(byte b0, byte b1)
         {
-            return (ushort)((byteArray[0] << 8) | byteArray[1]);
+            return (ushort)((b0 << 8) | b1);
         }
-        static public int concatToInt32(byte[] byteArray)
+        static public int concatToInt32(params byte[] vals)
         {
-            if (byteArray.Length == 3)
+            if (vals.Length == 3)
             {
-                return (byteArray[0] << 16) | (byteArray[1] << 8) | byteArray[2];
+                return (vals[0] << 16) | (vals[1] << 8) | vals[2];
             }
             else
             {
-                return ((byteArray[0] << 24) | (byteArray[1] << 16)) | (byteArray[2] << 8) | byteArray[3];
+                return ((vals[0] << 24) | (vals[1] << 16)) | (vals[2] << 8) | vals[3];
             }
         }
         static public void updateCounter(int oldCounter)
         {
             iiGlobalCounter = oldCounter;
         }
-        public static int compl2(int value)
+        public static int compl2(int value, int msbPos)
         {
-            if ((value & 0x80) != 0) { return (~(value) - 0x1) * -1; }
+            if (((value >> (msbPos-1)) & 0b1) != 0) 
+            {
+                var negated = ~(value) & (int)(Math.Pow(2, msbPos) - 1);
+                return ( negated + 0x1) * -1; 
+            }
             else return value;
+        }
+        public static string decodeTI(string str)
+        {
+            List<string> listCode = new List<string>() { "", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "", "", "", "", "", "" };
+            return listCode[Convert.ToInt32(str, 2)];
         }
         #endregion
     }
