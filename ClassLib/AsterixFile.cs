@@ -106,14 +106,14 @@ namespace ClassLib
                     if(newCat10.SIC == "7")
                     {
                         listCat10SMR.Add(newCat10);
-                        CatAll newCatAll = new CatAll("SMR", indexSMR,newCat10.TimeOfDaySeg, newCat10.LatWGS84Mapa, newCat10.LongWGS84Mapa);
+                        CatAll newCatAll = new CatAll("SMR", indexSMR,newCat10.TimeOfDaySeg, newCat10.LatWGS84Mapa, newCat10.LongWGS84Mapa, newCat10.SIC, newCat10.SAC, newCat10.TrackNumber, newCat10.TargetAddress, newCat10.TargetID, newCat10.FLXXX);
                         listCatAll.Add(newCatAll);
                         indexSMR = indexSMR + 1;
                     }
                     else if(newCat10.SIC == "107")
                     {
                         listCat10MLAT.Add(newCat10);
-                        CatAll newCatAll = new CatAll("MLAT", indexMLAT, newCat10.TimeOfDaySeg, newCat10.LatWGS84Mapa, newCat10.LongWGS84Mapa);
+                        CatAll newCatAll = new CatAll("MLAT", indexMLAT, newCat10.TimeOfDaySeg, newCat10.LatWGS84Mapa, newCat10.LongWGS84Mapa, newCat10.SIC, newCat10.SAC, newCat10.TrackNumber, newCat10.TargetAddress, newCat10.TargetID, newCat10.FLXXX);
                         listCatAll.Add(newCatAll);
                         indexMLAT = indexMLAT + 1;
                     }
