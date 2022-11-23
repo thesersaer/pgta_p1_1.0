@@ -901,11 +901,6 @@ namespace Graphics
             mapa.ShowDialog();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //buscartipus = listBoxSearch.Text;
-        }
-
         private void listBoxSearch_Click(object sender, EventArgs e)
         {
             buscartipus = listBoxSearch.Text;
