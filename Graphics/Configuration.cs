@@ -21,6 +21,7 @@ namespace Graphics
         bool ShowMLAT = true;
         bool ShowADSB = true;
         string map;
+        bool mostrarviejo = false;
 
         public Configuration()
         {
@@ -51,6 +52,10 @@ namespace Graphics
         {
             return map;
         }
+        public bool GetMostrarViejo()
+        {
+            return mostrarviejo;
+        }
 
         public void setMultiplicador(int multiplicador)
         {
@@ -74,6 +79,10 @@ namespace Graphics
         public void setMAP(string map)
         {
             this.map = map;
+        }
+        public void setMostrarViejo(bool m)
+        {
+            this.mostrarviejo = m;
         }
 
         private void buttonAceptar_Click(object sender, EventArgs e)
@@ -126,6 +135,14 @@ namespace Graphics
             else
             {
                 checkBoxADSB.Checked = false;
+            }
+            if (mostrarviejo == false)
+            {
+                checkBoxNo.Checked = true;
+            }
+            else
+            {
+                checkBoxYes.Checked = true;
             }
         }
 
@@ -228,6 +245,35 @@ namespace Graphics
         private void buttonREL_Click(object sender, EventArgs e)
         {
             this.map = "REL";
+        }
+
+        private void checkBoxYes_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxYes.Checked == true)
+            {
+                this.mostrarviejo = true;
+                checkBoxNo.Checked = false;
+
+            }
+            else
+            {
+                this.mostrarviejo = false;
+            }
+            
+        }
+
+        private void checkBoxNo_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxNo.Checked == true)
+            {
+                this.mostrarviejo = false;
+                checkBoxYes.Checked = false;
+
+            }
+            else
+            {
+                this.mostrarviejo = true;
+            }
         }
     }
 }

@@ -21,6 +21,8 @@ namespace Graphics
         GMarkerGoogle marker;
         //GMarkerGoogle marker2;
         GMapOverlay markerOverlay = new GMapOverlay("Marcador");
+        GMapOverlay markerOverlayold= new GMapOverlay("Marcador");
+        bool mostrarviejo = false;
 
         bool start = false;
         bool ShowSMR = true;
@@ -101,6 +103,7 @@ namespace Graphics
             trackBarZOOM.Value = Convert.ToInt32(gMapControl1.Zoom);
             int n = 0;
             markerOverlay = new GMapOverlay("Marcador");
+            gMapControl1.Refresh();
             while (n < asterixFile.getListCatAll().Count)
             {
                 if (Math.Round(asterixFile.getListCatAll()[n].TimeofDayseg) == Math.Round(startTime))
@@ -109,13 +112,38 @@ namespace Graphics
                     {
                         marker = new GMarkerGoogle(new PointLatLng(asterixFile.getListCatAll()[n].LatWGS84, asterixFile.getListCatAll()[n].LongWGS84), GMarkerGoogleType.black_small);
                         markerOverlay.Markers.Add(marker);
-                        gMapControl1.Overlays.Add(markerOverlay);
+                        markerOverlayold.Markers.Add(marker);
+                        if (mostrarviejo == false)
+                        {
+                            while (gMapControl1.Overlays.Count > 0)
+                            {
+                                gMapControl1.Overlays.RemoveAt(0);
+                            }
+                            gMapControl1.Overlays.Add(markerOverlay);
+                        }
+                        else
+                        {
+                            gMapControl1.Overlays.Add(markerOverlayold);
+                        }
                     }
                     else if (asterixFile.getListCatAll()[n].CATMode == "MLAT" && ShowMLAT == true)
                     {
                         marker = new GMarkerGoogle(new PointLatLng(asterixFile.getListCatAll()[n].LatWGS84, asterixFile.getListCatAll()[n].LongWGS84), GMarkerGoogleType.blue_dot);
                         markerOverlay.Markers.Add(marker);
+                        markerOverlayold.Markers.Add(marker);
                         gMapControl1.Overlays.Add(markerOverlay);
+                        if (mostrarviejo == false)
+                        {
+                            while (gMapControl1.Overlays.Count > 0)
+                            {
+                                gMapControl1.Overlays.RemoveAt(0);
+                            }
+                            gMapControl1.Overlays.Add(markerOverlay);
+                        }
+                        else
+                        {
+                            gMapControl1.Overlays.Add(markerOverlayold);
+                        }
                     }
 
 
@@ -142,12 +170,14 @@ namespace Graphics
             Config.setMLAT(ShowMLAT);
             Config.setADSB(ShowADSB);
             Config.setMAP(mapa);
+            Config.setMostrarViejo(mostrarviejo);
             Config.ShowDialog();
             this.multiplicador = Config.GetMultiplicador();
             this.ShowSMR = Config.GetSMR();
             this.ShowMLAT = Config.GetMLAT();
             this.ShowADSB = Config.GetADSB();
             this.mapa = Config.GetMAP();
+            this.mostrarviejo = Config.GetMostrarViejo();
             if (mapa == "ORI")
             {
                 gMapControl1.MapProvider = GMapProviders.GoogleMap;

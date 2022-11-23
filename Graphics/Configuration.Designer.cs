@@ -44,6 +44,9 @@ namespace Graphics
             this.buttonORIG = new System.Windows.Forms.Button();
             this.buttonREL = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.checkBoxYes = new System.Windows.Forms.CheckBox();
+            this.checkBoxNo = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // buttonX1
@@ -196,11 +199,45 @@ namespace Graphics
             this.label3.TabIndex = 14;
             this.label3.Text = "Type of Map:";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(50, 231);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(111, 17);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "Show old points:";
+            // 
+            // checkBoxYes
+            // 
+            this.checkBoxYes.AutoSize = true;
+            this.checkBoxYes.Location = new System.Drawing.Point(203, 231);
+            this.checkBoxYes.Name = "checkBoxYes";
+            this.checkBoxYes.Size = new System.Drawing.Size(57, 21);
+            this.checkBoxYes.TabIndex = 16;
+            this.checkBoxYes.Text = "YES";
+            this.checkBoxYes.UseVisualStyleBackColor = true;
+            this.checkBoxYes.CheckedChanged += new System.EventHandler(this.checkBoxYes_CheckedChanged);
+            // 
+            // checkBoxNo
+            // 
+            this.checkBoxNo.AutoSize = true;
+            this.checkBoxNo.Location = new System.Drawing.Point(373, 230);
+            this.checkBoxNo.Name = "checkBoxNo";
+            this.checkBoxNo.Size = new System.Drawing.Size(51, 21);
+            this.checkBoxNo.TabIndex = 17;
+            this.checkBoxNo.Text = "NO";
+            this.checkBoxNo.UseVisualStyleBackColor = true;
+            this.checkBoxNo.CheckedChanged += new System.EventHandler(this.checkBoxNo_CheckedChanged);
+            // 
             // Configuration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.checkBoxNo);
+            this.Controls.Add(this.checkBoxYes);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.buttonREL);
             this.Controls.Add(this.buttonORIG);
@@ -241,5 +278,8 @@ namespace Graphics
         private System.Windows.Forms.Button buttonORIG;
         private System.Windows.Forms.Button buttonREL;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.CheckBox checkBoxYes;
+        private System.Windows.Forms.CheckBox checkBoxNo;
     }
 }
