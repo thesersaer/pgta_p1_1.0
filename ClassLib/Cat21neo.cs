@@ -76,6 +76,21 @@ namespace ClassLib
                 else if (frnInt == 27) { trackAngleRate = new TrackAngleRate(contentArray, iiGlobalCounter); }
                 else if (frnInt == 28) { timeOfAsterixReport = new TimeOfAsterixReport(contentArray, iiGlobalCounter); }
                 else if (frnInt == 29) { targetIdentification = new TargetIdentification(contentArray, iiGlobalCounter); }
+                else if (frnInt == 30) { emitterCategory = new EmitterCategory(contentArray, iiGlobalCounter); }
+                else if (frnInt == 31) { metInformation = new MetInformation(contentArray, iiGlobalCounter); }
+                else if (frnInt == 32) { selectedAltitude = new SelectedAltitude(contentArray, iiGlobalCounter); }
+                else if (frnInt == 33) { finalStateSelectedAltitude = new FinalStateSelectedAltitude(contentArray, iiGlobalCounter); }
+                else if (frnInt == 34) { trajectoryIntent = new TrajectoryIntent(contentArray, iiGlobalCounter); }
+                else if (frnInt == 35) { serviceManagement = new ServiceManagement(contentArray, iiGlobalCounter); }
+                else if (frnInt == 36) { aircraftOperationalStatus = new AircraftOperationalStatus(contentArray, iiGlobalCounter); }
+                else if (frnInt == 37) { surfaceCapabilitiesAndCharacteristics = new SurfaceCapabilitiesAndCharacteristics(contentArray, iiGlobalCounter); }
+                else if (frnInt == 38) { messageAmplitude = new MessageAmplitude(contentArray, iiGlobalCounter); }
+                else if (frnInt == 39) { modeSMBData = new ModeSMBData(contentArray, iiGlobalCounter); }
+                else if (frnInt == 40) { aCASResolutionAdvisoryReport = new ACASResolutionAdvisoryReport(contentArray, iiGlobalCounter); }
+                else if (frnInt == 41) { receiverId = new ReceiverId(contentArray, iiGlobalCounter); }
+                else if (frnInt == 42) { dataAges = new DataAges(contentArray, iiGlobalCounter); }
+
+
             }
         }
         #endregion
@@ -628,6 +643,422 @@ namespace ClassLib
             }
         }
         #endregion
+        #region Emitter Category
+        public EmitterCategory emitterCategory;
+        public class EmitterCategory
+        {
+            public readonly string emitterCategory;
+            public EmitterCategory(byte[] content, int globalCounter)
+            {
+                byte ecat = content[globalCounter];
+                if (ecat == 0) { emitterCategory = "No ADS-B Emitter Category Information"; }
+                else if (ecat == 1) { emitterCategory = "light aircraft <= 15500 lbs"; }
+                else if (ecat == 2) { emitterCategory = "15500 lbs < small aircraft <75000 lbs"; }
+                else if (ecat == 3) { emitterCategory = "75000 lbs < medium a/c < 300000 lbs"; }
+                else if (ecat == 4) { emitterCategory = "High Vortex Large"; }
+                else if (ecat == 5) { emitterCategory = "300000 lbs <= heavy aircraft"; }
+                else if (ecat == 6) { emitterCategory = "highly manoeuvrable (5g acceleration capability) and high speed(> 400 knots cruise)"; }
+                else if (ecat == 7) { emitterCategory = "reserved"; }
+                else if (ecat == 8) { emitterCategory = "reserved"; }
+                else if (ecat == 9) { emitterCategory = "reserved"; }
+                else if (ecat == 10) { emitterCategory = "rotocraft"; }
+                else if (ecat == 11) { emitterCategory = "glider / sailplane"; }
+                else if (ecat == 12) { emitterCategory = "lighter-than-air"; }
+                else if (ecat == 13) { emitterCategory = "unmanned aerial vehicle"; }
+                else if (ecat == 14) { emitterCategory = "space / transatmospheric vehicle"; }
+                else if (ecat == 15) { emitterCategory = "ultralight / handglider / paraglider"; }
+                else if (ecat == 16) { emitterCategory = "parachutist / skydiver"; }
+                else if (ecat == 17) { emitterCategory = "reserved"; }
+                else if (ecat == 18) { emitterCategory = "reserved"; }
+                else if (ecat == 19) { emitterCategory = "reserved"; }
+                else if (ecat == 20) { emitterCategory = "surface emergency vehicle"; }
+                else if (ecat == 21) { emitterCategory = "surface service vehicle"; }
+                else if (ecat == 22) { emitterCategory = "fixed ground or tethered obstruction"; }
+                else if (ecat == 23) { emitterCategory = "cluster obstacle"; }
+                else if (ecat == 24) { emitterCategory = "line obstacle"; }
+                globalCounter++;
+                updateCounter(globalCounter);
+            }
+        }
+        #endregion
+        #region Met Information
+        public MetInformation metInformation;
+        public class MetInformation
+        {
+            public readonly ushort windSpeed;
+            public readonly ushort windDirection;
+            public readonly float temperature;
+            public readonly byte turbulence;
+            public MetInformation(byte[] content, int globalCounter)
+            {
+                Queue<int> fspecQueue = new Queue<int>();
+                for (int iiFspec = 7; iiFspec > 3; iiFspec--)
+                {
+                    if (((content[globalCounter] >> iiFspec) & 0b1) == 1)
+                    { fspecQueue.Enqueue(iiFspec); }
+                }
+                globalCounter++;
+                foreach (int iiSubfield in fspecQueue)
+                {
+                    if (iiSubfield == 7)
+                    {
+                        windSpeed = concatToInt16(content[globalCounter], content[globalCounter + 1]);
+                        globalCounter += 2;
+                    }
+                    else if (iiSubfield == 6)
+                    {
+                        windDirection = concatToInt16(content[globalCounter], content[globalCounter + 1]);
+                        globalCounter += 2;
+                    }
+                    else if (iiSubfield == 5)
+                    {
+                        temperature = (float)(compl2(concatToInt16(content[globalCounter], content[globalCounter + 1]), 16) * 0.25);
+                        globalCounter += 2;
+                    }
+                    else if (iiSubfield == 4)
+                    {
+                        turbulence = content[globalCounter];
+                        globalCounter++;
+                    }
+                }
+                updateCounter(globalCounter);
+            }
+        }
+        #endregion
+        #region Selected Altitude
+        public SelectedAltitude selectedAltitude;
+        public class SelectedAltitude
+        {
+            public readonly bool sourceInformationProvided;
+            public readonly string source;
+            public readonly short altitude;
+            public SelectedAltitude(byte[] content, int globalCounter)
+            {
+                sourceInformationProvided = ((content[globalCounter] >> 7) & 0b1) != 0;
+                int sourceInt = ((content[globalCounter] >> 5) & 0b11);
+                if (sourceInt == 0) { source = "Unknown"; }
+                else if (sourceInt == 0b1) { source = "Aircraft Altitude (Holding Altitude)"; }
+                else if (sourceInt == 0b10) { source = "MCP/FCU Selected Altitude"; }
+                else { source = "FMS Selected Altitude"; }
+                altitude = (short)(compl2(concatToInt16((byte)(content[globalCounter] & 0x1F), content[globalCounter + 1]), 13) * 25);
+                globalCounter += 2;
+                updateCounter(globalCounter);
+            }
+        }
+        #endregion
+        #region Final State Selected Altitude
+        public FinalStateSelectedAltitude finalStateSelectedAltitude;
+        public class FinalStateSelectedAltitude
+        {
+            public readonly bool manageVerticalModeActive;
+            public readonly bool altitudeHoldModeActive;
+            public readonly bool approachModeActive;
+            public readonly short altitude;
+            public FinalStateSelectedAltitude(byte[] content, int globalCounter)
+            {
+                manageVerticalModeActive = ((content[globalCounter] >> 7) & 0b1) != 0;
+                altitudeHoldModeActive = ((content[globalCounter] >> 6) & 0b1) != 0;
+                approachModeActive = ((content[globalCounter] >> 5) & 0b1) != 0;
+                altitude = (short)(compl2(concatToInt16((byte)(content[globalCounter] & 0x1F), content[globalCounter + 1]),13) * 25);
+                globalCounter += 2;
+                updateCounter(globalCounter);
+            }
+        }
+        #endregion
+        #region Trajectory Intent
+        public TrajectoryIntent trajectoryIntent;
+        public class TrajectoryIntent
+        {
+            public class TrajectoryIntentData
+            {
+                public readonly bool tcpNumberAvailable;
+                public readonly bool tcpNonCompliance;
+                public readonly byte tcpNumber;
+                public readonly int altitude;
+                public readonly double latitude;
+                public readonly double longitude;
+                public readonly string pointType;
+                public readonly string turnDirection;
+                public readonly bool turnRadiusAvailable;
+                public readonly bool timeOverPointNotAvailable;
+                public readonly int timeOverPoint;
+                public readonly float tcpTurnRadius;
+                public TrajectoryIntentData(byte[] content, int globalCounter)
+                {
+                    tcpNumberAvailable = ((content[globalCounter] >> 7) & 0b1) == 1;
+                    tcpNonCompliance = ((content[globalCounter] >> 6) & 0b1) == 1;
+                    tcpNumber = (byte)(content[globalCounter] & 0x3F);
+                    globalCounter++;
+                    altitude = compl2(concatToInt16(content[globalCounter], content[globalCounter + 1]), 16) * 10;
+                    globalCounter += 2;
+                    var llResFactor = 180 / Math.Pow(2, 23);
+                    latitude = compl2(concatToInt32(content[globalCounter], content[globalCounter + 1], content[globalCounter + 2]), 24) * llResFactor;
+                    globalCounter += 3;
+                    longitude = compl2(concatToInt32(content[globalCounter], content[globalCounter + 1], content[globalCounter + 2]), 24) * llResFactor;
+                    globalCounter += 3;
+                    var ptVal = (content[globalCounter] >> 4) & 0b1111;
+                    if (ptVal == 0) { pointType = "Unknown"; }
+                    else if (ptVal == 1) { pointType = "Fly by waypoint (LT)"; }
+                    else if (ptVal == 2) { pointType = "Fly over waypoint (LT)"; }
+                    else if (ptVal == 3) { pointType = "Hold pattern (LT)"; }
+                    else if (ptVal == 4) { pointType = "Procedure hold (LT)"; }
+                    else if (ptVal == 5) { pointType = "Procedure turn (LT)"; }
+                    else if (ptVal == 6) { pointType = "RF leg (LT)"; }
+                    else if (ptVal == 7) { pointType = "Top of climb (VT)"; }
+                    else if (ptVal == 8) { pointType = "Top of descent (VT)"; }
+                    else if (ptVal == 9) { pointType = "Start of level (VT)"; }
+                    else if (ptVal == 10) { pointType = "Cross-over altitude (VT)"; }
+                    else if (ptVal == 11) { pointType = "Transition altitude (VT)"; }
+                    var tdVal = (content[globalCounter] >> 2) & 0b11;
+                    if (tdVal == 0) { turnDirection = "N/A"; }
+                    else if (tdVal == 1) { turnDirection = "Turn right"; }
+                    else if (tdVal == 2) { turnDirection = "Turn left"; }
+                    else if (tdVal == 3) { turnDirection = "No turn"; }
+                    timeOverPointNotAvailable = (content[globalCounter] & 0b1) == 1;
+                    globalCounter++;
+                    timeOverPoint = concatToInt32(content[globalCounter], content[globalCounter + 1], content[globalCounter + 2]);
+                    globalCounter += 3;
+                    tcpTurnRadius = (float)(concatToInt16(content[globalCounter], content[globalCounter + 1]) * 0.01);
+                    globalCounter += 2;
+                    updateCounter(globalCounter);
+                }
+            }
+            public readonly bool trajectoryIntentDataNotAvailable;
+            public readonly bool trajectoryIntentDataNotValid;
+            public readonly TrajectoryIntentData[] trajectoryIntentDatas;
+            public TrajectoryIntent(byte[] content, int globalCounter)
+            {
+                bool tisPresent = ((content[globalCounter] >> 7) & 0b1) == 1;
+                bool tidPresent = ((content[globalCounter] >> 6) & 0b1) == 1;
+                globalCounter++;
+                if (tisPresent)
+                {
+                    trajectoryIntentDataNotAvailable = ((content[globalCounter] >> 7) & 0b1) == 1;
+                    trajectoryIntentDataNotValid = ((content[globalCounter] >> 6) & 0b1) == 1;
+                    globalCounter++;
+                }
+                if (tidPresent)
+                {
+                    int repFactor = content[globalCounter];
+                    trajectoryIntentDatas = new TrajectoryIntentData[repFactor];
+                    globalCounter++;
+                    for (int x = 0; x < repFactor; x++)
+                    {
+                        trajectoryIntentDatas[x] = new TrajectoryIntentData(content, globalCounter);
+                        globalCounter = iiGlobalCounter;
+                    }
+                }
+                updateCounter(globalCounter);
+            }
+        }
+        #endregion
+        #region Service Management
+        public ServiceManagement serviceManagement;
+        public class ServiceManagement
+        {
+            public readonly float reportPeriod;
+            // MAX reportPeriod == 127.5 indicates report period of 127.5 s OR ABOVE
+            public ServiceManagement(byte[] content, int globalCounter)
+            {
+                reportPeriod = (float)(content[globalCounter] * 0.5);
+                globalCounter++;
+                updateCounter(globalCounter);
+            }
+        }
+        #endregion
+        #region Aircraft Operational Status
+        public AircraftOperationalStatus aircraftOperationalStatus;
+        public class AircraftOperationalStatus
+        {
+            public readonly bool tcasResolutionAdvisoryActive;
+            public readonly string targetTrajectoryChangeReportCapability;
+            public readonly bool targetStateReportCapability;
+            public readonly bool airReferencedVelocityReportCapability;
+            public readonly bool cdtiOperational;
+            public readonly bool tcasNotOperational;
+            public readonly bool singleAntenna;
+            public AircraftOperationalStatus(byte[] content, int globalCounter)
+            {
+                singleAntenna = ((content[globalCounter] >> 0) & 1) != 0;
+                tcasNotOperational = ((content[globalCounter] >> 1) & 1) != 0;
+                cdtiOperational = ((content[globalCounter] >> 2) & 1) != 0;
+                airReferencedVelocityReportCapability = ((content[globalCounter] >> 3) & 1) != 0;
+                targetStateReportCapability = ((content[globalCounter] >> 4) & 1) != 0;
+                int targetTrajectoryChangeReportCapabilityBit = ((content[globalCounter] >> 5) & 3);
+                if (targetTrajectoryChangeReportCapabilityBit == 0) { targetTrajectoryChangeReportCapability = "no capability for Trajectory Change Reports"; }
+                else if (targetTrajectoryChangeReportCapabilityBit == 1) { targetTrajectoryChangeReportCapability = "support for TC+0 reports only"; }
+                else if (targetTrajectoryChangeReportCapabilityBit == 2) { targetTrajectoryChangeReportCapability = "support for multiple TC reports"; }
+                else if (targetTrajectoryChangeReportCapabilityBit == 3) { targetTrajectoryChangeReportCapability = "reserved"; }
+                tcasResolutionAdvisoryActive = ((content[globalCounter] >> 7) & 1) != 0;
+                globalCounter++;
+                updateCounter(globalCounter);
+            }
+        }
+        #endregion
+        #region Surface Capabilities And Characteristics
+        public SurfaceCapabilitiesAndCharacteristics surfaceCapabilitiesAndCharacteristics;
+        public class SurfaceCapabilitiesAndCharacteristics
+        {
+            public readonly bool positionIsADSBReferencePoint;
+            public readonly bool cdtiOperational;
+            public readonly bool b2LowPower; // <70 W if true
+            public readonly bool receivingAtcServices;
+            public readonly bool identSwitchActive;
+            public readonly string lengthWidth;
+            public SurfaceCapabilitiesAndCharacteristics(byte[] content, int globalCounter)
+            {
+                positionIsADSBReferencePoint = ((content[globalCounter] >> 5) & 0b1) != 0;
+                cdtiOperational = ((content[globalCounter] >> 4) & 0b1) != 0;
+                b2LowPower = ((content[globalCounter] >> 3) & 0b1) != 0;
+                receivingAtcServices = ((content[globalCounter] >> 2) & 0b1) != 0;
+                identSwitchActive = ((content[globalCounter] >> 1) & 0b1) != 0;
+                if ((content[globalCounter] & 0b1) != 0) 
+                {
+                    globalCounter++;
+                    lengthWidth = decodeLW((byte)(content[globalCounter] & 0xF)); 
+                }
+                globalCounter++;
+                updateCounter(globalCounter);
+            }
+        }
+        #endregion
+        #region Message Amplitude
+        public MessageAmplitude messageAmplitude;
+        public class MessageAmplitude
+        {
+            public readonly byte messageAmplitudedBm;
+            public MessageAmplitude(byte[] content, int globalCounter)
+            {
+                messageAmplitudedBm = content[globalCounter];
+                globalCounter++;
+                updateCounter(globalCounter);
+            }
+        }
+        #endregion
+        #region Mode S MB Data
+        public ModeSMBData modeSMBData;
+        public class ModeSMBData
+        {
+            public class BDSMessage
+            {
+                public readonly byte[] mbData = new byte[7];
+                public readonly byte commBDS1Address;
+                public readonly byte commBDS2Address;
+                public BDSMessage(byte[] content, int globalCounter)
+                {
+                    for (int iiMBD = 0; iiMBD < 7; iiMBD++)
+                    {
+                        mbData[iiMBD] = content[globalCounter];
+                        globalCounter++;
+
+                    }
+                    commBDS1Address = (byte)((content[globalCounter] >> 4) & 0b1111);
+                    commBDS2Address = (byte)(content[globalCounter] & 0b1111);
+                    globalCounter++;
+                    updateCounter(globalCounter);
+                }
+            }
+            public readonly BDSMessage[] bdsList;
+            public ModeSMBData(byte[] content, int globalCounter)
+            {
+                int repFactor = content[globalCounter];
+                bdsList = new BDSMessage[repFactor];
+                for (int x = 0; x < repFactor; x++)
+                {
+                    bdsList[x] = new BDSMessage(content, globalCounter);
+                    globalCounter = iiGlobalCounter;
+                }
+                updateCounter(globalCounter);
+            }
+        }
+        #endregion
+        #region ACAS Resolution Advisory Report
+        public ACASResolutionAdvisoryReport aCASResolutionAdvisoryReport;
+        public class ACASResolutionAdvisoryReport
+        {
+            public readonly byte messageType;
+            public readonly byte messageSubtype;
+            public readonly ushort activeResolutionAdvisories;
+            public readonly byte raComplementRecord;
+            public readonly bool raTerminated;
+            public readonly bool multipleThreatEncounter;
+            public readonly byte threatTypeIndicator;
+            public readonly int threatIdentityData;
+            public ACASResolutionAdvisoryReport(byte[] content, int globalCounter)
+            {
+                messageType = (byte)((content[globalCounter] >> 3) & 0b11111);
+                messageSubtype = (byte)(content[globalCounter] & 0b111);
+                globalCounter++;
+                activeResolutionAdvisories = (ushort)(((content[globalCounter + 1] >> 2) & 0x3F) | (content[globalCounter] << 6));
+                raComplementRecord = (byte)(((content[globalCounter + 2] >> 6) & 0b11) | (content[globalCounter + 1] & 0b11));
+                globalCounter += 2;
+                raTerminated = ((content[globalCounter] >> 5) & 0b1) != 0;
+                multipleThreatEncounter = ((content[globalCounter] >> 4) & 0b1) != 0;
+                threatTypeIndicator = (byte)((content[globalCounter] >> 2) & 0b11);
+                threatIdentityData = concatToInt32(content[globalCounter + 1], content[globalCounter + 2], content[globalCounter + 3]) | ((content[globalCounter] & 0b11) << 24);
+                globalCounter += 4;
+                updateCounter(globalCounter);
+            }
+        }
+        #endregion
+        #region Receiver Id
+        public ReceiverId receiverId;
+        public class ReceiverId
+        {
+            public readonly byte receiverId;
+            public ReceiverId(byte[] content, int globalCounter)
+            {
+                receiverId = content[globalCounter];
+                globalCounter++;
+                updateCounter(globalCounter);
+            }
+        }
+        #endregion
+        #region Data Ages
+        public DataAges dataAges;
+        public class DataAges
+        {
+            public class DataAgeItem
+            {
+                public readonly double age;
+                public readonly string itemClass;
+                public DataAgeItem(byte ageByte, string item)
+                {
+                    age = ageByte * 0.1;
+                    itemClass = item;
+                }
+            }
+            public readonly DataAgeItem[] ageItems;
+            public DataAges(byte[] content, int globalCounter)
+            {
+                Queue<int> fspecQueue = new Queue<int>();
+                bool fxInd;
+                int subFInt = 32;
+                do
+                {
+                    fxInd = (content[globalCounter] & 0b1) == 1;
+                    for (int iiBit = 7; iiBit > 0; iiBit--)
+                    {
+                        if (((content[globalCounter] >> iiBit) & 0b1) == 1)
+                        { 
+                            fspecQueue.Enqueue(subFInt);
+                        }
+                        subFInt--;
+                    }
+                    subFInt--;
+                    globalCounter++;
+                } while (fxInd);
+                var queueLength = fspecQueue.Count;
+                ageItems = new DataAgeItem[queueLength];
+                for (int iiFspec = 0; iiFspec < queueLength; iiFspec++)
+                {
+                    ageItems[iiFspec] = new DataAgeItem(content[globalCounter], decodeDA(fspecQueue.Dequeue()));
+                    globalCounter++;
+                }
+                updateCounter(globalCounter);
+            }
+        }
+        #endregion
         #endregion
 
         #region Funciones
@@ -663,6 +1094,16 @@ namespace ClassLib
         {
             List<string> listCode = new List<string>() { "", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "", "", "", "", "", "" };
             return listCode[Convert.ToInt32(str, 2)];
+        }
+        public static string decodeLW(byte lwVal)
+        {
+            string[] listCode = new string[16] { "L < 15, W < 11.5", "L < 15, W < 23", "L < 25, W < 28.5", "L < 25, W < 34", "L < 35, W < 33", "L < 35, W < 38", "L < 45, W < 39.5", "L < 45, W < 45", "L < 55, W < 45", "L < 55, W < 52", "L < 65, W < 59.5", "L < 65, W < 67", "L < 75, W < 72.5", "L < 75, W < 80", "L < 85, W < 80", "L > 85, W > 80" };
+            return listCode[lwVal];
+        }
+        public static string decodeDA(int daSubFVal)
+        {
+            string[] listCode = new string[33] { "", "", "", "", "", "", "", "Surface Capabilities and Characteristics", "ACAS Resolution Advisory", "", "Roll Angle", "Met Information", "Target Status", "Target Identification", "Track Angle Rate", "Ground Vector", "Geometric Vertical Rate", "", "Barometric Vertical Rate", "Magnetic Heading", "True Air Speed", "Air Speed", "Final State Selected Altitude", "Intermediate State Selected Altitude", "Flight Level", "", "Geometric Height", "Message Amplitude", "Trajectory Intent", "Quality Indicators", "Mode 3/A Code", "Target Report Descriptor", "Aircraft Operational Status" };
+            return listCode[daSubFVal];
         }
         #endregion
     }
