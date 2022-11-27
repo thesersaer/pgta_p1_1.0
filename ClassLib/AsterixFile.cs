@@ -13,7 +13,7 @@ namespace ClassLib
         string filepath;
         List<Cat10> listCat10SMR = new List<Cat10>();
         List<Cat10> listCat10MLAT = new List<Cat10>();
-        List<Cat21> listCat21 = new List<Cat21>();
+        List<Cat21neo> listCat21 = new List<Cat21neo>();
         List<CatAll> listCatAll = new List<CatAll>();
 
         DataTable tableCat10 = new DataTable();
@@ -33,7 +33,7 @@ namespace ClassLib
             return this.listCat10MLAT;
         }
 
-        public List<Cat21> getListCat21()
+        public List<Cat21neo> getListCat21()
         {
             return this.listCat21;
         }
@@ -121,9 +121,29 @@ namespace ClassLib
                 else if (catInt == 21)
                 {
                     Cat21neo newCat21 = new Cat21neo(stringArray);
-                    //listCat21.Add(newCat21);
-                    //CatAll newCatAll = new CatAll("ADSB", indexADSB, newCat21.TimeOfDaySeg, newCat10.LatWGS84Mapa, newCat10.LongWGS84Mapa);
-                    //listCatAll.Add(newCatAll);
+                    listCat21.Add(newCat21);
+                    double catTime;
+                    if (newCat21.timeOfAsterixReport != null) { catTime = newCat21.timeOfAsterixReport.torSeconds; } else { catTime = -1;}
+                    double catLatitude;
+                    double catLongitude;
+                    if (newCat21.positionWGS84 != null) 
+                    { catLatitude = newCat21.positionWGS84.latitude; catLongitude = newCat21.positionWGS84.longitude; } 
+                    else { catLatitude = -1; catLongitude = -1; }
+                    string catSic;
+                    string catSac;
+                    if (newCat21.dataSourceIdentification != null) 
+                    { catSic = newCat21.dataSourceIdentification.sic.ToString(); catSac = newCat21.dataSourceIdentification.sac.ToString(); } 
+                    else { catSic = "-1"; catSac = "-1"; }
+                    string catTrackNumber;
+                    if (newCat21.trackNumber != null) { catTrackNumber = newCat21.trackNumber.trackNumber.ToString(); } else { catTrackNumber = "-1"; }
+                    string catTargetAddress;
+                    if (newCat21.targetAddress != null) { catTargetAddress = newCat21.targetAddress.targetAddress.ToString(); } else { catTargetAddress = "-1"; }
+                    string catTargetID;
+                    if (newCat21.targetIdentification != null) { catTargetID = newCat21.targetIdentification.targetIdentification; } else { catTargetID = "-1"; }
+                    string catFL;
+                    if (newCat21.flightLevel != null) { catFL = newCat21.flightLevel.flightLevel.ToString(); } else { catFL = "-1"; }
+                    CatAll newCatAll = new CatAll("ADSB", indexADSB, catTime, catLatitude, catLongitude, catSic, catSac, catTrackNumber, catTargetAddress, catTargetID, catFL);
+                    listCatAll.Add(newCatAll);
                     indexADSB = indexADSB + 1;
                 }
             }
