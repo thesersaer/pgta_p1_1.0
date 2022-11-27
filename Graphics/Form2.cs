@@ -228,6 +228,7 @@ namespace Graphics
 
         private void buttonAll_Click(object sender, EventArgs e)
         {
+            statusLabel.Text = "Applying changes... please wait"; statusLabel.Update();
             dataGridView1.Rows.Clear();
             dataGridView1.ReadOnly = true;
             i = 0;
@@ -277,8 +278,8 @@ namespace Graphics
                     }
                 }
             }
+            statusLabel.Text = "Done."; statusLabel.Update();
         }
-
         private void buttonCAT10SMR_Click(object sender, EventArgs e)
         {
             statusLabel.Text = "Applying changes... please wait"; statusLabel.Update();
