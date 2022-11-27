@@ -89,8 +89,6 @@ namespace ClassLib
                 else if (frnInt == 40) { aCASResolutionAdvisoryReport = new ACASResolutionAdvisoryReport(contentArray, iiGlobalCounter); }
                 else if (frnInt == 41) { receiverId = new ReceiverId(contentArray, iiGlobalCounter); }
                 else if (frnInt == 42) { dataAges = new DataAges(contentArray, iiGlobalCounter); }
-
-
             }
         }
         #endregion
