@@ -91,6 +91,7 @@ namespace Graphics
             this.buttonMap = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
             this.listBoxSearch = new System.Windows.Forms.ListBox();
+            this.statusLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -221,6 +222,7 @@ namespace Graphics
             this.buttonCAT21ADSB.TabIndex = 4;
             this.buttonCAT21ADSB.Text = "CAT 21 ADSB";
             this.buttonCAT21ADSB.UseVisualStyleBackColor = true;
+            this.buttonCAT21ADSB.Click += new System.EventHandler(this.buttonCAT21ADSB_Click);
             // 
             // label1
             // 
@@ -672,11 +674,20 @@ namespace Graphics
             this.listBoxSearch.TabIndex = 55;
             this.listBoxSearch.Click += new System.EventHandler(this.listBoxSearch_Click);
             // 
+            // statusLabel
+            // 
+            this.statusLabel.AutoSize = true;
+            this.statusLabel.Location = new System.Drawing.Point(457, 12);
+            this.statusLabel.Name = "statusLabel";
+            this.statusLabel.Size = new System.Drawing.Size(0, 17);
+            this.statusLabel.TabIndex = 56;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1612, 1055);
+            this.Controls.Add(this.statusLabel);
             this.Controls.Add(this.listBoxSearch);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.buttonMap);
@@ -805,5 +816,6 @@ namespace Graphics
         private System.Windows.Forms.Button buttonMap;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.ListBox listBoxSearch;
+        private System.Windows.Forms.Label statusLabel;
     }
 }
