@@ -31,10 +31,12 @@ namespace Graphics
             openFileDialog.Filter = "ast files (.ast)|*.ast";
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
+                fileStatusLabel.Text = "Loading file... please wait"; fileStatusLabel.Update();
                 //Get the path of specified file
                 asterixFile = new AsterixFile();
                 asterixFile.setFilepath(openFileDialog.FileName);
                 asterixFile.readFile();
+                fileStatusLabel.Text = "File loaded."; fileStatusLabel.Update();
             }
         }
 
