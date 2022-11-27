@@ -32,6 +32,7 @@ namespace Graphics
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.fileStatusLabel = new System.Windows.Forms.Label();
+            this.showData2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -63,11 +64,22 @@ namespace Graphics
             this.fileStatusLabel.TabIndex = 2;
             this.fileStatusLabel.Text = "No file selected";
             // 
+            // showData2
+            // 
+            this.showData2.Location = new System.Drawing.Point(462, 256);
+            this.showData2.Name = "showData2";
+            this.showData2.Size = new System.Drawing.Size(126, 23);
+            this.showData2.TabIndex = 3;
+            this.showData2.Text = "Show DataTable";
+            this.showData2.UseVisualStyleBackColor = true;
+            this.showData2.Click += new System.EventHandler(this.showData2_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.showData2);
             this.Controls.Add(this.fileStatusLabel);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -84,6 +96,7 @@ namespace Graphics
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label fileStatusLabel;
+        private System.Windows.Forms.Button showData2;
     }
 }
 

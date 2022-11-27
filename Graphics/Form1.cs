@@ -54,5 +54,10 @@ namespace Graphics
                 form3.ShowDialog();
             }
         }
+
+        private void showData2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
