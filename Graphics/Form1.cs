@@ -57,7 +57,8 @@ namespace Graphics
 
         private void showData2_Click(object sender, EventArgs e)
         {
-
+            table2 table2form = new table2(asterixFile);
+            table2form.Show();
         }
     }
 }
