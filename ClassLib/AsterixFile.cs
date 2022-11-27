@@ -18,6 +18,7 @@ namespace ClassLib
 
         DataTable tableCat10 = new DataTable();
         DataTable tableCat21 = new DataTable();
+        DataTable tableCatAll = new DataTable();
 
         public void setFilepath(string path)
         {
@@ -52,7 +53,28 @@ namespace ClassLib
         {
             return this.tableCat21;
         }
-
+        public DataTable getTableCatAll()
+        {
+            return this.tableCatAll;
+        }
+        public void tabulateCatAll()
+        {
+            tableCatAll.Columns.Add("Category", typeof(string));
+            tableCatAll.Columns.Add("Position", typeof(int));
+            tableCatAll.Columns.Add("Time (s)", typeof(double));
+            tableCatAll.Columns.Add("Latitude", typeof(double));
+            tableCatAll.Columns.Add("Longitude", typeof(double));
+            tableCatAll.Columns.Add("SIC", typeof(string));
+            tableCatAll.Columns.Add("SAC", typeof(string));
+            tableCatAll.Columns.Add("Track Number", typeof(string));
+            tableCatAll.Columns.Add("Target Address", typeof(string));
+            tableCatAll.Columns.Add("Target ID", typeof(string));
+            tableCatAll.Columns.Add("Flight Level", typeof(string));
+            foreach (CatAll iiCatAll in listCatAll)
+            {
+                tableCatAll.Rows.Add(iiCatAll.CATMode, iiCatAll.NumLlista, iiCatAll.TimeofDayseg, iiCatAll.LatWGS84, iiCatAll.LongWGS84, iiCatAll.SIC, iiCatAll.SAC, iiCatAll.TrackNumber, iiCatAll.TargetAddress, iiCatAll.TargetID, iiCatAll.FLXXX);
+            }
+        }
         public void readFile()
         {
             byte[] rawFile = File.ReadAllBytes(this.filepath);
@@ -147,7 +169,6 @@ namespace ClassLib
                     indexADSB = indexADSB + 1;
                 }
             }
-
         }
     }
 }
