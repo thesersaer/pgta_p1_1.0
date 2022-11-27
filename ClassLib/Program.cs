@@ -21,10 +21,6 @@ namespace ClassLib
             achPrueba.setFilepath(relPath);
             achPrueba.readFile();
             var listCat21 = achPrueba.getListCat21();
-            foreach (var iiCat21 in listCat21)
-            {
-                iiCat21.decodeDataFields();
-            }
 
             //AsterixFile Asterix = new AsterixFile();
             //Asterix.setFilepath(path);
