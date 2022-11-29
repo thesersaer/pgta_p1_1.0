@@ -558,8 +558,28 @@ namespace ClassLib
                 //Target Identification
                 if (Convert.ToString(FSPEC[14]) == "1")
                 {
-                    this.STI = Convert.ToString(Convert.ToInt64(bloc[posicioDades] + bloc[posicioDades + 1] + bloc[posicioDades + 2] + bloc[posicioDades + 3] + bloc[posicioDades + 4] + bloc[posicioDades + 5] + bloc[posicioDades + 6], 16), 2).PadLeft(56, '0').Substring(0, 2);
-                    string ID = Convert.ToString(Convert.ToInt64(bloc[posicioDades] + bloc[posicioDades + 1] + bloc[posicioDades + 2] + bloc[posicioDades + 3] + bloc[posicioDades + 4] + bloc[posicioDades + 5] + bloc[posicioDades + 6], 16), 2).PadLeft(56, '0').Substring(8, 48);
+                    string sti = Convert.ToString(Convert.ToInt64(bloc[posicioDades], 16), 2).PadLeft(8, '0').Substring(0, 2);
+                    if (sti == "00")
+                    {
+                        this.STI = "Callsign or registration downlinked from transponder";
+                    }
+                    else if (sti == "01")
+                    {
+                        this.STI = "Callsign not downlinked from transponder";
+                    }
+                    else if (sti == "10")
+                    {
+                        this.STI = "Registration not downlinked from transponder";
+                    }
+                    StringBuilder posID = new StringBuilder();
+                    int i = 1;
+                    while (i < 7)
+                    {
+                        string miniID = Convert.ToString(Convert.ToInt64(bloc[posicioDades + i], 16), 2).PadLeft(8, '0');
+                        posID.Append(miniID);
+                        i++;
+                    }
+                    string ID = posID.ToString();
                     int n = 0;
                     while (n < ID.Length)
                     {
