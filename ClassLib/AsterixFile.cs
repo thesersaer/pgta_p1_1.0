@@ -60,7 +60,8 @@ namespace ClassLib
         public void tabulateCatAll()
         {
             tableCatAll.Columns.Add("Category", typeof(string));
-            tableCatAll.Columns.Add("Position", typeof(int));
+            tableCatAll.Columns.Add("Position in global list", typeof(int));
+            tableCatAll.Columns.Add("Position in own list", typeof(int));
             tableCatAll.Columns.Add("Time (s)", typeof(double));
             tableCatAll.Columns.Add("Latitude", typeof(double));
             tableCatAll.Columns.Add("Longitude", typeof(double));
@@ -70,9 +71,11 @@ namespace ClassLib
             tableCatAll.Columns.Add("Target Address", typeof(string));
             tableCatAll.Columns.Add("Target ID", typeof(string));
             tableCatAll.Columns.Add("Flight Level", typeof(string));
+            int i = 0;
             foreach (CatAll iiCatAll in listCatAll)
             {
-                tableCatAll.Rows.Add(iiCatAll.CATMode, iiCatAll.NumLlista, iiCatAll.TimeofDayseg, iiCatAll.LatWGS84, iiCatAll.LongWGS84, iiCatAll.SIC, iiCatAll.SAC, iiCatAll.TrackNumber, iiCatAll.TargetAddress, iiCatAll.TargetID, iiCatAll.FLXXX);
+                tableCatAll.Rows.Add(iiCatAll.CATMode, i, iiCatAll.NumLlista, iiCatAll.TimeofDayseg, iiCatAll.LatWGS84, iiCatAll.LongWGS84, iiCatAll.SIC, iiCatAll.SAC, iiCatAll.TrackNumber, iiCatAll.TargetAddress, iiCatAll.TargetID, iiCatAll.FLXXX);
+                i++;
             }
         }
         public void readFile()
