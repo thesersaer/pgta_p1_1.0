@@ -57,8 +57,16 @@ namespace Graphics
 
         private void showData2_Click(object sender, EventArgs e)
         {
-            table2 table2form = new table2(asterixFile);
-            table2form.Show();
+            if (asterixFile.getListCatAll().Count != 0)
+            {
+                table2 table2form = new table2(asterixFile);
+                table2form.Show();
+            }
+            else
+            {
+                Form3 form3 = new Form3();
+                form3.ShowDialog();
+            }
         }
     }
 }
