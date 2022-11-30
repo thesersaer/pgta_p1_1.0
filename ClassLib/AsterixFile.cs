@@ -172,6 +172,7 @@ namespace ClassLib
                     indexADSB = indexADSB + 1;
                 }
             }
+            this.tabulateCatAll();
         }
     }
 }

@@ -26,7 +26,6 @@ namespace Graphics
 
         private void table2_Load(object sender, EventArgs e)
         {
-            asterixFile.tabulateCatAll();
             this.tableCatAll = asterixFile.getTableCatAll();
             dataGridView1.DataSource = tableCatAll;
             filtFieldsBox.DropDownStyle = ComboBoxStyle.DropDownList;

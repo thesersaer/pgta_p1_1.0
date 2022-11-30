@@ -50,7 +50,6 @@ namespace Graphics
 
         private void Mapa_Load(object sender, EventArgs e)
         {
-            asterixFile.tabulateCatAll();
             tableAll = asterixFile.getTableCatAll();
             startTime = timestart(asterixFile);
             labelTiempo.Text = Convert.ToString(TimeSpan.FromSeconds(startTime).ToString(@"hh\:mm\:ss"));
