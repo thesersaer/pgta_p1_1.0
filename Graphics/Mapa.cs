@@ -18,6 +18,7 @@ namespace Graphics
     public partial class Mapa : Form
     {
         AsterixFile asterixFile = new AsterixFile();
+        DataTable tableAll;
         GMarkerGoogle marker;
         //GMarkerGoogle marker2;
         GMapOverlay markerOverlay = new GMapOverlay("Marcador");
@@ -49,6 +50,8 @@ namespace Graphics
 
         private void Mapa_Load(object sender, EventArgs e)
         {
+            asterixFile.tabulateCatAll();
+            tableAll = asterixFile.getTableCatAll();
             startTime = timestart(asterixFile);
             labelTiempo.Text = Convert.ToString(TimeSpan.FromSeconds(startTime).ToString(@"hh\:mm\:ss"));
             TimeSpan timeextra = TimeSpan.FromSeconds(startTime);
@@ -111,6 +114,8 @@ namespace Graphics
                     if (asterixFile.getListCatAll()[n].CATMode == "SMR" && ShowSMR == true)
                     {
                         marker = new GMarkerGoogle(new PointLatLng(asterixFile.getListCatAll()[n].LatWGS84, asterixFile.getListCatAll()[n].LongWGS84), GMarkerGoogleType.black_small);
+                        marker.ToolTipMode = MarkerTooltipMode.Never;
+                        marker.ToolTipText = n.ToString();
                         markerOverlay.Markers.Add(marker);
                         markerOverlayold.Markers.Add(marker);
                         if (mostrarviejo == false)
@@ -129,6 +134,8 @@ namespace Graphics
                     else if (asterixFile.getListCatAll()[n].CATMode == "MLAT" && ShowMLAT == true)
                     {
                         marker = new GMarkerGoogle(new PointLatLng(asterixFile.getListCatAll()[n].LatWGS84, asterixFile.getListCatAll()[n].LongWGS84), GMarkerGoogleType.blue_dot);
+                        marker.ToolTipMode = MarkerTooltipMode.Never;
+                        marker.ToolTipText = n.ToString();
                         markerOverlay.Markers.Add(marker);
                         markerOverlayold.Markers.Add(marker);
                         gMapControl1.Overlays.Add(markerOverlay);
@@ -145,8 +152,27 @@ namespace Graphics
                             gMapControl1.Overlays.Add(markerOverlayold);
                         }
                     }
-
-
+                    else if (asterixFile.getListCatAll()[n].CATMode == "ADSB" && ShowADSB)
+                    {
+                        marker = new GMarkerGoogle(new PointLatLng(asterixFile.getListCatAll()[n].LatWGS84, asterixFile.getListCatAll()[n].LongWGS84), GMarkerGoogleType.yellow_dot);
+                        marker.ToolTipMode = MarkerTooltipMode.Never;
+                        marker.ToolTipText = n.ToString();
+                        markerOverlay.Markers.Add(marker);
+                        markerOverlayold.Markers.Add(marker);
+                        gMapControl1.Overlays.Add(markerOverlay);
+                        if (mostrarviejo == false)
+                        {
+                            while (gMapControl1.Overlays.Count > 0)
+                            {
+                                gMapControl1.Overlays.RemoveAt(0);
+                            }
+                            gMapControl1.Overlays.Add(markerOverlay);
+                        }
+                        else
+                        {
+                            gMapControl1.Overlays.Add(markerOverlayold);
+                        }
+                    }
                 }
                 n++;
             }
@@ -195,8 +221,9 @@ namespace Graphics
 
         private void gMapControl1_OnMarkerClick(GMapMarker item, MouseEventArgs e)
         {
-            dataGridViewINFO.Columns.Clear();
-            
+            if (dataGridViewINFO.DataSource == null) { dataGridViewINFO.DataSource = tableAll; }
+            var markerN = item.ToolTipText;
+            tableAll.DefaultView.RowFilter = string.Format("Convert([{0}], 'System.String') = '{1}'", tableAll.Columns[1].ColumnName, markerN);
         }
 
         private void buttonLEBL_Click(object sender, EventArgs e)

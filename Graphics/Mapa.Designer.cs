@@ -35,15 +35,6 @@ namespace Graphics
             this.labelTiempo = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.buttonConfig = new System.Windows.Forms.Button();
-            this.dataGridViewINFO = new System.Windows.Forms.DataGridView();
-            this.Target_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Target_Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Track_Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CAT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SIC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SAC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Time = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonLEBL = new System.Windows.Forms.Button();
             this.buttonBCN = new System.Windows.Forms.Button();
             this.buttonCAT = new System.Windows.Forms.Button();
@@ -55,8 +46,9 @@ namespace Graphics
             this.listBoxSS = new System.Windows.Forms.ListBox();
             this.trackBarZOOM = new System.Windows.Forms.TrackBar();
             this.label2 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewINFO)).BeginInit();
+            this.dataGridViewINFO = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarZOOM)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewINFO)).BeginInit();
             this.SuspendLayout();
             // 
             // gMapControl1
@@ -118,92 +110,6 @@ namespace Graphics
             this.buttonConfig.Text = "Configuration";
             this.buttonConfig.UseVisualStyleBackColor = true;
             this.buttonConfig.Click += new System.EventHandler(this.buttonConfig_Click);
-            // 
-            // dataGridViewINFO
-            // 
-            this.dataGridViewINFO.AllowUserToAddRows = false;
-            this.dataGridViewINFO.AllowUserToDeleteRows = false;
-            this.dataGridViewINFO.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewINFO.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Target_ID,
-            this.Target_Address,
-            this.Track_Number,
-            this.CAT,
-            this.SIC,
-            this.SAC,
-            this.Time,
-            this.FL});
-            this.dataGridViewINFO.Location = new System.Drawing.Point(310, 648);
-            this.dataGridViewINFO.Name = "dataGridViewINFO";
-            this.dataGridViewINFO.ReadOnly = true;
-            this.dataGridViewINFO.RowHeadersWidth = 51;
-            this.dataGridViewINFO.RowTemplate.Height = 24;
-            this.dataGridViewINFO.Size = new System.Drawing.Size(1053, 93);
-            this.dataGridViewINFO.TabIndex = 4;
-            // 
-            // Target_ID
-            // 
-            this.Target_ID.HeaderText = "Target ID";
-            this.Target_ID.MinimumWidth = 6;
-            this.Target_ID.Name = "Target_ID";
-            this.Target_ID.ReadOnly = true;
-            this.Target_ID.Width = 125;
-            // 
-            // Target_Address
-            // 
-            this.Target_Address.HeaderText = "Target Address";
-            this.Target_Address.MinimumWidth = 6;
-            this.Target_Address.Name = "Target_Address";
-            this.Target_Address.ReadOnly = true;
-            this.Target_Address.Width = 125;
-            // 
-            // Track_Number
-            // 
-            this.Track_Number.HeaderText = "Track Number";
-            this.Track_Number.MinimumWidth = 6;
-            this.Track_Number.Name = "Track_Number";
-            this.Track_Number.ReadOnly = true;
-            this.Track_Number.Width = 125;
-            // 
-            // CAT
-            // 
-            this.CAT.HeaderText = "CAT";
-            this.CAT.MinimumWidth = 6;
-            this.CAT.Name = "CAT";
-            this.CAT.ReadOnly = true;
-            this.CAT.Width = 125;
-            // 
-            // SIC
-            // 
-            this.SIC.HeaderText = "SIC";
-            this.SIC.MinimumWidth = 6;
-            this.SIC.Name = "SIC";
-            this.SIC.ReadOnly = true;
-            this.SIC.Width = 125;
-            // 
-            // SAC
-            // 
-            this.SAC.HeaderText = "SAC";
-            this.SAC.MinimumWidth = 6;
-            this.SAC.Name = "SAC";
-            this.SAC.ReadOnly = true;
-            this.SAC.Width = 125;
-            // 
-            // Time
-            // 
-            this.Time.HeaderText = "Time";
-            this.Time.MinimumWidth = 6;
-            this.Time.Name = "Time";
-            this.Time.ReadOnly = true;
-            this.Time.Width = 125;
-            // 
-            // FL
-            // 
-            this.FL.HeaderText = "Flight Level";
-            this.FL.MinimumWidth = 6;
-            this.FL.Name = "FL";
-            this.FL.ReadOnly = true;
-            this.FL.Width = 125;
             // 
             // buttonLEBL
             // 
@@ -457,11 +363,24 @@ namespace Graphics
             this.label2.TabIndex = 16;
             this.label2.Text = "Zoom:";
             // 
+            // dataGridViewINFO
+            // 
+            this.dataGridViewINFO.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewINFO.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewINFO.Location = new System.Drawing.Point(305, 669);
+            this.dataGridViewINFO.Name = "dataGridViewINFO";
+            this.dataGridViewINFO.ReadOnly = true;
+            this.dataGridViewINFO.RowHeadersWidth = 51;
+            this.dataGridViewINFO.RowTemplate.Height = 24;
+            this.dataGridViewINFO.Size = new System.Drawing.Size(1058, 102);
+            this.dataGridViewINFO.TabIndex = 17;
+            // 
             // Mapa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1441, 898);
+            this.Controls.Add(this.dataGridViewINFO);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.trackBarZOOM);
             this.Controls.Add(this.listBoxSS);
@@ -473,7 +392,6 @@ namespace Graphics
             this.Controls.Add(this.buttonCAT);
             this.Controls.Add(this.buttonBCN);
             this.Controls.Add(this.buttonLEBL);
-            this.Controls.Add(this.dataGridViewINFO);
             this.Controls.Add(this.buttonConfig);
             this.Controls.Add(this.labelTiempo);
             this.Controls.Add(this.buttonPlay);
@@ -481,8 +399,8 @@ namespace Graphics
             this.Name = "Mapa";
             this.Text = "Mapa";
             this.Load += new System.EventHandler(this.Mapa_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewINFO)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarZOOM)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewINFO)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -495,15 +413,6 @@ namespace Graphics
         private System.Windows.Forms.Label labelTiempo;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button buttonConfig;
-        private System.Windows.Forms.DataGridView dataGridViewINFO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Target_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Target_Address;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Track_Number;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CAT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SIC;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SAC;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Time;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FL;
         private System.Windows.Forms.Button buttonLEBL;
         private System.Windows.Forms.Button buttonBCN;
         private System.Windows.Forms.Button buttonCAT;
@@ -515,5 +424,6 @@ namespace Graphics
         private System.Windows.Forms.ListBox listBoxSS;
         private System.Windows.Forms.TrackBar trackBarZOOM;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridView dataGridViewINFO;
     }
 }
