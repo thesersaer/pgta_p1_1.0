@@ -68,5 +68,26 @@ namespace Graphics
                 form3.ShowDialog();
             }
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (asterixFile.getListCatAll().Count != 0)
+            {
+                Mapa mapa = new Mapa();
+                mapa.setAsterix(asterixFile);
+                mapa.ShowDialog();
+            }
+            else
+            {
+                Form3 form3 = new Form3();
+                form3.ShowDialog();
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Help help = new Help();
+            help.ShowDialog();
+        }
     }
 }

@@ -33,11 +33,13 @@ namespace Graphics
             this.button2 = new System.Windows.Forms.Button();
             this.fileStatusLabel = new System.Windows.Forms.Label();
             this.showData2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(311, 154);
+            this.button1.Location = new System.Drawing.Point(311, 164);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(145, 52);
             this.button1.TabIndex = 0;
@@ -58,7 +60,7 @@ namespace Graphics
             // fileStatusLabel
             // 
             this.fileStatusLabel.AutoSize = true;
-            this.fileStatusLabel.Location = new System.Drawing.Point(463, 171);
+            this.fileStatusLabel.Location = new System.Drawing.Point(463, 181);
             this.fileStatusLabel.Name = "fileStatusLabel";
             this.fileStatusLabel.Size = new System.Drawing.Size(105, 17);
             this.fileStatusLabel.TabIndex = 2;
@@ -74,11 +76,33 @@ namespace Graphics
             this.showData2.UseVisualStyleBackColor = true;
             this.showData2.Click += new System.EventHandler(this.showData2_Click);
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(311, 324);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(145, 45);
+            this.button3.TabIndex = 4;
+            this.button3.Text = "Mostrar Mapa";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(311, 82);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(145, 51);
+            this.button4.TabIndex = 5;
+            this.button4.Text = "HELP";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.showData2);
             this.Controls.Add(this.fileStatusLabel);
             this.Controls.Add(this.button2);
@@ -97,6 +121,8 @@ namespace Graphics
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label fileStatusLabel;
         private System.Windows.Forms.Button showData2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
     }
 }
 

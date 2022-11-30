@@ -107,6 +107,12 @@
     <Compile Include="Form3.Designer.cs">
       <DependentUpon>Form3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Help.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Help.Designer.cs">
+      <DependentUpon>Help.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mapa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +138,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form3.resx">
       <DependentUpon>Form3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Help.resx">
+      <DependentUpon>Help.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mapa.resx">
       <DependentUpon>Mapa.cs</DependentUpon>
