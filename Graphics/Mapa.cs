@@ -24,6 +24,9 @@ namespace Graphics
         GMapOverlay markerOverlay = new GMapOverlay("Marcador");
         GMapOverlay markerOverlayold= new GMapOverlay("Marcador");
         bool mostrarviejo = false;
+        int ex;
+        int ey;
+        bool Arrastre = false;
 
         bool start = false;
         bool ShowSMR = true;
@@ -276,6 +279,70 @@ namespace Graphics
         private void trackBarZOOM_ValueChanged(object sender, EventArgs e)
         {
             gMapControl1.Zoom = trackBarZOOM.Value;
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+            pictureBox2.Visible = true;
+            pictureBox4.Visible = false;
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+            pictureBox2.Visible = false;
+            pictureBox4.Visible = true;
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Mapa_MouseDown(object sender, MouseEventArgs e)
+        {
+            ex = e.X;
+            ey = e.Y;
+            Arrastre = true;
+        }
+
+        private void Mapa_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (this.Arrastre == true)
+            {
+                this.SetDesktopLocation(MousePosition.X - ex, MousePosition.Y - ey);
+            }
+        }
+
+        private void Mapa_MouseUp(object sender, MouseEventArgs e)
+        {
+            Arrastre = false;
+        }
+
+        private void panelTitulo_MouseUp(object sender, MouseEventArgs e)
+        {
+            Arrastre = false;
+        }
+
+        private void panelTitulo_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (this.Arrastre == true)
+            {
+                this.SetDesktopLocation(MousePosition.X - ex, MousePosition.Y - ey);
+            }
+        }
+
+        private void panelTitulo_MouseDown(object sender, MouseEventArgs e)
+        {
+            ex = e.X;
+            ey = e.Y;
+            Arrastre = true;
         }
     }
 }

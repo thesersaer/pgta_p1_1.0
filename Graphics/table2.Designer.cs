@@ -111,7 +111,18 @@ namespace Graphics
             this.label49 = new System.Windows.Forms.Label();
             this.label50 = new System.Windows.Forms.Label();
             this.label51 = new System.Windows.Forms.Label();
+            this.panelTitulo = new System.Windows.Forms.Panel();
+            this.label46 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.btnCerrar = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panelTitulo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -121,64 +132,93 @@ namespace Graphics
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 51);
+            this.dataGridView1.MaximumSize = new System.Drawing.Size(1000, 656);
+            this.dataGridView1.MinimumSize = new System.Drawing.Size(500, 656);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(821, 656);
+            this.dataGridView1.Size = new System.Drawing.Size(1000, 656);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // filtSMRbutton
             // 
-            this.filtSMRbutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.filtSMRbutton.Location = new System.Drawing.Point(120, 686);
+            this.filtSMRbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(88)))), ((int)(((byte)(106)))));
+            this.filtSMRbutton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.filtSMRbutton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.filtSMRbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.filtSMRbutton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.filtSMRbutton.Location = new System.Drawing.Point(120, 729);
+            this.filtSMRbutton.MaximumSize = new System.Drawing.Size(102, 37);
+            this.filtSMRbutton.MinimumSize = new System.Drawing.Size(102, 37);
             this.filtSMRbutton.Name = "filtSMRbutton";
-            this.filtSMRbutton.Size = new System.Drawing.Size(102, 23);
+            this.filtSMRbutton.Size = new System.Drawing.Size(102, 37);
             this.filtSMRbutton.TabIndex = 1;
             this.filtSMRbutton.Text = "SMR";
-            this.filtSMRbutton.UseVisualStyleBackColor = true;
+            this.filtSMRbutton.UseVisualStyleBackColor = false;
             this.filtSMRbutton.Click += new System.EventHandler(this.filtSMRbutton_Click);
             // 
             // filtMLATbutton
             // 
-            this.filtMLATbutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.filtMLATbutton.Location = new System.Drawing.Point(228, 686);
+            this.filtMLATbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(88)))), ((int)(((byte)(106)))));
+            this.filtMLATbutton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.filtMLATbutton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.filtMLATbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.filtMLATbutton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.filtMLATbutton.Location = new System.Drawing.Point(228, 729);
+            this.filtMLATbutton.MaximumSize = new System.Drawing.Size(102, 37);
+            this.filtMLATbutton.MinimumSize = new System.Drawing.Size(102, 37);
             this.filtMLATbutton.Name = "filtMLATbutton";
-            this.filtMLATbutton.Size = new System.Drawing.Size(102, 23);
+            this.filtMLATbutton.Size = new System.Drawing.Size(102, 37);
             this.filtMLATbutton.TabIndex = 2;
             this.filtMLATbutton.Text = "MLAT";
-            this.filtMLATbutton.UseVisualStyleBackColor = true;
+            this.filtMLATbutton.UseVisualStyleBackColor = false;
             this.filtMLATbutton.Click += new System.EventHandler(this.filtMLATbutton_Click);
             // 
             // filt21button
             // 
-            this.filt21button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.filt21button.Location = new System.Drawing.Point(336, 686);
+            this.filt21button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(88)))), ((int)(((byte)(106)))));
+            this.filt21button.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.filt21button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.filt21button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.filt21button.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.filt21button.Location = new System.Drawing.Point(336, 729);
+            this.filt21button.MaximumSize = new System.Drawing.Size(102, 37);
+            this.filt21button.MinimumSize = new System.Drawing.Size(102, 37);
             this.filt21button.Name = "filt21button";
-            this.filt21button.Size = new System.Drawing.Size(102, 23);
+            this.filt21button.Size = new System.Drawing.Size(102, 37);
             this.filt21button.TabIndex = 3;
             this.filt21button.Text = "ADBS";
-            this.filt21button.UseVisualStyleBackColor = true;
+            this.filt21button.UseVisualStyleBackColor = false;
             this.filt21button.Click += new System.EventHandler(this.filt21button_Click);
             // 
             // filtAllButton
             // 
-            this.filtAllButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.filtAllButton.Location = new System.Drawing.Point(12, 686);
+            this.filtAllButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(88)))), ((int)(((byte)(106)))));
+            this.filtAllButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.filtAllButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.filtAllButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.filtAllButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.filtAllButton.Location = new System.Drawing.Point(12, 729);
+            this.filtAllButton.MaximumSize = new System.Drawing.Size(102, 37);
+            this.filtAllButton.MinimumSize = new System.Drawing.Size(102, 37);
             this.filtAllButton.Name = "filtAllButton";
-            this.filtAllButton.Size = new System.Drawing.Size(102, 23);
+            this.filtAllButton.Size = new System.Drawing.Size(102, 37);
             this.filtAllButton.TabIndex = 4;
             this.filtAllButton.Text = "ALL";
-            this.filtAllButton.UseVisualStyleBackColor = true;
+            this.filtAllButton.UseVisualStyleBackColor = false;
             this.filtAllButton.Click += new System.EventHandler(this.filtAllButton_Click);
             // 
             // filterLabel
             // 
-            this.filterLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.filterLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.filterLabel.AutoSize = true;
-            this.filterLabel.Location = new System.Drawing.Point(15, 720);
+            this.filterLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.filterLabel.Location = new System.Drawing.Point(15, 790);
             this.filterLabel.Name = "filterLabel";
             this.filterLabel.Size = new System.Drawing.Size(62, 17);
             this.filterLabel.TabIndex = 5;
@@ -186,37 +226,50 @@ namespace Graphics
             // 
             // filtFieldsBox
             // 
-            this.filtFieldsBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.filtFieldsBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.filtFieldsBox.FormattingEnabled = true;
-            this.filtFieldsBox.Location = new System.Drawing.Point(83, 715);
+            this.filtFieldsBox.Location = new System.Drawing.Point(83, 785);
+            this.filtFieldsBox.MaximumSize = new System.Drawing.Size(140, 0);
             this.filtFieldsBox.Name = "filtFieldsBox";
-            this.filtFieldsBox.Size = new System.Drawing.Size(121, 24);
+            this.filtFieldsBox.Size = new System.Drawing.Size(140, 24);
             this.filtFieldsBox.TabIndex = 6;
             // 
             // filtTextBox
             // 
-            this.filtTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.filtTextBox.Location = new System.Drawing.Point(210, 715);
+            this.filtTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.filtTextBox.Location = new System.Drawing.Point(229, 787);
+            this.filtTextBox.MaximumSize = new System.Drawing.Size(150, 22);
             this.filtTextBox.Name = "filtTextBox";
-            this.filtTextBox.Size = new System.Drawing.Size(100, 22);
+            this.filtTextBox.Size = new System.Drawing.Size(119, 22);
             this.filtTextBox.TabIndex = 7;
             this.filtTextBox.TextChanged += new System.EventHandler(this.filtTextBox_TextChanged);
             // 
             // labelTituloPage
             // 
-            this.labelTituloPage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelTituloPage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelTituloPage.AutoSize = true;
-            this.labelTituloPage.Location = new System.Drawing.Point(852, 12);
+            this.labelTituloPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTituloPage.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelTituloPage.Location = new System.Drawing.Point(1034, 51);
             this.labelTituloPage.Name = "labelTituloPage";
-            this.labelTituloPage.Size = new System.Drawing.Size(75, 17);
+            this.labelTituloPage.Size = new System.Drawing.Size(137, 29);
             this.labelTituloPage.TabIndex = 90;
             this.labelTituloPage.Text = "Navigation";
             // 
             // labelPAM
             // 
-            this.labelPAM.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelPAM.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelPAM.AutoSize = true;
-            this.labelPAM.Location = new System.Drawing.Point(1028, 323);
+            this.labelPAM.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelPAM.Location = new System.Drawing.Point(1207, 362);
             this.labelPAM.Name = "labelPAM";
             this.labelPAM.Size = new System.Drawing.Size(13, 17);
             this.labelPAM.TabIndex = 89;
@@ -224,9 +277,12 @@ namespace Graphics
             // 
             // label21
             // 
-            this.label21.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label21.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(852, 323);
+            this.label21.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label21.Location = new System.Drawing.Point(1034, 362);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(170, 17);
             this.label21.TabIndex = 88;
@@ -234,9 +290,12 @@ namespace Graphics
             // 
             // labelMeasuredHeight
             // 
-            this.labelMeasuredHeight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelMeasuredHeight.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelMeasuredHeight.AutoSize = true;
-            this.labelMeasuredHeight.Location = new System.Drawing.Point(978, 484);
+            this.labelMeasuredHeight.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelMeasuredHeight.Location = new System.Drawing.Point(1157, 523);
             this.labelMeasuredHeight.Name = "labelMeasuredHeight";
             this.labelMeasuredHeight.Size = new System.Drawing.Size(13, 17);
             this.labelMeasuredHeight.TabIndex = 87;
@@ -244,9 +303,12 @@ namespace Graphics
             // 
             // labelMode3A
             // 
-            this.labelMode3A.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelMode3A.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelMode3A.AutoSize = true;
-            this.labelMode3A.Location = new System.Drawing.Point(964, 54);
+            this.labelMode3A.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelMode3A.Location = new System.Drawing.Point(1143, 93);
             this.labelMode3A.Name = "labelMode3A";
             this.labelMode3A.Size = new System.Drawing.Size(13, 17);
             this.labelMode3A.TabIndex = 86;
@@ -254,9 +316,12 @@ namespace Graphics
             // 
             // labelModeS
             // 
-            this.labelModeS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelModeS.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelModeS.AutoSize = true;
-            this.labelModeS.Location = new System.Drawing.Point(975, 83);
+            this.labelModeS.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelModeS.Location = new System.Drawing.Point(1154, 122);
             this.labelModeS.Name = "labelModeS";
             this.labelModeS.Size = new System.Drawing.Size(13, 17);
             this.labelModeS.TabIndex = 85;
@@ -264,9 +329,12 @@ namespace Graphics
             // 
             // labelStandardDevi
             // 
-            this.labelStandardDevi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelStandardDevi.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelStandardDevi.AutoSize = true;
-            this.labelStandardDevi.Location = new System.Drawing.Point(1061, 267);
+            this.labelStandardDevi.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelStandardDevi.Location = new System.Drawing.Point(1240, 306);
             this.labelStandardDevi.Name = "labelStandardDevi";
             this.labelStandardDevi.Size = new System.Drawing.Size(13, 17);
             this.labelStandardDevi.TabIndex = 84;
@@ -274,9 +342,12 @@ namespace Graphics
             // 
             // labelPresence
             // 
-            this.labelPresence.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelPresence.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelPresence.AutoSize = true;
-            this.labelPresence.Location = new System.Drawing.Point(930, 295);
+            this.labelPresence.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelPresence.Location = new System.Drawing.Point(1109, 334);
             this.labelPresence.Name = "labelPresence";
             this.labelPresence.Size = new System.Drawing.Size(13, 17);
             this.labelPresence.TabIndex = 83;
@@ -284,9 +355,12 @@ namespace Graphics
             // 
             // labelCalculatedAccel
             // 
-            this.labelCalculatedAccel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelCalculatedAccel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelCalculatedAccel.AutoSize = true;
-            this.labelCalculatedAccel.Location = new System.Drawing.Point(1018, 514);
+            this.labelCalculatedAccel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelCalculatedAccel.Location = new System.Drawing.Point(1197, 553);
             this.labelCalculatedAccel.Name = "labelCalculatedAccel";
             this.labelCalculatedAccel.Size = new System.Drawing.Size(13, 17);
             this.labelCalculatedAccel.TabIndex = 82;
@@ -294,9 +368,12 @@ namespace Graphics
             // 
             // labelFL
             // 
-            this.labelFL.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelFL.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelFL.AutoSize = true;
-            this.labelFL.Location = new System.Drawing.Point(942, 54);
+            this.labelFL.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelFL.Location = new System.Drawing.Point(1121, 93);
             this.labelFL.Name = "labelFL";
             this.labelFL.Size = new System.Drawing.Size(13, 17);
             this.labelFL.TabIndex = 81;
@@ -304,9 +381,12 @@ namespace Graphics
             // 
             // labelTrackStatus
             // 
-            this.labelTrackStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelTrackStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelTrackStatus.AutoSize = true;
-            this.labelTrackStatus.Location = new System.Drawing.Point(950, 92);
+            this.labelTrackStatus.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelTrackStatus.Location = new System.Drawing.Point(1129, 131);
             this.labelTrackStatus.Name = "labelTrackStatus";
             this.labelTrackStatus.Size = new System.Drawing.Size(13, 17);
             this.labelTrackStatus.TabIndex = 80;
@@ -314,9 +394,12 @@ namespace Graphics
             // 
             // labelPosWGS84
             // 
-            this.labelPosWGS84.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelPosWGS84.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelPosWGS84.AutoSize = true;
-            this.labelPosWGS84.Location = new System.Drawing.Point(1073, 342);
+            this.labelPosWGS84.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelPosWGS84.Location = new System.Drawing.Point(1252, 381);
             this.labelPosWGS84.Name = "labelPosWGS84";
             this.labelPosWGS84.Size = new System.Drawing.Size(13, 17);
             this.labelPosWGS84.TabIndex = 79;
@@ -324,9 +407,12 @@ namespace Graphics
             // 
             // labelPosCart
             // 
-            this.labelPosCart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelPosCart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelPosCart.AutoSize = true;
-            this.labelPosCart.Location = new System.Drawing.Point(1079, 372);
+            this.labelPosCart.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelPosCart.Location = new System.Drawing.Point(1258, 411);
             this.labelPosCart.Name = "labelPosCart";
             this.labelPosCart.Size = new System.Drawing.Size(13, 17);
             this.labelPosCart.TabIndex = 78;
@@ -334,9 +420,12 @@ namespace Graphics
             // 
             // labelPosPolar
             // 
-            this.labelPosPolar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelPosPolar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelPosPolar.AutoSize = true;
-            this.labelPosPolar.Location = new System.Drawing.Point(1052, 401);
+            this.labelPosPolar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelPosPolar.Location = new System.Drawing.Point(1231, 440);
             this.labelPosPolar.Name = "labelPosPolar";
             this.labelPosPolar.Size = new System.Drawing.Size(13, 17);
             this.labelPosPolar.TabIndex = 77;
@@ -344,9 +433,12 @@ namespace Graphics
             // 
             // labelVeloCart
             // 
-            this.labelVeloCart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelVeloCart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelVeloCart.AutoSize = true;
-            this.labelVeloCart.Location = new System.Drawing.Point(1118, 429);
+            this.labelVeloCart.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelVeloCart.Location = new System.Drawing.Point(1299, 426);
             this.labelVeloCart.Name = "labelVeloCart";
             this.labelVeloCart.Size = new System.Drawing.Size(13, 17);
             this.labelVeloCart.TabIndex = 76;
@@ -354,9 +446,12 @@ namespace Graphics
             // 
             // labelVeloPolar
             // 
-            this.labelVeloPolar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelVeloPolar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelVeloPolar.AutoSize = true;
-            this.labelVeloPolar.Location = new System.Drawing.Point(1091, 458);
+            this.labelVeloPolar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelVeloPolar.Location = new System.Drawing.Point(1270, 497);
             this.labelVeloPolar.Name = "labelVeloPolar";
             this.labelVeloPolar.Size = new System.Drawing.Size(13, 17);
             this.labelVeloPolar.TabIndex = 75;
@@ -364,9 +459,12 @@ namespace Graphics
             // 
             // labelSizeOrientation
             // 
-            this.labelSizeOrientation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelSizeOrientation.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelSizeOrientation.AutoSize = true;
-            this.labelSizeOrientation.Location = new System.Drawing.Point(1045, 83);
+            this.labelSizeOrientation.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelSizeOrientation.Location = new System.Drawing.Point(1224, 122);
             this.labelSizeOrientation.Name = "labelSizeOrientation";
             this.labelSizeOrientation.Size = new System.Drawing.Size(13, 17);
             this.labelSizeOrientation.TabIndex = 74;
@@ -374,9 +472,12 @@ namespace Graphics
             // 
             // labelSystemStatus
             // 
-            this.labelSystemStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelSystemStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelSystemStatus.AutoSize = true;
-            this.labelSystemStatus.Location = new System.Drawing.Point(960, 111);
+            this.labelSystemStatus.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelSystemStatus.Location = new System.Drawing.Point(1139, 150);
             this.labelSystemStatus.Name = "labelSystemStatus";
             this.labelSystemStatus.Size = new System.Drawing.Size(13, 17);
             this.labelSystemStatus.TabIndex = 73;
@@ -384,9 +485,12 @@ namespace Graphics
             // 
             // labelFleetID
             // 
-            this.labelFleetID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelFleetID.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelFleetID.AutoSize = true;
-            this.labelFleetID.Location = new System.Drawing.Point(1030, 284);
+            this.labelFleetID.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelFleetID.Location = new System.Drawing.Point(1209, 323);
             this.labelFleetID.Name = "labelFleetID";
             this.labelFleetID.Size = new System.Drawing.Size(13, 17);
             this.labelFleetID.TabIndex = 72;
@@ -394,9 +498,12 @@ namespace Graphics
             // 
             // labelPreprogrammedMessage
             // 
-            this.labelPreprogrammedMessage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelPreprogrammedMessage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelPreprogrammedMessage.AutoSize = true;
-            this.labelPreprogrammedMessage.Location = new System.Drawing.Point(1038, 235);
+            this.labelPreprogrammedMessage.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelPreprogrammedMessage.Location = new System.Drawing.Point(1217, 274);
             this.labelPreprogrammedMessage.Name = "labelPreprogrammedMessage";
             this.labelPreprogrammedMessage.Size = new System.Drawing.Size(13, 17);
             this.labelPreprogrammedMessage.TabIndex = 71;
@@ -404,9 +511,12 @@ namespace Graphics
             // 
             // labelMessageType
             // 
-            this.labelMessageType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelMessageType.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelMessageType.AutoSize = true;
-            this.labelMessageType.Location = new System.Drawing.Point(964, 54);
+            this.labelMessageType.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelMessageType.Location = new System.Drawing.Point(1143, 93);
             this.labelMessageType.Name = "labelMessageType";
             this.labelMessageType.Size = new System.Drawing.Size(13, 17);
             this.labelMessageType.TabIndex = 70;
@@ -414,9 +524,12 @@ namespace Graphics
             // 
             // label15
             // 
-            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(852, 514);
+            this.label15.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label15.Location = new System.Drawing.Point(1034, 553);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(160, 17);
             this.label15.TabIndex = 69;
@@ -424,9 +537,12 @@ namespace Graphics
             // 
             // label17
             // 
-            this.label17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label17.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(852, 295);
+            this.label17.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label17.Location = new System.Drawing.Point(1034, 334);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(72, 17);
             this.label17.TabIndex = 68;
@@ -434,9 +550,12 @@ namespace Graphics
             // 
             // label18
             // 
-            this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(852, 267);
+            this.label18.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label18.Location = new System.Drawing.Point(1034, 306);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(203, 17);
             this.label18.TabIndex = 67;
@@ -444,9 +563,12 @@ namespace Graphics
             // 
             // label19
             // 
-            this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(853, 83);
+            this.label19.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label19.Location = new System.Drawing.Point(1034, 122);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(116, 17);
             this.label19.TabIndex = 66;
@@ -454,9 +576,12 @@ namespace Graphics
             // 
             // label20
             // 
-            this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(853, 54);
+            this.label20.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label20.Location = new System.Drawing.Point(1034, 93);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(105, 17);
             this.label20.TabIndex = 65;
@@ -464,9 +589,12 @@ namespace Graphics
             // 
             // label14
             // 
-            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(852, 484);
+            this.label14.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label14.Location = new System.Drawing.Point(1034, 523);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(120, 17);
             this.label14.TabIndex = 64;
@@ -474,9 +602,12 @@ namespace Graphics
             // 
             // label8
             // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(852, 235);
+            this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label8.Location = new System.Drawing.Point(1034, 274);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(180, 17);
             this.label8.TabIndex = 63;
@@ -484,9 +615,12 @@ namespace Graphics
             // 
             // label9
             // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(853, 284);
+            this.label9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label9.Location = new System.Drawing.Point(1034, 323);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(176, 17);
             this.label9.TabIndex = 62;
@@ -494,9 +628,12 @@ namespace Graphics
             // 
             // label10
             // 
-            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(852, 111);
+            this.label10.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label10.Location = new System.Drawing.Point(1034, 150);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(102, 17);
             this.label10.TabIndex = 61;
@@ -504,9 +641,12 @@ namespace Graphics
             // 
             // label11
             // 
-            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(852, 83);
+            this.label11.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label11.Location = new System.Drawing.Point(1034, 122);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(187, 17);
             this.label11.TabIndex = 60;
@@ -514,9 +654,12 @@ namespace Graphics
             // 
             // label12
             // 
-            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(852, 458);
+            this.label12.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label12.Location = new System.Drawing.Point(1034, 497);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(233, 17);
             this.label12.TabIndex = 59;
@@ -524,9 +667,12 @@ namespace Graphics
             // 
             // label13
             // 
-            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(852, 429);
+            this.label13.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label13.Location = new System.Drawing.Point(1034, 468);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(260, 17);
             this.label13.TabIndex = 58;
@@ -534,9 +680,12 @@ namespace Graphics
             // 
             // label7
             // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(852, 401);
+            this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label7.Location = new System.Drawing.Point(1034, 440);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(194, 17);
             this.label7.TabIndex = 57;
@@ -544,9 +693,12 @@ namespace Graphics
             // 
             // label6
             // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(852, 372);
+            this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label6.Location = new System.Drawing.Point(1034, 411);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(221, 17);
             this.label6.TabIndex = 56;
@@ -554,9 +706,12 @@ namespace Graphics
             // 
             // label5
             // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(852, 342);
+            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label5.Location = new System.Drawing.Point(1034, 381);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(215, 17);
             this.label5.TabIndex = 55;
@@ -564,9 +719,12 @@ namespace Graphics
             // 
             // label4
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(852, 92);
+            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label4.Location = new System.Drawing.Point(1034, 131);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(92, 17);
             this.label4.TabIndex = 54;
@@ -574,9 +732,12 @@ namespace Graphics
             // 
             // label3
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(852, 54);
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label3.Location = new System.Drawing.Point(1034, 93);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(84, 17);
             this.label3.TabIndex = 53;
@@ -584,9 +745,12 @@ namespace Graphics
             // 
             // label2
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(852, 54);
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(1034, 93);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(105, 17);
             this.label2.TabIndex = 52;
@@ -594,9 +758,12 @@ namespace Graphics
             // 
             // labelTargetRepDescrip
             // 
-            this.labelTargetRepDescrip.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelTargetRepDescrip.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelTargetRepDescrip.AutoSize = true;
-            this.labelTargetRepDescrip.Location = new System.Drawing.Point(1029, 54);
+            this.labelTargetRepDescrip.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelTargetRepDescrip.Location = new System.Drawing.Point(1208, 93);
             this.labelTargetRepDescrip.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelTargetRepDescrip.Name = "labelTargetRepDescrip";
             this.labelTargetRepDescrip.Size = new System.Drawing.Size(13, 17);
@@ -605,9 +772,12 @@ namespace Graphics
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(852, 54);
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(1034, 93);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(170, 17);
@@ -616,9 +786,12 @@ namespace Graphics
             // 
             // labelPage
             // 
-            this.labelPage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelPage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelPage.AutoSize = true;
-            this.labelPage.Location = new System.Drawing.Point(1361, 671);
+            this.labelPage.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelPage.Location = new System.Drawing.Point(1131, 810);
             this.labelPage.Name = "labelPage";
             this.labelPage.Size = new System.Drawing.Size(28, 17);
             this.labelPage.TabIndex = 93;
@@ -626,31 +799,48 @@ namespace Graphics
             // 
             // buttonPrevious
             // 
-            this.buttonPrevious.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonPrevious.Location = new System.Drawing.Point(1263, 639);
+            this.buttonPrevious.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonPrevious.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(88)))), ((int)(((byte)(106)))));
+            this.buttonPrevious.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.buttonPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPrevious.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonPrevious.Location = new System.Drawing.Point(1037, 770);
+            this.buttonPrevious.MaximumSize = new System.Drawing.Size(102, 37);
             this.buttonPrevious.Name = "buttonPrevious";
-            this.buttonPrevious.Size = new System.Drawing.Size(109, 29);
+            this.buttonPrevious.Size = new System.Drawing.Size(102, 37);
             this.buttonPrevious.TabIndex = 92;
             this.buttonPrevious.Text = "Previous Page";
-            this.buttonPrevious.UseVisualStyleBackColor = true;
+            this.buttonPrevious.UseVisualStyleBackColor = false;
             this.buttonPrevious.Click += new System.EventHandler(this.buttonPrevious_Click);
             // 
             // buttonNext
             // 
-            this.buttonNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonNext.Location = new System.Drawing.Point(1378, 639);
+            this.buttonNext.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(88)))), ((int)(((byte)(106)))));
+            this.buttonNext.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.buttonNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonNext.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonNext.Location = new System.Drawing.Point(1152, 770);
+            this.buttonNext.MaximumSize = new System.Drawing.Size(102, 37);
             this.buttonNext.Name = "buttonNext";
-            this.buttonNext.Size = new System.Drawing.Size(109, 29);
+            this.buttonNext.Size = new System.Drawing.Size(102, 37);
             this.buttonNext.TabIndex = 91;
             this.buttonNext.Text = "Next Page";
-            this.buttonNext.UseVisualStyleBackColor = true;
+            this.buttonNext.UseVisualStyleBackColor = false;
             this.buttonNext.Click += new System.EventHandler(this.buttonNext_Click);
             // 
             // label16
             // 
-            this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(855, 111);
+            this.label16.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label16.Location = new System.Drawing.Point(1034, 150);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(68, 17);
             this.label16.TabIndex = 94;
@@ -658,9 +848,12 @@ namespace Graphics
             // 
             // label22
             // 
-            this.label22.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label22.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(1335, 193);
+            this.label22.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label22.Location = new System.Drawing.Point(1034, 423);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(54, 17);
             this.label22.TabIndex = 95;
@@ -668,9 +861,12 @@ namespace Graphics
             // 
             // label23
             // 
-            this.label23.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label23.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(853, 75);
+            this.label23.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label23.Location = new System.Drawing.Point(1034, 114);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(194, 17);
             this.label23.TabIndex = 96;
@@ -678,9 +874,12 @@ namespace Graphics
             // 
             // label24
             // 
-            this.label24.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label24.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(853, 128);
+            this.label24.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label24.Location = new System.Drawing.Point(1034, 167);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(245, 17);
             this.label24.TabIndex = 97;
@@ -688,9 +887,12 @@ namespace Graphics
             // 
             // label25
             // 
-            this.label25.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label25.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(855, 412);
+            this.label25.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label25.Location = new System.Drawing.Point(1034, 451);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(126, 17);
             this.label25.TabIndex = 98;
@@ -698,9 +900,12 @@ namespace Graphics
             // 
             // label26
             // 
-            this.label26.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label26.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(853, 94);
+            this.label26.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label26.Location = new System.Drawing.Point(1034, 133);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(193, 17);
             this.label26.TabIndex = 99;
@@ -708,9 +913,12 @@ namespace Graphics
             // 
             // label27
             // 
-            this.label27.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label27.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(852, 145);
+            this.label27.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label27.Location = new System.Drawing.Point(1034, 184);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(244, 17);
             this.label27.TabIndex = 100;
@@ -718,9 +926,12 @@ namespace Graphics
             // 
             // label28
             // 
-            this.label28.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label28.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(853, 162);
+            this.label28.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label28.Location = new System.Drawing.Point(1034, 201);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(122, 17);
             this.label28.TabIndex = 101;
@@ -728,9 +939,12 @@ namespace Graphics
             // 
             // label29
             // 
-            this.label29.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label29.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(1276, 284);
+            this.label29.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label29.Location = new System.Drawing.Point(1034, 218);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(54, 17);
             this.label29.TabIndex = 102;
@@ -738,9 +952,12 @@ namespace Graphics
             // 
             // label30
             // 
-            this.label30.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label30.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(1276, 312);
+            this.label30.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label30.Location = new System.Drawing.Point(1034, 353);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(54, 17);
             this.label30.TabIndex = 103;
@@ -748,9 +965,12 @@ namespace Graphics
             // 
             // label31
             // 
-            this.label31.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label31.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(1276, 340);
+            this.label31.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label31.Location = new System.Drawing.Point(1034, 97);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(54, 17);
             this.label31.TabIndex = 104;
@@ -758,9 +978,12 @@ namespace Graphics
             // 
             // label32
             // 
-            this.label32.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label32.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(853, 179);
+            this.label32.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label32.Location = new System.Drawing.Point(1034, 218);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(76, 17);
             this.label32.TabIndex = 105;
@@ -768,9 +991,12 @@ namespace Graphics
             // 
             // label33
             // 
-            this.label33.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label33.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(853, 196);
+            this.label33.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label33.Location = new System.Drawing.Point(1034, 235);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(126, 17);
             this.label33.TabIndex = 106;
@@ -778,9 +1004,12 @@ namespace Graphics
             // 
             // label34
             // 
-            this.label34.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label34.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(853, 213);
+            this.label34.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label34.Location = new System.Drawing.Point(1034, 252);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(165, 17);
             this.label34.TabIndex = 107;
@@ -788,9 +1017,12 @@ namespace Graphics
             // 
             // label35
             // 
-            this.label35.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label35.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(853, 230);
+            this.label35.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label35.Location = new System.Drawing.Point(1034, 269);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(162, 17);
             this.label35.TabIndex = 108;
@@ -798,9 +1030,12 @@ namespace Graphics
             // 
             // label36
             // 
-            this.label36.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label36.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(852, 247);
+            this.label36.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label36.Location = new System.Drawing.Point(1034, 286);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(163, 17);
             this.label36.TabIndex = 116;
@@ -808,9 +1043,12 @@ namespace Graphics
             // 
             // label37
             // 
-            this.label37.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label37.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(1361, 422);
+            this.label37.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label37.Location = new System.Drawing.Point(1034, 114);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(54, 17);
             this.label37.TabIndex = 115;
@@ -818,9 +1056,12 @@ namespace Graphics
             // 
             // label38
             // 
-            this.label38.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label38.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(1361, 388);
+            this.label38.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label38.Location = new System.Drawing.Point(1034, 468);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(54, 17);
             this.label38.TabIndex = 114;
@@ -828,9 +1069,12 @@ namespace Graphics
             // 
             // label39
             // 
-            this.label39.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label39.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(855, 384);
+            this.label39.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label39.Location = new System.Drawing.Point(1034, 423);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(118, 17);
             this.label39.TabIndex = 113;
@@ -838,9 +1082,12 @@ namespace Graphics
             // 
             // label40
             // 
-            this.label40.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label40.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(852, 359);
+            this.label40.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label40.Location = new System.Drawing.Point(1034, 398);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(119, 17);
             this.label40.TabIndex = 112;
@@ -848,9 +1095,12 @@ namespace Graphics
             // 
             // label41
             // 
-            this.label41.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label41.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(1361, 312);
+            this.label41.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label41.Location = new System.Drawing.Point(1034, 497);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(54, 17);
             this.label41.TabIndex = 111;
@@ -858,9 +1108,12 @@ namespace Graphics
             // 
             // label42
             // 
-            this.label42.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label42.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(1361, 284);
+            this.label42.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label42.Location = new System.Drawing.Point(1034, 523);
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(54, 17);
             this.label42.TabIndex = 110;
@@ -868,9 +1121,12 @@ namespace Graphics
             // 
             // label43
             // 
-            this.label43.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label43.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(1361, 251);
+            this.label43.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label43.Location = new System.Drawing.Point(1034, 553);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(54, 17);
             this.label43.TabIndex = 109;
@@ -878,9 +1134,12 @@ namespace Graphics
             // 
             // label44
             // 
-            this.label44.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label44.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(1421, 369);
+            this.label44.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label44.Location = new System.Drawing.Point(1036, 676);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(54, 17);
             this.label44.TabIndex = 121;
@@ -888,9 +1147,12 @@ namespace Graphics
             // 
             // label45
             // 
-            this.label45.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label45.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(1421, 333);
+            this.label45.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label45.Location = new System.Drawing.Point(1034, 199);
             this.label45.Name = "label45";
             this.label45.Size = new System.Drawing.Size(54, 17);
             this.label45.TabIndex = 120;
@@ -898,9 +1160,12 @@ namespace Graphics
             // 
             // label47
             // 
-            this.label47.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label47.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(1421, 268);
+            this.label47.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label47.Location = new System.Drawing.Point(1036, 701);
             this.label47.Name = "label47";
             this.label47.Size = new System.Drawing.Size(54, 17);
             this.label47.TabIndex = 118;
@@ -908,9 +1173,12 @@ namespace Graphics
             // 
             // label48
             // 
-            this.label48.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label48.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(1421, 251);
+            this.label48.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label48.Location = new System.Drawing.Point(1034, 133);
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(54, 17);
             this.label48.TabIndex = 117;
@@ -918,9 +1186,12 @@ namespace Graphics
             // 
             // label49
             // 
-            this.label49.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label49.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(1433, 458);
+            this.label49.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label49.Location = new System.Drawing.Point(1036, 729);
             this.label49.Name = "label49";
             this.label49.Size = new System.Drawing.Size(54, 17);
             this.label49.TabIndex = 122;
@@ -928,9 +1199,12 @@ namespace Graphics
             // 
             // label50
             // 
-            this.label50.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label50.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label50.AutoSize = true;
-            this.label50.Location = new System.Drawing.Point(1433, 429);
+            this.label50.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label50.Location = new System.Drawing.Point(1034, 93);
             this.label50.Name = "label50";
             this.label50.Size = new System.Drawing.Size(54, 17);
             this.label50.TabIndex = 123;
@@ -938,19 +1212,104 @@ namespace Graphics
             // 
             // label51
             // 
-            this.label51.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label51.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(1433, 406);
+            this.label51.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label51.Location = new System.Drawing.Point(1034, 93);
             this.label51.Name = "label51";
             this.label51.Size = new System.Drawing.Size(54, 17);
             this.label51.TabIndex = 124;
             this.label51.Text = "label51";
             // 
+            // panelTitulo
+            // 
+            this.panelTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.panelTitulo.Controls.Add(this.pictureBox4);
+            this.panelTitulo.Controls.Add(this.pictureBox2);
+            this.panelTitulo.Controls.Add(this.label46);
+            this.panelTitulo.Controls.Add(this.pictureBox3);
+            this.panelTitulo.Controls.Add(this.btnCerrar);
+            this.panelTitulo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTitulo.Location = new System.Drawing.Point(0, 0);
+            this.panelTitulo.Name = "panelTitulo";
+            this.panelTitulo.Size = new System.Drawing.Size(1942, 35);
+            this.panelTitulo.TabIndex = 125;
+            this.panelTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitulo_MouseDown);
+            this.panelTitulo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelTitulo_MouseMove);
+            this.panelTitulo.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panelTitulo_MouseUp);
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label46.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label46.Location = new System.Drawing.Point(12, 7);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(63, 20);
+            this.label46.TabIndex = 3;
+            this.label46.Text = "TABLE";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox3.Image = global::Graphics.Properties.Resources.png_transparent_minimize_minus_remove_line_basic_user_interface_elements_icon;
+            this.pictureBox3.Location = new System.Drawing.Point(1839, 7);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 2;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCerrar.Image = global::Graphics.Properties.Resources.png_clipart_maine_computer_icons_close_icon_logo_law_thumbnail;
+            this.btnCerrar.Location = new System.Drawing.Point(1905, 7);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(25, 25);
+            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnCerrar.TabIndex = 0;
+            this.btnCerrar.TabStop = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox4.Image = global::Graphics.Properties.Resources.png_transparent_minimize_expand_reduce_screen_resize_arrows_icon;
+            this.pictureBox4.Location = new System.Drawing.Point(1870, 7);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 4;
+            this.pictureBox4.TabStop = false;
+            this.pictureBox4.Visible = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox2.Image = global::Graphics.Properties.Resources.png_transparent_maximize_full_screen_zoom_expand_wirecons_free_vector_icons_icon_thumbnail;
+            this.pictureBox2.Location = new System.Drawing.Point(1870, 7);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 126;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
             // table2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1499, 812);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
+            this.ClientSize = new System.Drawing.Size(1942, 980);
             this.Controls.Add(this.label51);
             this.Controls.Add(this.label50);
             this.Controls.Add(this.label49);
@@ -1033,10 +1392,22 @@ namespace Graphics
             this.Controls.Add(this.filtMLATbutton);
             this.Controls.Add(this.filtSMRbutton);
             this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.panelTitulo);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MinimumSize = new System.Drawing.Size(1918, 980);
             this.Name = "table2";
             this.Text = "table2";
             this.Load += new System.EventHandler(this.table2_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.table2_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.table2_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.table2_MouseUp);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.panelTitulo.ResumeLayout(false);
+            this.panelTitulo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1126,5 +1497,11 @@ namespace Graphics
         private System.Windows.Forms.Label label49;
         private System.Windows.Forms.Label label50;
         private System.Windows.Forms.Label label51;
+        private System.Windows.Forms.Panel panelTitulo;
+        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox btnCerrar;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

@@ -18,6 +18,9 @@ namespace Graphics
         int Mode = 0;
         int Page = 0;
         int CAT = 10;
+        int ex;
+        int ey;
+        bool Arrastre = false;
 
         public table2(AsterixFile asterixFile)
         {
@@ -1298,7 +1301,7 @@ namespace Graphics
         public string QualityIndicatorsDec(AsterixFile asterix, int index)
         {
             string global = "";
-            global = "Navigation Accuracy Category Velocity: " + Convert.ToString(asterix.getListCat21()[index].qualityIndicators.navigationAccuracyCategoryVelocity) + "\n" + "Navigation Integrity Category Position" + Convert.ToString(asterix.getListCat21()[index].qualityIndicators.navigationIntegrityCategoryPosition);
+            global = "Navigation Accuracy Category Velocity: " + Convert.ToString(asterix.getListCat21()[index].qualityIndicators.navigationAccuracyCategoryVelocity) + "\n" + "Navigation Integrity Category Position: " + Convert.ToString(asterix.getListCat21()[index].qualityIndicators.navigationIntegrityCategoryPosition);
             global = global + "\n" + "Navigation Integrity Category Baro Altitud: " + Convert.ToString(asterix.getListCat21()[index].qualityIndicators.navigationIntegrityCategoryBaroAlt) + "\n" + "Surveillance Integrity Level: " + Convert.ToString(asterix.getListCat21()[index].qualityIndicators.surveillanceIntegrityLevel) + "\n" + "Navigation Accuracy Category Position: " + Convert.ToString(asterix.getListCat21()[index].qualityIndicators.navigationAccuracyCategoryPosition);
             global = global + "SIL-Supplement: " + asterix.getListCat21()[index].qualityIndicators.silSupplement + "\n" + "Horizontal Position System Design Assurance Level: " + Convert.ToString(asterix.getListCat21()[index].qualityIndicators.horizontalPositionSystemDesignAssuranceLevel) + "\n" + "Geometric Altitude Accuracy Category: " + Convert.ToString(asterix.getListCat21()[index].qualityIndicators.geometricAltitudeAccuracyCategory);
             global = global + "\n" + "Position Integrity Category: " + Convert.ToString(asterix.getListCat21()[index].qualityIndicators.positionIntegrityCategory);
@@ -1356,6 +1359,70 @@ namespace Graphics
             string global = "";
             global = "Message Type: " + asterix.getListCat21()[index].aCASResolutionAdvisoryReport.messageType + "\n" + "Message Subtype: " + asterix.getListCat21()[index].aCASResolutionAdvisoryReport.messageSubtype + "\n" + "Active Resolution Advisories: " + asterix.getListCat21()[index].aCASResolutionAdvisoryReport.activeResolutionAdvisories + "\n" + "RA Complement Record: " + asterix.getListCat21()[index].aCASResolutionAdvisoryReport.raComplementRecord + "\n" + "RA Terminated: " + asterix.getListCat21()[index].aCASResolutionAdvisoryReport.raTerminated + "\n" + "Multiple Threat Encounter: " + asterix.getListCat21()[index].aCASResolutionAdvisoryReport.multipleThreatEncounter + "\n" + "Threat Type Indicator: " + asterix.getListCat21()[index].aCASResolutionAdvisoryReport.threatTypeIndicator + "\n" + "Threat Identity Data: " + asterix.getListCat21()[index].aCASResolutionAdvisoryReport.threatIdentityData;
             return global;
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+            pictureBox2.Visible = false;
+            pictureBox4.Visible = true;
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+            pictureBox2.Visible = true;
+            pictureBox4.Visible = false;
+        }
+
+        private void table2_MouseUp(object sender, MouseEventArgs e)
+        {
+            Arrastre = false;
+        }
+
+        private void table2_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (this.Arrastre == true)
+            {
+                this.SetDesktopLocation(MousePosition.X - ex, MousePosition.Y - ey);
+            }
+        }
+
+        private void table2_MouseDown(object sender, MouseEventArgs e)
+        {
+            ex = e.X;
+            ey = e.Y;
+            Arrastre = true;
+        }
+
+        private void panelTitulo_MouseUp(object sender, MouseEventArgs e)
+        {
+            Arrastre = false;
+        }
+
+        private void panelTitulo_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (this.Arrastre == true)
+            {
+                this.SetDesktopLocation(MousePosition.X - ex, MousePosition.Y - ey);
+            }
+        }
+
+        private void panelTitulo_MouseDown(object sender, MouseEventArgs e)
+        {
+            ex = e.X;
+            ey = e.Y;
+            Arrastre = true;
         }
     }
 }

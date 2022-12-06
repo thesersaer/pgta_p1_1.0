@@ -153,6 +153,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="table2.resx">
       <DependentUpon>table2.cs</DependentUpon>
@@ -180,6 +181,24 @@
       <Project>{fce6e90b-4f09-4f7c-92b7-68fba7f5897f}</Project>
       <Name>FlightDataLib</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8483c356594241dc9cbc3674bc9b2b25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8483c356594241dc9cbc3674bc9b2b25 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png-clipart-maine-computer-icons-close-icon-logo-law-thumbnail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png-transparent-maximize-full-screen-zoom-expand-wirecons-free-vector-icons-icon-thumbnail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png-transparent-minimize-minus-remove-line-basic-user-interface-elements-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png-transparent-minimize-expand-reduce-screen-resize-arrows-icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
