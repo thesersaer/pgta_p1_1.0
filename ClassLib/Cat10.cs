@@ -601,18 +601,19 @@ namespace ClassLib
                         int x = 1;
                         while (i < REP)
                         {
-                            string data = "";
+                            StringBuilder data = new StringBuilder();
                             int j = 0;
                             // Coger los 7 bloques de MB DATA
                             while (j < 7)
                             {
-                                data = data + bloc[posicioDades + x + j];
+                                string miniID = Convert.ToString(Convert.ToInt64(bloc[posicioDades + x + j], 16), 2).PadLeft(8, '0');
+                                data.Append(miniID);
                                 j++;
                             }
-                            this.MBData[i] = Convert.ToString(Convert.ToInt32(data, 2), 16).PadLeft(8, '0');
+                            this.MBData[i] = Convert.ToString(data);
                             this.BDS1[i] = Convert.ToString(Convert.ToInt32(bloc[posicioDades + x + 7], 16), 2).PadLeft(8, '0').Substring(0, 4);
                             this.BDS2[i] = Convert.ToString(Convert.ToInt32(bloc[posicioDades + x + 7], 16), 2).PadLeft(8, '0').Substring(4, 4);
-                            this.ModeS = "Comm B message data: " + this.MBData[i] + ", Comm B Data Buffer Store 1 Address 1: " + this.BDS1[i] + ", Comm B Data Buffer Store 2 Address: " + this.BDS2[i] + "\n";
+                            this.ModeS = this.ModeS + "Comm B message data: " + this.MBData[i] +", \n" + "Comm B Data Buffer Store 1 Address 1: " + this.BDS1[i] + ", \n" + "Comm B Data Buffer Store 2 Address: " + this.BDS2[i] + "\n";
                             x = x + 8;
                             i++;
                         }
@@ -825,7 +826,17 @@ namespace ClassLib
                         {
                             this.StandardDeviX = Convert.ToString(int.Parse(Convert.ToString(Convert.ToInt32(bloc[posicioDades], 16), 2), System.Globalization.NumberStyles.HexNumber) * 0.25) + "m";
                             this.StandardDeviY = Convert.ToString(int.Parse(Convert.ToString(Convert.ToInt32(bloc[posicioDades + 1], 16), 2), System.Globalization.NumberStyles.HexNumber) * 0.25) + "m";
-                            this.Covariance = Convert.ToString(ComputeA2Complement(Convert.ToString(Convert.ToInt32(bloc[posicioDades + 2] + bloc[posicioDades + 3], 16), 2)) * 0.25) + "m2";
+                            int j = 0;
+
+                            // Coger los 2 bloques de Covariance
+                            StringBuilder Covar = new StringBuilder();
+                            while (j < 2)
+                            {
+                                string miniID = Convert.ToString(Convert.ToInt32(bloc[posicioDades + 2], 16), 2).PadLeft(8, '0');
+                                Covar.Append(miniID);
+                                j++;
+                            }
+                            this.Covariance = Convert.ToString(ComputeA2Complement(Convert.ToString(Covar)) * 0.25) + "m2";
                             this.StandardDEVI = "X: " + this.StandardDeviX + "\n" + "Y: " + this.StandardDeviY + "\n" + this.Covariance;
                             posicioDades = posicioDades + 4;
                         }
