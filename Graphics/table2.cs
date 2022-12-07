@@ -1428,7 +1428,7 @@ namespace Graphics
 
         private void label49_DoubleClick(object sender, EventArgs e)
         {
-            if (dataAgeRowInt != null)
+            if (dataAgeRowInt != -1)
             {
                 var dataAges = asterixFile.getListCat21()[dataAgeRowInt].dataAges.ageItems;
                 string boxString = "AGES IN SECONDS: \n";
