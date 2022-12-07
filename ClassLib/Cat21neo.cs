@@ -12,13 +12,13 @@ namespace ClassLib
         Queue<int> fspecTrueQueue = new Queue<int>();
         public readonly byte[] contentArray;
         static int iiGlobalCounter = 3;
-        readonly ushort len;
+        public readonly ushort len;
 
         #region Constructors
         public Cat21neo() { }
         public Cat21neo(string[] stringArray)
         {
-            //Translating hex string array to sbyte array
+            //Translating hex string array to byte array
             contentArray = new byte[stringArray.Length];
             for (int iiByteStr = 0; iiByteStr < stringArray.Length; iiByteStr++)
             {

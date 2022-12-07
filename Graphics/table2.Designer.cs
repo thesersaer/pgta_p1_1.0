@@ -190,7 +190,7 @@ namespace Graphics
             this.filt21button.Name = "filt21button";
             this.filt21button.Size = new System.Drawing.Size(102, 37);
             this.filt21button.TabIndex = 3;
-            this.filt21button.Text = "ADBS";
+            this.filt21button.Text = "ADSB";
             this.filt21button.UseVisualStyleBackColor = false;
             this.filt21button.Click += new System.EventHandler(this.filt21button_Click);
             // 
