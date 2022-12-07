@@ -20,6 +20,7 @@ namespace Graphics
         int CAT = 10;
         int ex;
         int ey;
+        int dataAgeRowInt = -1;
         bool Arrastre = false;
 
         public table2(AsterixFile asterixFile)
@@ -1186,7 +1187,7 @@ namespace Graphics
                     if (asterixFile.getListCat21()[e.RowIndex].modeSMBData != null) { label45.Text = "Mode S MB Data: " + asterixFile.getListCat21()[e.RowIndex].modeSMBData.bdsList; } else { label45.Text = "Mode S MB Data: "; }
                     if (asterixFile.getListCat21()[e.RowIndex].aCASResolutionAdvisoryReport != null) { label47.Text = "ACAS Resolution Advisory Report: " + ACASResolDEC(asterixFile, e.RowIndex); } else { label47.Text = "ACAS Resolution Advisory Report: "; }
                     if (asterixFile.getListCat21()[e.RowIndex].receiverId != null) { label48.Text = "Receiver ID: " + asterixFile.getListCat21()[e.RowIndex].receiverId.receiverId; } else { label48.Text = "Receiver ID: "; }
-                    if (asterixFile.getListCat21()[e.RowIndex].dataAges != null) { label49.Text = "Data Ages: " + asterixFile.getListCat21()[e.RowIndex].dataAges.ageItems; } else { label49.Text = "Data Ages: "; }
+                    if (asterixFile.getListCat21()[e.RowIndex].dataAges != null) { dataAgeRowInt = e.RowIndex; label49.Text = "Data Ages: double click to see info"; } else { dataAgeRowInt = -1; label49.Text = "Data Ages: "; }
                     if (asterixFile.getListCat21()[e.RowIndex].targetReportDescriptor != null) { label50.Text = "Target Report Description: " + TargetDevolver(asterixFile, e.RowIndex); } else { label50.Text = "Target Report Description: "; }
                     if (asterixFile.getListCat21()[e.RowIndex].serviceIdentification != null) { label51.Text = "Service Identification: " + asterixFile.getListCat21()[e.RowIndex].serviceIdentification.serviceIdentification; } else { label51.Text = "Service Identification: "; }
                 }
@@ -1271,7 +1272,7 @@ namespace Graphics
                 if (asterixFile.getListCat21()[e.RowIndex].modeSMBData != null) { label45.Text = "Mode S MB Data: " + asterixFile.getListCat21()[e.RowIndex].modeSMBData.bdsList; } else { label45.Text = "Mode S MB Data: "; }
                 if (asterixFile.getListCat21()[e.RowIndex].aCASResolutionAdvisoryReport != null) { label47.Text = "ACAS Resolution Advisory Report: " + ACASResolDEC(asterixFile, e.RowIndex); } else { label47.Text = "ACAS Resolution Advisory Report: "; }
                 if (asterixFile.getListCat21()[e.RowIndex].receiverId != null) { label48.Text = "Receiver ID: " + asterixFile.getListCat21()[e.RowIndex].receiverId.receiverId; } else { label48.Text = "Receiver ID: "; }
-                if (asterixFile.getListCat21()[e.RowIndex].dataAges != null) { label49.Text = "Data Ages: " + asterixFile.getListCat21()[e.RowIndex].dataAges.ageItems; } else { label49.Text = "Data Ages: "; }
+                if (asterixFile.getListCat21()[e.RowIndex].dataAges != null) {dataAgeRowInt = e.RowIndex; label49.Text = "Data Ages: double click to see info"; } else { dataAgeRowInt = -1; label49.Text = "Data Ages: "; }
                 if (asterixFile.getListCat21()[e.RowIndex].targetReportDescriptor != null) { label50.Text = "Target Report Description: " + TargetDevolver(asterixFile, e.RowIndex); } else { label50.Text = "Target Report Description: "; }
                 if (asterixFile.getListCat21()[e.RowIndex].serviceIdentification != null) { label51.Text = "Service Identification: " + asterixFile.getListCat21()[e.RowIndex].serviceIdentification.serviceIdentification; } else { label51.Text = "Service Identification: "; }
             }
@@ -1423,6 +1424,20 @@ namespace Graphics
             ex = e.X;
             ey = e.Y;
             Arrastre = true;
+        }
+
+        private void label49_DoubleClick(object sender, EventArgs e)
+        {
+            if (dataAgeRowInt != null)
+            {
+                var dataAges = asterixFile.getListCat21()[dataAgeRowInt].dataAges.ageItems;
+                string boxString = "AGES IN SECONDS: \n";
+                foreach (var iiItem in dataAges)
+                {
+                    boxString += String.Format("{0}: {1}\n", iiItem.itemClass, iiItem.age);
+                }
+                MessageBox.Show(String.Format(boxString));
+            }
         }
     }
 }
