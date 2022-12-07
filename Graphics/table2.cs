@@ -198,6 +198,36 @@ namespace Graphics
                 label44.Visible = false;
                 label47.Visible = false;
                 label49.Visible = false;
+                label16.Text = "Airspeed: ";
+                label22.Text = "Surveillance Status: ";
+                label23.Text = "Time Of Applicability Position: "; 
+                label24.Text = "Time Of Message Reception Position: "; 
+                label25.Text = "Track Angle Rate: "; 
+                label23.Text = "Time Of Applicability Velocity: "; 
+                label24.Text = "Time Of Message Reception Velocity: "; 
+                label28.Text = "Geometric Height: ";
+                label29.Text = "Quality indicatos: "; 
+                label30.Text = "MOPS Version: "; 
+                label30.Text = "Mode 3A Code: "; 
+                label32.Text = "Roll Angle: "; 
+                label33.Text = "Magnetic Heading: "; 
+                label34.Text = "Barometric Vertical Rate: "; 
+                label35.Text = "Geometric Vertical Rate: ";
+                label36.Text = "Airborne Ground Vector: "; 
+                label37.Text = "Emitter Category: "; 
+                label38.Text = "Met Information: "; 
+                label39.Text = "Selected Altitude: "; 
+                label40.Text = "Trajectory Intent: ";
+                label41.Text = "Service Management: "; 
+                label42.Text = "Aircraft Operational Status: ";
+                label43.Text = "Surface Capabilities And Characteristics: "; 
+                label44.Text = "Message Amplitude: "; 
+                label45.Text = "Mode S MB Data: "; 
+                label47.Text = "ACAS Resolution Advisory Report: "; 
+                label48.Text = "Receiver ID: ";
+                label49.Text = "Data Ages: "; 
+                label50.Text = "Target Report Description: ";
+                label51.Text = "Service Identification: ";
 
             }
         }
