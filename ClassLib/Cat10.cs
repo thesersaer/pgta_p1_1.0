@@ -130,8 +130,6 @@ namespace ClassLib
 
         public Cat10(string[] bloc)
         {
-            int llarg = int.Parse(bloc[1] + bloc[2], System.Globalization.NumberStyles.HexNumber);
-            llarg = llarg - 3;
             CrearFSPEC(bloc);
             int FSPEClong = this.FSPEC.Length / 8;
             int posicioDades = 0 + 1 + 2 + FSPEClong;

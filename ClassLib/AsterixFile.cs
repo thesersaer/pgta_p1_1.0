@@ -63,6 +63,7 @@ namespace ClassLib
             tableCatAll.Columns.Add("Position in global list", typeof(int));
             tableCatAll.Columns.Add("Position in own list", typeof(int));
             tableCatAll.Columns.Add("Time (s)", typeof(double));
+            tableCatAll.Columns.Add("Time (hh:mm:ss)", typeof(string));
             tableCatAll.Columns.Add("Latitude", typeof(double));
             tableCatAll.Columns.Add("Longitude", typeof(double));
             tableCatAll.Columns.Add("SIC", typeof(string));
@@ -74,7 +75,7 @@ namespace ClassLib
             int i = 0;
             foreach (CatAll iiCatAll in listCatAll)
             {
-                tableCatAll.Rows.Add(iiCatAll.CATMode, i, iiCatAll.NumLlista, iiCatAll.TimeofDayseg, iiCatAll.LatWGS84, iiCatAll.LongWGS84, iiCatAll.SIC, iiCatAll.SAC, iiCatAll.TrackNumber, iiCatAll.TargetAddress, iiCatAll.TargetID, iiCatAll.FLXXX);
+                tableCatAll.Rows.Add(iiCatAll.CATMode, i, iiCatAll.NumLlista, iiCatAll.TimeofDayseg, Convert.ToString(TimeSpan.FromSeconds(iiCatAll.TimeofDayseg).ToString(@"hh\:mm\:ss")), iiCatAll.LatWGS84, iiCatAll.LongWGS84, iiCatAll.SIC, iiCatAll.SAC, iiCatAll.TrackNumber, iiCatAll.TargetAddress, iiCatAll.TargetID, iiCatAll.FLXXX);
                 i++;
             }
         }
