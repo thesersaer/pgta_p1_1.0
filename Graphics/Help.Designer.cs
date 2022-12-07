@@ -37,9 +37,17 @@ namespace Graphics
             this.buttonClose = new System.Windows.Forms.Button();
             this.panelTitulo = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.panelTitulo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.SuspendLayout();
@@ -77,7 +85,7 @@ namespace Graphics
             this.buttonNext.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             this.buttonNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonNext.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonNext.Location = new System.Drawing.Point(1272, 375);
+            this.buttonNext.Location = new System.Drawing.Point(1272, 575);
             this.buttonNext.Name = "buttonNext";
             this.buttonNext.Size = new System.Drawing.Size(97, 28);
             this.buttonNext.TabIndex = 2;
@@ -92,7 +100,7 @@ namespace Graphics
             this.buttonPrev.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             this.buttonPrev.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonPrev.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonPrev.Location = new System.Drawing.Point(1161, 375);
+            this.buttonPrev.Location = new System.Drawing.Point(1161, 575);
             this.buttonPrev.Name = "buttonPrev";
             this.buttonPrev.Size = new System.Drawing.Size(105, 29);
             this.buttonPrev.TabIndex = 3;
@@ -105,7 +113,7 @@ namespace Graphics
             this.labelPag.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.labelPag.AutoSize = true;
             this.labelPag.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.labelPag.Location = new System.Drawing.Point(1249, 407);
+            this.labelPag.Location = new System.Drawing.Point(1249, 607);
             this.labelPag.Name = "labelPag";
             this.labelPag.Size = new System.Drawing.Size(46, 17);
             this.labelPag.TabIndex = 4;
@@ -118,7 +126,7 @@ namespace Graphics
             this.buttonClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonClose.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonClose.Location = new System.Drawing.Point(1375, 375);
+            this.buttonClose.Location = new System.Drawing.Point(1375, 575);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(97, 28);
             this.buttonClose.TabIndex = 5;
@@ -152,6 +160,49 @@ namespace Graphics
             this.label1.TabIndex = 3;
             this.label1.Text = "HELP";
             // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::Graphics.Properties.Resources.Captura_de_pantalla_2022_12_07_095547;
+            this.pictureBox5.Location = new System.Drawing.Point(167, 379);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(463, 245);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 12;
+            this.pictureBox5.TabStop = false;
+            this.pictureBox5.Visible = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::Graphics.Properties.Resources.Captura_de_pantalla_2022_12_07_095218;
+            this.pictureBox4.Location = new System.Drawing.Point(685, 379);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(393, 245);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 11;
+            this.pictureBox4.TabStop = false;
+            this.pictureBox4.Visible = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Graphics.Properties.Resources.Captura_de_pantalla_2022_12_07_095144;
+            this.pictureBox2.Location = new System.Drawing.Point(349, 369);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(674, 255);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 10;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Visible = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Graphics.Properties.Resources.Captura_de_pantalla_2022_12_07_095053;
+            this.pictureBox1.Location = new System.Drawing.Point(389, 369);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(674, 255);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
+            // 
             // pictureBox3
             // 
             this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -183,7 +234,11 @@ namespace Graphics
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
-            this.ClientSize = new System.Drawing.Size(1500, 450);
+            this.ClientSize = new System.Drawing.Size(1500, 650);
+            this.Controls.Add(this.pictureBox5);
+            this.Controls.Add(this.pictureBox4);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panelTitulo);
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.labelPag);
@@ -192,7 +247,7 @@ namespace Graphics
             this.Controls.Add(this.labelText);
             this.Controls.Add(this.labelTitol);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MaximumSize = new System.Drawing.Size(1500, 450);
+            this.MaximumSize = new System.Drawing.Size(1500, 650);
             this.Name = "Help";
             this.Text = "Help";
             this.Load += new System.EventHandler(this.Help_Load);
@@ -201,6 +256,10 @@ namespace Graphics
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Help_MouseUp);
             this.panelTitulo.ResumeLayout(false);
             this.panelTitulo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             this.ResumeLayout(false);
@@ -219,5 +278,9 @@ namespace Graphics
         private System.Windows.Forms.Label labelTitol;
         private System.Windows.Forms.Label labelText;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox5;
     }
 }

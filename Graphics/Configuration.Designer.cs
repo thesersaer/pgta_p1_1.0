@@ -105,7 +105,7 @@ namespace Graphics
             this.buttonAceptar.Name = "buttonAceptar";
             this.buttonAceptar.Size = new System.Drawing.Size(89, 37);
             this.buttonAceptar.TabIndex = 5;
-            this.buttonAceptar.Text = "Aceptar";
+            this.buttonAceptar.Text = "Accept";
             this.buttonAceptar.UseVisualStyleBackColor = true;
             this.buttonAceptar.Click += new System.EventHandler(this.buttonAceptar_Click);
             // 

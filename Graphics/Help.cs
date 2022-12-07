@@ -31,6 +31,11 @@ namespace Graphics
             labelText.Text = "With the button load file it allows you to load an .ast file to be able to obtain the data of the asterix." + "\n" +
                         "When the program has the file loaded, a message will appear next to the button." + "\n" +
                         "If once a file has been loaded you want to replace it with a new one, you just need to click the button again and the old one will be deleted and you will be able to select the new one.";
+            pictureBox1.Visible = true;
+            pictureBox2.Visible = false;
+            pictureBox4.Visible = false;
+            pictureBox5.Visible = false;
+
         }
 
         private void buttonNext_Click(object sender, EventArgs e)
@@ -45,6 +50,10 @@ namespace Graphics
                     labelText.Text = "With the button load file it allows you to load an .ast file to be able to obtain the data of the asterix." + "\n" +
                         "When the program has the file loaded, a message will appear next to the button." + "\n" +
                         "If once a file has been loaded you want to replace it with a new one, you just need to click the button again and the old one will be deleted and you will be able to select the new one.";
+                    pictureBox1.Visible = true;
+                    pictureBox2.Visible = false;
+                    pictureBox4.Visible = false;
+                    pictureBox5.Visible = false;
                 }
                 else if(pagina == 1)
                 {
@@ -56,10 +65,14 @@ namespace Graphics
                          "To see more information on each detection, just click on the table and the other information will be displayed on the left, where you can go to the next page with the Next Page button." + "\n" +
                          "To see the detections of a specific category, you just have to click on the corresponding button that is below the table." + "\n" +
                          "To search for a specific detection, you just have to select what you want to search for, write in the textBOX below the table and click on the search button.";
+                    pictureBox1.Visible = false;
+                    pictureBox2.Visible = true;
+                    pictureBox4.Visible = false;
+                    pictureBox5.Visible = false;
                 }
                 else if(pagina== 2)
                 {
-                    labelTitol.Text = "Mostrar Mapa";
+                    labelTitol.Text = "SHOW MAP";
                     labelPag.Text = "3/3";
                     labelText.Text = "Once the asterix file is loaded, the position of each detection at the time of the counter will be shown on the map." + "\n" +
                         "Time can be started or paused with the Play/Pause button." + "\n" +
@@ -70,6 +83,10 @@ namespace Graphics
                         "To center the map on LEBL you must press the LEBL button. If you want to see Barcelona you must press BCN and if you want to see Catalonia you must press CAT." + "\n" +
                         "To configure the aspects of the simulation, you must press the Configuration button." + "\n" + "There, you will be able to modify the simulation speed, the categories that are going to be displayed, the type of map and if you want to show the old points or not." + "\n" +
                         "Once the configuration has been changed, the accept button must be clicked.";
+                    pictureBox1.Visible = false;
+                    pictureBox2.Visible = false;
+                    pictureBox4.Visible = true;
+                    pictureBox5.Visible = true;
                 }
             }
             else
@@ -90,6 +107,10 @@ namespace Graphics
                     labelText.Text = "With the button load file it allows you to load an .ast file to be able to obtain the data of the asterix." + "\n" +
                         "When the program has the file loaded, a message will appear next to the button." + "\n" +
                         "If once a file has been loaded you want to replace it with a new one, you just need to click the button again and the old one will be deleted and you will be able to select the new one.";
+                    pictureBox1.Visible = true;
+                    pictureBox2.Visible = false;
+                    pictureBox4.Visible = false;
+                    pictureBox5.Visible = false;
                 }
                 else if (pagina == 1)
                 {
@@ -101,10 +122,14 @@ namespace Graphics
                          "To see more information on each detection, just click on the table and the other information will be displayed on the left, where you can go to the next page with the Next Page button." + "\n" +
                          "To see the detections of a specific category, you just have to click on the corresponding button that is below the table." + "\n" +
                          "To search for a specific detection, you just have to select what you want to search for, write in the textBOX below the table and click on the search button.";
+                    pictureBox1.Visible = false;
+                    pictureBox2.Visible = true;
+                    pictureBox4.Visible = false;
+                    pictureBox5.Visible = false;
                 }
                 else if (pagina == 2)
                 {
-                    labelTitol.Text = "Mostrar Mapa";
+                    labelTitol.Text = "SHOW MAP";
                     labelPag.Text = "3/3";
                     labelText.Text = "Una vez cargado el fichero asterix, se mostrara en el mapa la posición de cada detección en el momento del contador." + "\n" +
                         "Se puede poner en marcha o pausar el tiempo con el botón Play/Pause." + "\n" +
@@ -114,6 +139,10 @@ namespace Graphics
                         "Para centrar el mapa en LEBL se debe pulsar el botón LEBL. Si se desea ver Barcelona se debe pulsar BCN y si se desea ver Catalunya se debe pulsar CAT" + "\n" +
                         "Para configurar los aspectos de la simulación se debe pulsar el botón Configuracion. Allí, podrás modificar la velocidad de simulación, las categorías que se van a mostrar, el tipo de mapa y si se quiere mostrar los puntos antiguos o no." + "\n" +
                         "Una vez cambiada la configuración, se debe clicar el botón aceptar.";
+                    pictureBox1.Visible = false;
+                    pictureBox2.Visible = false;
+                    pictureBox4.Visible = true;
+                    pictureBox5.Visible = true;
                 }
             }
             else
