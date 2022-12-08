@@ -1075,9 +1075,9 @@ namespace ClassLib
                 return ((vals[0] << 24) | (vals[1] << 16)) | (vals[2] << 8) | vals[3];
             }
         }
-        static public void updateCounter(int oldCounter)
+        static public void updateCounter(int newCounter)
         {
-            iiGlobalCounter = oldCounter;
+            iiGlobalCounter = newCounter;
         }
         public static int compl2(int value, int msbPos)
         {
