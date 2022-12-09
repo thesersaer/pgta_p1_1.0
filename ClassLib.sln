@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graphics", "Graphics\Graphi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightDataLib", "FlightDataLib\FlightDataLib.csproj", "{FCE6E90B-4F09-4F7C-92B7-68FBA7F5897F}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "InstaladorAsterixDecoder", "InstaladorAsterixDecoder\InstaladorAsterixDecoder.vdproj", "{C45764DA-1E45-48A4-8216-39BAF839E7DD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,8 @@ Global
 		{FCE6E90B-4F09-4F7C-92B7-68FBA7F5897F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FCE6E90B-4F09-4F7C-92B7-68FBA7F5897F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FCE6E90B-4F09-4F7C-92B7-68FBA7F5897F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C45764DA-1E45-48A4-8216-39BAF839E7DD}.Debug|Any CPU.ActiveCfg = Debug
+		{C45764DA-1E45-48A4-8216-39BAF839E7DD}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
