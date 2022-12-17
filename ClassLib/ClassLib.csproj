@@ -45,12 +45,10 @@
   <ItemGroup>
     <Compile Include="AsterixFile.cs" />
     <Compile Include="Cat10.cs" />
-    <Compile Include="Cat21.cs" />
     <Compile Include="Cat21neo.cs" />
     <Compile Include="CatAll.cs" />
     <Compile Include="DataField.cs" />
     <Compile Include="dataFieldDict.cs" />
-    <Compile Include="Decoding.cs" />
     <Compile Include="Flight.cs" />
     <Compile Include="GeneralMatrix.cs" />
     <Compile Include="GeoUtils.cs" />

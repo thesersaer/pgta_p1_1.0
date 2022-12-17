@@ -299,10 +299,11 @@ namespace ClassLib
         public TargetAddress targetAddress;
         public class TargetAddress
         {
-            public readonly int targetAddress;
+            public readonly string targetAddress;
             public TargetAddress(byte[] content, int globalCounter)
             {
-                targetAddress = concatToInt32(content[globalCounter], content[globalCounter + 1], content[globalCounter + 2]);
+                var targetAddressInt = concatToInt32(content[globalCounter], content[globalCounter + 1], content[globalCounter + 2]);
+                targetAddress = targetAddressInt.ToString("X").PadLeft(6, '0');
                 globalCounter += 3;
                 updateCounter(globalCounter);
             }
@@ -467,7 +468,7 @@ namespace ClassLib
             public Mode3ACode(byte[] content, int globalCounter)
             {
                 var codeVal = concatToInt16(content[globalCounter], content[globalCounter + 1]);
-                replyCode = Convert.ToString(codeVal, 8);
+                replyCode = Convert.ToString(codeVal, 8).PadLeft(4, '0');
                 globalCounter += 2;
                 updateCounter(globalCounter);
             }
