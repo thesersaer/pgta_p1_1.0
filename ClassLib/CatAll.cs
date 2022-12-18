@@ -26,8 +26,8 @@ namespace ClassLib
             this.CATMode = CATM;
             this.NumLlista = i;
             this.TimeofDayseg = Time;
-            this.LatWGS84 = Math.Round(Lat, 2);
-            this.LongWGS84 = Math.Round(Long, 2);
+            this.LatWGS84 = Lat;
+            this.LongWGS84 = Long;
             this.SAC = SAC;
             this.SIC = SIC;
             this.TrackNumber = TNum;

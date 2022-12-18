@@ -319,7 +319,16 @@ namespace ClassLib
             //Time of day
             if (Convert.ToString(FSPEC[3]) == "1")
             {
-                int time = int.Parse(bloc[posicioDades] + bloc[posicioDades + 1] + bloc[posicioDades + 2], System.Globalization.NumberStyles.HexNumber);
+                StringBuilder postime = new StringBuilder();
+                int i = 0;
+                while (i < 3)
+                {
+                    string minitime = Convert.ToString(bloc[posicioDades + i]).PadLeft(2, '0');
+                    postime.Append(minitime);
+                    i++;
+                }
+                string ID = postime.ToString();
+                int time = int.Parse(ID, System.Globalization.NumberStyles.HexNumber);
                 double seg = Convert.ToSingle(time) / 128;
                 this.TimeOfDaySeg = seg;
                 this.TimeOfDay = TimeSpan.FromSeconds(seg).ToString(@"hh\:mm\:ss\:fff");
@@ -355,8 +364,26 @@ namespace ClassLib
             // Position in Cartesian Coord
             if (Convert.ToString(FSPEC[6]) == "1")
             {
-                this.XComponent = Convert.ToString(ComputeA2Complement(Convert.ToString(Convert.ToInt32(bloc[posicioDades] + bloc[posicioDades + 1], 16), 2).PadLeft(16, '0')));
-                this.YComponent = Convert.ToString(ComputeA2Complement(Convert.ToString(Convert.ToInt32(bloc[posicioDades + 2] + bloc[posicioDades + 3], 16), 2).PadLeft(16, '0')));
+                StringBuilder posx = new StringBuilder();
+                int i = 0;
+                while (i < 2)
+                {
+                    string miniX = Convert.ToString(Convert.ToInt32(bloc[posicioDades + i], 16), 2).PadLeft(8, '0');
+                    posx.Append(miniX);
+                    i++;
+                }
+                string IX = posx.ToString();
+                this.XComponent = Convert.ToString(ComputeA2Complement(IX));
+                StringBuilder posY = new StringBuilder();
+                i = 2;
+                while (i < 4)
+                {
+                    string miniY = Convert.ToString(Convert.ToInt32(bloc[posicioDades + i], 16), 2).PadLeft(8, '0');
+                    posY.Append(miniY);
+                    i++;
+                }
+                string IY = posY.ToString();
+                this.YComponent = Convert.ToString(ComputeA2Complement(IY));
                 this.PositionInCartesian = "[" + this.XComponent + ", " + this.YComponent + "] m";
                 this.PositionInWGS84 = WGS84ACartesian(ComputeA2Complement(Convert.ToString(Convert.ToInt32(bloc[posicioDades] + bloc[posicioDades + 1], 16), 2).PadLeft(16, '0')), ComputeA2Complement(Convert.ToString(Convert.ToInt32(bloc[posicioDades + 2] + bloc[posicioDades + 3], 16), 2).PadLeft(16, '0')), this.SIC);
                 
@@ -778,7 +805,7 @@ namespace ClassLib
                         {
                             this.TTF = "Test Target Failure";
                         }
-                        this.SystemStatus = this.NOGO + ", \n" + this.OVL + ", \n" + this.TSV + ", \n" + this.DIV + ", \n" + this.TTF;
+                        this.SystemStatus = this.NOGO + ", "+ "\n" + this.OVL + ", " + "\n" + this.TSV + ", " + "\n" + this.DIV + ", " + "\n" + this.TTF;
                         posicioDades = posicioDades + 1;
                     }
                     //Pre-programmed Message

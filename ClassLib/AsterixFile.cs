@@ -74,7 +74,7 @@ namespace ClassLib
             int i = 0;
             foreach (CatAll iiCatAll in listCatAll)
             {
-                tableCatAll.Rows.Add(iiCatAll.CATMode, i, iiCatAll.NumLlista, Convert.ToString(TimeSpan.FromSeconds(iiCatAll.TimeofDayseg).ToString(@"hh\:mm\:ss")), iiCatAll.LatWGS84, iiCatAll.LongWGS84, iiCatAll.SIC, iiCatAll.SAC, iiCatAll.TrackNumber, iiCatAll.TargetAddress, iiCatAll.TargetID, iiCatAll.FLXXX);
+                tableCatAll.Rows.Add(iiCatAll.CATMode, i, iiCatAll.NumLlista, Convert.ToString(TimeSpan.FromSeconds(iiCatAll.TimeofDayseg).ToString(@"hh\:mm\:ss\:fff")), Math.Round(iiCatAll.LatWGS84,4) , Math.Round(iiCatAll.LongWGS84,4), iiCatAll.SIC, iiCatAll.SAC, iiCatAll.TrackNumber, iiCatAll.TargetAddress, iiCatAll.TargetID, iiCatAll.FLXXX);
                 i++;
             }
         }

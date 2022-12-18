@@ -206,6 +206,10 @@ namespace Graphics
             this.ShowADSB = Config.GetADSB();
             this.mapa = Config.GetMAP();
             this.mostrarviejo = Config.GetMostrarViejo();
+            if(this.mostrarviejo == true)
+            {
+                this.multiplicador = 1000;
+            }
             if (mapa == "ORI")
             {
                 gMapControl1.MapProvider = GMapProviders.GoogleMap;
@@ -256,6 +260,7 @@ namespace Graphics
                 gMapControl1.Overlays.RemoveAt(0);
             }
             gMapControl1.Refresh();
+            markerOverlayold = new GMapOverlay("Marcador");
             startTime = timestart(asterixFile);
         }
 
